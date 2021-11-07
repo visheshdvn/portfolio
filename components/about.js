@@ -3,7 +3,7 @@ import SectionHeader from "./utils/sectionHeader";
 
 const About = () => {
   return (
-    <section id="about" className="min-h-screen pl-14 pt-6">
+    <section id="about" className="section-default">
       <div className="grid grid-cols-2 gap-0">
         <div className="col-auto">
           <SectionHeader word1="About" word2="Me" theme="text-theme-about" />
