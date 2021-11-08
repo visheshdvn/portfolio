@@ -3,7 +3,7 @@ import SectionHeader from "./utils/sectionHeader";
 
 const Blog = () => {
   return (
-    <section className="section-default w-11/12">
+    <section id="blog" className="section-default w-11/12">
       <SectionHeader word1="Blog" theme="text-theme-blog" />
       <div className="flex flex-wrap mt-16">
         <Blogpost title="The best Web Developer - Qustions & Answers" />

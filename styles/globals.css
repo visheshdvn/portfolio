@@ -19,6 +19,7 @@ a {
 * {
   box-sizing: border-box;
   @apply text-white;
+  scroll-behavior: smooth;
 }
 
 .section-default {

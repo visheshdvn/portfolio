@@ -1,7 +1,7 @@
 export default function Header() {
     return (
         <header
-            id="header"
+            id="home"
             style={{
                 backgroundImage: "linear-gradient(to bottom, rgba(16,16,16,0.3), rgba(16,16,16,0.3)), url(headerbg.jpg)",
                 backgroundSize: "cover",

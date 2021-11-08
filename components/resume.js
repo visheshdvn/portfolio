@@ -5,8 +5,8 @@ const Resume = () => {
   return (
     <section id="resume" className="section-default">
       <SectionHeader word1="Resume" theme="text-theme-resume" />
-      <div className="pl-40 mt-14">
-        <div style={{ maxWidth: "1200px" }}>
+      <div className="mt-14 -ml-14">
+        <div style={{ maxWidth: "1200px" }} className="mx-auto">
           <div className="grid grid-cols-2 gap-0 border-b mb-14">
             <ResumeSection section="work experience" />
             <div className="">
