@@ -18,6 +18,9 @@ module.exports = {
         "theme-skills": "#F59E0B",
         "theme-contact": "#32FFFF",
         "lime": colors.lime
+      },
+      fontSize: {
+        "4.5xl": "2.625rem"
       }
     },
   },

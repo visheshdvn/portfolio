@@ -11,7 +11,7 @@ const Blog = () => {
         <Blogpost title="The best Web Developer - Qustions & Answers" />
         <Blogpost title="The best Web Developer - Qustions & Answers" />
       </div>
-      <div className="w-11/12 flow-root">
+      <div className="flow-root pr-40">
         <div className="float-right">
           <a className="uppercase font-primary tracking-wider text-theme-blog pb-1 px-2 border-b border-theme-blog">View all -&gt;</a>
         </div>
@@ -23,15 +23,15 @@ const Blog = () => {
 function Blogpost({ title, date, excerpt }) {
   return (
     <article className="w-1/2 pr-40 h-64">
-      <h3 className="font-primary text-theme-blog text-3xl mb-3 font-semibold">
+      <h3 className="font-primary text-theme-blog text-4xl font-semibold mb-2">
         {title}
       </h3>
-      <h5 className="font-secondary text-xs tracking-wide mb-3">DECEMBER 1, 2021</h5>
-      <p className="font-secondary text-base mb-3">
+      <date className="font-secondary text-sm tracking-wide">DECEMBER 1, 2021</date>
+      <p className="font-secondary text-lg mb-2 leading-tight pt-2">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis et
         mattis ac accumsan, cursus.
       </p>
-      <a href="#" className="text-theme-blog text-sm">READ MORE...</a>
+      <a href="#" className="text-theme-blog text-base">READ MORE...</a>
     </article>
   );
 }

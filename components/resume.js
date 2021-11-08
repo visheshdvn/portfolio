@@ -38,12 +38,12 @@ const Resume = () => {
               <EducationDetails
                 title="2. Senior Secondary"
                 duration="Batch: 2014 - 2015"
-                grade="Percentage: 83.60"
+                grade="Percentage: 83.60%"
               />
               <EducationDetails
                 title="3. High School"
                 duration="Dec 2019 - Present"
-                grade="Percentage: 77.80"
+                grade="Percentage: 77.80%"
               />
             </div>
           </div>
@@ -70,7 +70,7 @@ const Resume = () => {
 
 function ResumeSection({ section }) {
   return (
-    <h2 className="font-primary font-bold text-4xl float-left capitalize">
+    <h2 className="font-primary font-bold text-4.5xl float-left capitalize">
       {section}
     </h2>
   );
@@ -79,10 +79,10 @@ function ResumeSection({ section }) {
 function WorkExperienceDetails({ title, duration, description }) {
   return (
     <div className="mb-14">
-      <h3 className="font-primary text-xl text-blue-400">{title}</h3>
+      <h3 className="font-primary text-2xl text-blue-400">{title}</h3>
       <div className="pl-5">
-        <time className="font-secondary text-sm py-3">{duration}</time>
-        <p className="font-secondary text-base pt-1 w-4/5">{description}</p>
+        <time className="font-secondary text-base py-3">{duration}</time>
+        <p className="font-secondary text-lg pt-1 w-4/5 leading-tight">{description}</p>
       </div>
     </div>
   );
@@ -91,11 +91,11 @@ function WorkExperienceDetails({ title, duration, description }) {
 function EducationDetails({ title, duration, grade }) {
   return (
     <div className="mb-14">
-      <h3 className="font-primary text-xl text-lime-500">{title}</h3>
+      <h3 className="font-primary text-2xl text-lime-500">{title}</h3>
       <div className="pl-5">
-        <time className="font-secondary text-sm py-3">{duration}</time>
-        <p className="font-secondary text-base pt-1 w-4/5">Board: CBSE</p>
-        <p className="font-secondary text-base pt-1 w-4/5">{grade}</p>
+        <time className="font-secondary text-base py-3">{duration}</time>
+        <p className="font-secondary text-lg pt-1 w-4/5">Board: CBSE</p>
+        <p className="font-secondary text-lg pt-1 w-4/5">{grade}</p>
       </div>
     </div>
   );
@@ -104,12 +104,12 @@ function EducationDetails({ title, duration, grade }) {
 function CertDetails({ title, issuer, validity, link }) {
   return (
     <div className="mb-14">
-      <h3 className="font-primary text-xl text-yellow-500">{title}</h3>
+      <h3 className="font-primary text-2xl text-yellow-500">{title}</h3>
       <div className="pl-5">
-        <time className="font-secondary text-sm py-3">
+        <time className="font-secondary text-base py-3">
           Validity: {validity}
         </time>
-        <p className="font-secondary text-base pt-1 w-4/5">Issuer: {issuer}</p>
+        <p className="font-secondary text-lg pt-1 w-4/5">Issuer: {issuer}</p>
       </div>
     </div>
   );
