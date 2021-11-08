@@ -1,4 +1,5 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
+const colors = require('tailwindcss/colors')
 
 module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
@@ -16,6 +17,7 @@ module.exports = {
         "theme-blog": "#EA580C",
         "theme-skills": "#F59E0B",
         "theme-contact": "#32FFFF",
+        "lime": colors.lime
       }
     },
   },
