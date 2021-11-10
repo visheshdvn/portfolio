@@ -25,3 +25,7 @@ a {
 .section-default {
   @apply min-h-screen pl-14 pt-6;
 }
+
+.social-icons-header:not(:last-child) {
+  @apply mb-4;
+}
