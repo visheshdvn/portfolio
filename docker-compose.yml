@@ -1,0 +1,18 @@
+version: "3.14"
+
+services:
+  postgres:
+    container_name: portfolio-DB
+    image: postgres:14.0
+    environment:
+      POSTGRES_USER: visheshdvn
+      POSTGRES_DB: visheshdvn
+      POSTGRES_PASSWORD: portfolioDB2021
+    volumes:
+      - portfolio:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: always
+
+volumes:
+  portfolio:
