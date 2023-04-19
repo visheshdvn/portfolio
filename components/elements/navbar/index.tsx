@@ -51,7 +51,7 @@ export default function Navbar() {
       <div className="h-[60px]"></div>
       <Disclosure
         as="nav"
-        className="fixed top-0 z-40 w-full bg-white dark:bg-black"
+        className="fixed top-0 z-40 w-full bg-white dark:bg-black/70"
       >
         {({ open }) => (
           <>
