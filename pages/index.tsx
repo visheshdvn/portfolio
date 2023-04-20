@@ -1,7 +1,8 @@
 import Head from "next/head";
 import pbg from "@/public/portfoliobg.jpg";
 import { playfairDisplayFont, latoFont } from "@/lib/fonts";
-// linear-gradient(rgba(0,0,0,0.88), rgba(0,0,0,0.88)),
+import { About } from "@/components/HomePageSections";
+
 export default function Home() {
   return (
     <>
@@ -12,12 +13,12 @@ export default function Home() {
         }}
         className="pt-[60px] mt-[-60px] bg-cover bg-no-repeat bg-center"
       >
-        <div className="bg-gradient-to-b mt-[-60px] h-screen from-black/90 to-black/90 w-full absolute z-0"></div>
+        <div className="bg-gradient-to-b mt-[-60px] h-screen from-black/90 to-black/95 w-full absolute z-0"></div>
         <div className="container mx-auto h-full flex">
           {/* details section */}
           <section className="2xl:w-[927px] flex flex-col h-full z-10">
             <div className="2xl:h-[705px] relative">
-              <div className="absolute left-[93px] top-24 z-10">
+              <div className="absolute left-[75px] top-[120px] z-10">
                 <h3
                   style={latoFont.style}
                   className="text-[22px] font-bold mb-3"
@@ -47,12 +48,12 @@ export default function Home() {
               </div>
             </div>
             <div className="h-px bg-borders-dark"></div>
-            <div className="flex-1 flex items-center pl-[93px] space-x-20">
-              <div className="w-[250px] font-serif text-sm leading-[1.45]">
+            <div className="flex-1 flex items-center pl-[75px] space-x-20">
+              <div className="w-[260px] font-serif text-[15px] leading-[1.45]">
                 Skilled in creating scalable web applications with
                 React.js/Next.js.
               </div>
-              <div className="w-[250px] font-serif text-sm leading-[1.45]">
+              <div className="w-[260px] font-serif text-[15px] leading-[1.45]">
                 Amateur blogger trying to make my way into the world of content
                 creation.
               </div>
@@ -60,7 +61,7 @@ export default function Home() {
           </section>
           {/* face section */}
           <section className="flex-1 flex z-10">
-            <div className="w-[452px] border-borders-dark border-x px-3">
+            <div className="w-[470px] border-borders-dark border-x px-4">
               <div
                 style={{ backgroundImage: "url(/dummyface.png)" }}
                 className="bg-cover bg-center bg-no-repeat h-full"
@@ -72,6 +73,7 @@ export default function Home() {
           </section>
         </div>
       </main>
+      <About />
     </>
   );
 }

@@ -25,3 +25,8 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+/* layouts */
+.layout-screen {
+  @apply min-h-screen pt-[60px];
+}
