@@ -17,16 +17,18 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @apply bg-white text-black;
 }
 
 /* layouts */
 .layout-screen {
-  @apply min-h-screen pt-[60px];
+  @apply min-h-screen pt-[120px] container mx-auto px-3 pb-10;
+}
+
+.about-para {
+  @apply text-lg leading-[1.45];
+}
+
+.about-para:not(:last-of-type) {
+  @apply mb-5
 }

@@ -7,13 +7,13 @@ import Head from "next/head";
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <ThemeProvider attribute="class" storageKey="theme" defaultTheme="light">
+      {/* <ThemeProvider attribute="class" storageKey="theme" defaultTheme="light"> */}
         <Head>
           <title>Vishesh Dhawan</title>
         </Head>
         <Navbar />
         <Component {...pageProps} />
-      </ThemeProvider>
+      {/* </ThemeProvider> */}
     </>
   );
 }

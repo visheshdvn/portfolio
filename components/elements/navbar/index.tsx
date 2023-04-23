@@ -48,11 +48,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="h-[60px]"></div>
-      <Disclosure
-        as="nav"
-        className="fixed top-0 z-40 w-full bg-white dark:bg-black/80"
-      >
+      <Disclosure as="nav" className="fixed top-0 z-40 w-full bg-black/90">
         {({ open }) => (
           <>
             <div style={{ paddingTop: "2px" }} className="mx-auto px-14">
@@ -79,23 +75,23 @@ export default function Navbar() {
                   >
                     <path
                       d="M7.75585 10.0732L12.4656 22.0379L17.1553 10.0732H19.0592L13.2873 24.3026H11.6439L5.85192 10.0732H7.75585Z"
-                      className="fill-black dark:fill-white"
+                      className="fill-white"
                     />
                     <path
                       d="M24.9627 21.7129C23.8205 22.8376 22.3082 23.5167 20.7056 23.6342V23.0321C22.1378 22.916 23.4896 22.3039 24.5152 21.294C25.6597 20.1671 26.3042 18.637 26.3042 17.0399C26.3042 15.4428 25.6597 13.9127 24.5152 12.7857C23.4896 11.7759 22.1378 11.1638 20.7056 11.0477L20.7056 10.4456C22.3082 10.5631 23.8205 11.2422 24.9627 12.3668C26.2228 13.6075 26.9293 15.2886 26.9293 17.0399C26.9293 18.7911 26.2228 20.4722 24.9627 21.7129Z"
-                      className="stroke-black dark:stroke-white"
+                      className="stroke-white"
                     />
                     <line
                       x1="13.3203"
                       y1="23.3385"
                       x2="20.2588"
                       y2="23.3385"
-                      className="stroke-black dark:stroke-white"
+                      className="stroke-white"
                       strokeWidth="1.6083"
                     />
                     <path
                       d="M17.3255 10.717H20.2588"
-                      className="stroke-black dark:stroke-white"
+                      className="stroke-white"
                       strokeWidth="1.6083"
                     />
                     <rect
@@ -105,20 +101,20 @@ export default function Navbar() {
                       height="31.4"
                       rx="15.7"
                       transform="matrix(1 0 0 -1 0 31.4)"
-                      className="stroke-black dark:stroke-white"
+                      className="stroke-white"
                       strokeWidth="1.6"
                     />
                   </svg>
                   <div className="flex flex-col space-y-1">
                     <p
                       style={latoFont.style}
-                      className="leading-none tracking-[10.5px] text-sm text-black dark:text-white"
+                      className="leading-none tracking-[10.5px] text-sm text-white"
                     >
                       Vishesh
                     </p>
                     <p
                       style={latoFont.style}
-                      className="leading-none text-sm tracking-[10.5px] text-black dark:text-white"
+                      className="leading-none text-sm tracking-[10.5px] text-white"
                     >
                       Dhawan
                     </p>
@@ -134,7 +130,7 @@ export default function Navbar() {
                           <Link
                             style={playfairDisplayFont.style}
                             href={item.href}
-                            className="font-primary text-black dark:text-white text-sm font-bold hover:underline decoration-dotted"
+                            className="font-primary text-white text-sm font-bold hover:underline decoration-dotted"
                           >
                             {item.name}
                           </Link>
@@ -159,11 +155,11 @@ export default function Navbar() {
                   </button> */}
                   <Link href={"/search"} legacyBehavior>
                     <button className="mr-4 h-5 w-5 outline-none">
-                      <SearchIcon className="h-full w-full stroke-black dark:stroke-white" />
+                      <SearchIcon className="h-full w-full stroke-white" />
                     </button>
                   </Link>
                   {/* theme switch below*/}
-                  <Switch
+                  {/* <Switch
                     checked={false}
                     onChange={() => {
                       if (theme === "light") {
@@ -189,8 +185,7 @@ export default function Navbar() {
                         )}
                       </div>
                     </div>
-                  </Switch>
-                  {/* <ThemeSwitch /> */}
+                  </Switch> */}
 
                   {/* Profile dropdown */}
                   {/* {session && (
