@@ -11,10 +11,10 @@ const Landing = () => {
       className="pt-[60px] bg-cover bg-no-repeat bg-center text-white snap-start relative"
     >
       <div className="bg-gradient-to-b mt-[-60px] h-screen from-black/90 to-black/95 w-full absolute z-0"></div>
-      <div className="container mx-auto h-full flex">
-        <section className="2xl:w-[927px] flex flex-col h-full z-10">
+      <div className="container mx-auto h-full flex 2xl:px-">
+        <section className="2xl:w-[900px] xl:w-[800px] flex flex-col h-full z-10">
           <div className="2xl:h-[705px] relative">
-            <div className="absolute left-[75px] top-[120px] z-10">
+            <div className="absolute left-[73px] top-[120px] z-10">
               <h3 style={latoFont.style} className="text-[22px] font-bold mb-3">
                 Hi, I am
               </h3>
@@ -41,7 +41,7 @@ const Landing = () => {
             </div>
           </div>
           <div className="h-px bg-borders-dark"></div>
-          <div className="flex-1 flex items-center pl-[75px] space-x-20">
+          <div className="flex-1 flex items-center pl-[73px] space-x-20">
             <div className="w-[260px] font-serif text-[15px] leading-[1.45]">
               Skilled in creating scalable web applications with
               React.js/Next.js.
@@ -52,17 +52,18 @@ const Landing = () => {
             </div>
           </div>
         </section>
+        {/*  */}
         <section className="flex-1 flex z-10">
-          <div className="w-[470px] border-borders-dark border-x px-4">
+          <div className="border-borders-dark border-x w-full flex justify-center">
             <div
               style={{ backgroundImage: "url(/dummyface.png)" }}
-              className="bg-cover bg-center bg-no-repeat h-full"
+              className="bg-cover bg-center bg-no-repeat h-full w-full max-w-[436px]"
             ></div>
           </div>
-          <div className="flex items-center flex-1">
-            <div className="h-px bg-borders-dark w-full"></div>
-          </div>
         </section>
+        <div className="flex items-center 2xl:w-[73px] z-10">
+          <div className="h-px bg-borders-dark w-full"></div>
+        </div>
       </div>
     </section>
   );

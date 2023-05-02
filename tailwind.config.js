@@ -15,7 +15,7 @@ module.exports = {
       md: "768px",
       lg: "1024px",
       xl: "1280px",
-      "2xl": "1472px",
+      "2xl": "1440px",
     },
     fontFamily: {
       serif: ["Georgia", ...defaultTheme.fontFamily.serif],

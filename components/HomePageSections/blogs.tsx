@@ -10,18 +10,17 @@ const BlogsSection = ({ data }) => {
     <HomeSectionsLayout heading="Latest Posts.">
       <section
         style={playfairDisplayFont.style}
-        className="w-[1308px] flex flex-wrap justify-between border"
+        className="w-[1308px] flex flex-wrap justify-between"
       >
         {data.map((d, i) => {
-          const { title, topic, slug, banner, lumbytes, lumbytesLink } =
-            d.attributes;
+          const { title, topic, slug, banner, bannerAlt, lumbytes, lumbytesLink } = d;
           return (
-            <div key={i} className="w-[384px]">
-              <div className="w-full border relative">
+            <div key={i} className="w-[384px] mb-10">
+              <div className="w-full relative">
                 <div className="aspect-w-16 aspect-h-10 w-full">
                   <Image
-                    src={banner.data.attributes.url}
-                    alt={banner.data.attributes.alternativeText}
+                    src={banner}
+                    alt={bannerAlt}
                     fill={true}
                   />
                 </div>
