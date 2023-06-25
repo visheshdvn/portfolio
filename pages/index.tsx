@@ -8,7 +8,7 @@ import { GetStaticProps } from "next";
 
 export default function Home({ blogposts }) {
   return (
-    <div className="snap- snap-mandatory snap-always h-screen overflow-y-scroll">
+    <div className="h-screen overflow-y-scroll">
       <Landing />
       <About />
       <Projects />

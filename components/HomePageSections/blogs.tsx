@@ -4,7 +4,7 @@ import { latoFont, playfairDisplayFont } from "@/lib/fonts";
 import Image from "next/image";
 
 const BlogsSection = ({ data }) => {
-  console.log("data", data);
+  // console.log("data", data);
 
   return (
     <HomeSectionsLayout heading="Latest Posts.">

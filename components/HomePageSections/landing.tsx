@@ -54,13 +54,14 @@ const Landing = () => {
         </section>
         {/*  */}
         <section className="flex-1 flex z-10">
-          <div className="border-borders-dark border-x w-full flex justify-center">
+          <div className="border-borders-dark border-x w-full flex justify-center px-3">
             <div
               style={{ backgroundImage: "url(/dummyface.png)" }}
               className="bg-cover bg-center bg-no-repeat h-full w-full max-w-[436px]"
             ></div>
           </div>
         </section>
+        {/*  */}
         <div className="flex items-center 2xl:w-[73px] z-10">
           <div className="h-px bg-borders-dark w-full"></div>
         </div>

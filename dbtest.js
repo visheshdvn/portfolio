@@ -14,8 +14,6 @@ async function populate() {
         id: true,
       },
     });
-
-    console.log(data);
     i++;
   }
 }

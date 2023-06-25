@@ -1,19 +1,21 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
-import { ThemeProvider } from "next-themes";
+// import { ThemeProvider } from "next-themes";
 import Navbar from "@/components/elements/navbar";
 import Head from "next/head";
+import { SessionProvider } from "next-auth/react";
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}: AppProps) {
   return (
-    <>
-      {/* <ThemeProvider attribute="class" storageKey="theme" defaultTheme="light"> */}
-        <Head>
-          <title>Vishesh Dhawan</title>
-        </Head>
-        <Navbar />
-        <Component {...pageProps} />
-      {/* </ThemeProvider> */}
-    </>
+    <SessionProvider session={session}>
+      <Head>
+        <title>Vishesh Dhawan</title>
+      </Head>
+      {Component?.customProps?.nav !== false && <Navbar />}
+      <Component {...pageProps} />
+    </SessionProvider>
   );
 }
