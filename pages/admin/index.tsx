@@ -1,40 +1,23 @@
 import React from "react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import Link from "next/link";
 
-const AdminHomePage = () => {
+const index = () => {
   return (
-    <div className="global-spacing">
-      <div className="w-[500px]">
-        <Accordion type="single" collapsible className="w-full">
-          <AccordionItem value="item-1">
-            <AccordionTrigger className="">Is it accessible?</AccordionTrigger>
-            <AccordionContent>
-              Yes. It adheres to the WAI-ARIA design pattern.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-2">
-            <AccordionTrigger>Is it styled?</AccordionTrigger>
-            <AccordionContent>
-              Yes. It comes with default styles that matches the other
-              components&apos; aesthetic.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-3">
-            <AccordionTrigger>Is it animated?</AccordionTrigger>
-            <AccordionContent>
-              Yes. It&lsquo;s animated by default, but you can disable it if you
-              prefer.
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-      </div>
+    <div>
+      <Link href="/admin/panel" passHref={true}>
+        <a>Go to admin panel</a>
+      </Link>
     </div>
   );
 };
 
-export default AdminHomePage;
+export default index;
+
+export async function getServerSideProps(context) {
+  return {
+    redirect: {
+      destination: "/admin/blogposts",
+      permanent: false,
+    },
+  };
+}

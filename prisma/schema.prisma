@@ -31,25 +31,27 @@ model User {
 }
 
 model BlogPosts {
-  id          Int       @id @default(autoincrement())
-  title       String
-  slug        String?
-  description String?
-  banner      String?
-  bannerAlt   String?
-  date        DateTime?
-  content     String?
-  minuteRead  Int?      @default(1)
+  id           Int       @id @default(autoincrement())
+  title        String
+  slug         String?
+  description  String?
+  banner       String?
+  bannerAlt    String?
+  date         DateTime?
+  content      String?
+  minuteRead   Int?      @default(1)
+  external     Boolean   @default(false)
+  externalLink String?
   // relations
-  author      User?     @relation(fields: [authorId], references: [id], onDelete: SetNull, onUpdate: Cascade)
-  authorId    Int?
-  topic       Topics?   @relation(fields: [topicId], references: [id], onDelete: SetNull, onUpdate: Cascade)
-  topicId     Int?
+  author       User?     @relation(fields: [authorId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  authorId     Int?
+  topic        Topics?   @relation(fields: [topicId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  topicId      Int?
   // default fields
-  created_at  DateTime  @default(now())
-  updated_at  DateTime  @updatedAt
+  created_at   DateTime  @default(now())
+  updated_at   DateTime  @updatedAt
   // 
-  published   Boolean   @default(false)
+  published    Boolean   @default(false)
 }
 
 model Topics {

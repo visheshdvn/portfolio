@@ -14,7 +14,7 @@ export default function App({
       <Head>
         <title>Vishesh Dhawan</title>
       </Head>
-      {Component?.customProps?.nav !== false && <Navbar />}
+      {Component?.customProps?.displayNavBar !== false && <Navbar />}
       <Component {...pageProps} />
     </SessionProvider>
   );

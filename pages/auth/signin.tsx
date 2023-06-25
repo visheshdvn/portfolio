@@ -117,5 +117,5 @@ const Login = () => {
 export default Login;
 
 Login.customProps = {
-  nav: false,
+  displayNavBar: false,
 };
