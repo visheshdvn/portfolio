@@ -19,13 +19,6 @@ const metascraper = require("metascraper")([
 const router = createRouter<NextApiRequest, NextApiResponse>();
 
 router
-  .get((req: NextApiRequest, res: NextApiResponse) => {
-    console.log(
-      getSlugifiedString("Happy Birthday to me" + "-" + getRandomCharacters())
-    );
-
-    return res.status(200).json({ msg: "success" });
-  })
   .post(async (req: NextApiRequest, res: NextApiResponse) => {
     const { body } = req;
     const { title, description, external, externalLink, topicId } = body;
