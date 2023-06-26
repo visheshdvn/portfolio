@@ -11,29 +11,27 @@ datasource db {
 }
 
 model User {
-  id         Int         @id @default(autoincrement())
+  id         Int      @id @default(autoincrement())
   firstname  String
   lastname   String?
-  username   String      @unique
+  username   String   @unique
   password   String
   dp         String?
   dpAlt      String?
-  email      String?     @unique
+  email      String?  @unique
   // other accounts
   twitter    String?
   linkedin   String?
   instagram  String?
-  // relations
-  blogposts  BlogPosts[]
   // default fields
-  created_at DateTime    @default(now())
-  updated_at DateTime    @updatedAt
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 }
 
 model BlogPosts {
   id           Int       @id @default(autoincrement())
   title        String
-  slug         String?
+  slug         String?   @unique
   description  String?
   banner       String?
   bannerAlt    String?
@@ -43,8 +41,6 @@ model BlogPosts {
   external     Boolean   @default(false)
   externalLink String?
   // relations
-  author       User?     @relation(fields: [authorId], references: [id], onDelete: SetNull, onUpdate: Cascade)
-  authorId     Int?
   topic        Topics?   @relation(fields: [topicId], references: [id], onDelete: SetNull, onUpdate: Cascade)
   topicId      Int?
   // default fields

@@ -23,12 +23,12 @@ const AdminHomePage = ({ blogposts }) => {
 
   const [blogData, setBlogData] = useState({
     title: "",
-    external: false,
+    external: true,
     externalLink: "",
   });
 
   console.log(blogData);
-  
+
   function updateBlogData(e) {
     if (e.target) {
       setBlogData({
@@ -75,7 +75,7 @@ const AdminHomePage = ({ blogposts }) => {
   function clearSheetData() {
     setBlogData({
       title: "",
-      external: false,
+      external: true,
       externalLink: "",
     });
   }
@@ -235,15 +235,12 @@ function ControlSheet({
               className="mt-1"
               value={data.title}
               onChange={changeHandler}
-              required
+              disabled={data.external}
             />
           </div>
 
           <div className="flex space-x-2 items-center">
-            <Label
-              htmlFor="externalLink"
-              className="mb-1 text-base font-semibold"
-            >
+            <Label htmlFor="externalLink" className="text-base font-semibold">
               Link
             </Label>
             <Input
