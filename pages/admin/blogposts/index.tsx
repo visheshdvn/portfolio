@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { AdminHome } from "@/components/layouts";
 import prisma from "@/lib/prisma";
 import Router from "next/router";
@@ -15,19 +15,33 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
+import { Combobox } from "@/components/ui/combobox";
+import { HiExternalLink as ExternalLinkIcon } from "react-icons/hi";
+import Link from "next/link";
+import { fetchTopics } from "@/services/topics";
+import { TopicOptions } from "@/types/globals";
+import { title } from "process";
+import { isValidURL } from "@/utils/utilityFunctions";
 
 const AdminHomePage = ({ blogposts }) => {
   const sheetTriggerRef = useRef(null);
   const [sheetMode, setSheetMode] = useState<"create" | "edit">("create");
   const [actionId, setActionId] = useState<number | undefined>(undefined);
+  const [topics, setTopics] = useState<
+    Array<{ name: string; slug: string; id: number }>
+  >([]);
 
-  const [blogData, setBlogData] = useState({
+  const [blogData, setBlogData] = useState<{
+    title: string;
+    external: boolean;
+    externalLink: string;
+    topicId: number | null;
+  }>({
     title: "",
     external: true,
     externalLink: "",
+    topicId: null,
   });
-
-  console.log(blogData);
 
   function updateBlogData(e) {
     if (e.target) {
@@ -43,9 +57,14 @@ const AdminHomePage = ({ blogposts }) => {
     }
   }
 
-  const emulateSheetTrigger = () => {
+  const emulateSheetTrigger = async () => {
     if (sheetTriggerRef.current) {
       (sheetTriggerRef.current as HTMLButtonElement).click();
+    }
+
+    if (topics.length == 0) {
+      const res = await fetchTopics();
+      setTopics([...topics, ...res.data]);
     }
   };
 
@@ -63,6 +82,7 @@ const AdminHomePage = ({ blogposts }) => {
         title: channels[0].title,
         external: channels[0].color,
         externalLink: channels[0].metaDescription || "",
+        topicId: -1,
       });
     } catch (error) {
       // toast.error("Cannot perform this action. Please try again later.", {
@@ -77,15 +97,44 @@ const AdminHomePage = ({ blogposts }) => {
       title: "",
       external: true,
       externalLink: "",
+      topicId: null,
     });
   }
+
+  async function saveBlogHandler() {
+    // console.log("saving");
+    // console.log(sheetMode);
+    // console.log(blogData);
+    if (blogData.external) {
+      if (!blogData.externalLink || !isValidURL(blogData.externalLink)) {
+        return alert("Provide a valid link to the content.");
+      }
+    } else {
+      if (!blogData.title.trim()) {
+        return alert("Invalid title");
+      }
+    }
+    if (!blogData.topicId) {
+      return alert("Select a topic");
+    }
+
+    try {
+      const res = await axios.post("/blogpost/create", blogData);
+      if (res.data.success === 1) {
+        alert("Created");
+      }
+    } catch (e) {
+      console.error(e);
+      alert("Error creating post");
+    }
+  }
+  // console.log(JSON.stringify(blogData));
 
   return (
     <>
       <AdminHome
         title="Blogposts"
         showAddNewControls={true}
-        // addNewHandler={() => Router.push("/admin/blogposts/new-post")}
         addNewHandler={() => {
           if (sheetMode !== "create") {
             setSheetMode("create");
@@ -110,8 +159,8 @@ const AdminHomePage = ({ blogposts }) => {
             </div>
 
             <div className="">
-              {blogposts.map((data) => (
-                <Peek data={data} key={data.title} peek={true} />
+              {blogposts.map((data, idx) => (
+                <Peek data={data} key={data.title + idx} />
               ))}
             </div>
           </div>
@@ -126,18 +175,29 @@ const AdminHomePage = ({ blogposts }) => {
         //     : null
         // }
         // sheetOpen={sheetVisibility}
-        saveHandler={() => alert("ToDo")}
+        saveHandler={saveBlogHandler}
         data={blogData}
         changeHandler={updateBlogData}
         triggerRef={sheetTriggerRef}
+        topics={topics.map((t) => {
+          return {
+            value: t.id,
+            label: t.name,
+          };
+        })}
+        updateTopic={(val) => {
+          setBlogData({
+            ...blogData,
+            topicId: +val,
+          });
+        }}
       />
     </>
   );
 };
 
-function Peek({ data, peek }) {
+function Peek({ data }) {
   const { title, topic, published, slug, external, externalLink } = data;
-  // console.log(external);
 
   return (
     <article className="font-primary grid h-16 grid-cols-7 gap-4 border-t border-[#f0f0f0] px-8">
@@ -147,11 +207,6 @@ function Peek({ data, peek }) {
         </h1>
       </div>
       <div className="col-span-1 flex items-center text-sm font-medium">
-        {/* {featuredStatus ? (
-          <TrueButton name={tick} onClickHandler={featuredToggler} />
-        ) : (
-          <CrossButton name={cross} onClickHandler={featuredToggler} />
-        )} */}
         {topic?.name ? (
           <span className="line-clamp-1">{topic?.name}</span>
         ) : (
@@ -160,7 +215,7 @@ function Peek({ data, peek }) {
       </div>
       {/*  */}
       <div className="flex items-center">
-        {published ? (
+        {external ? (
           <span className="text-green-600 text-sm font-semibold">True</span>
         ) : (
           <span className="">--</span>
@@ -177,17 +232,10 @@ function Peek({ data, peek }) {
         )}
       </div>
       <div className="col-span-1 flex items-center font-semibold text-neutral-400">
-        {peek ? (
-          <button
-            onClick={() => {
-              Router.push(`/admin/blogposts/${slug}`);
-            }}
-            title="open post"
-          >
-            {/* <HiEye className="h-4 fill-neutral-500" /> */}
-          </button>
-        ) : (
-          "--"
+        {external && externalLink && (
+          <Link href={externalLink || ""} target="_blank">
+            <ExternalLinkIcon className="h-5 w-5 fill-neutral-500 hover:fill-neutral-600 transform transition-all duration-200" />
+          </Link>
         )}
       </div>
     </article>
@@ -199,11 +247,15 @@ function ControlSheet({
   changeHandler,
   data,
   triggerRef,
+  topics,
+  updateTopic,
 }: {
   saveHandler;
   changeHandler;
   data;
   triggerRef?: React.Ref<HTMLButtonElement>;
+  topics: TopicOptions[];
+  updateTopic: (e: any) => void;
 }): JSX.Element {
   return (
     <Sheet>
@@ -221,6 +273,7 @@ function ControlSheet({
               onCheckedChange={changeHandler}
               value={data.external}
               name="external"
+              defaultChecked={data.external}
             ></Switch>
           </div>
           <div className="flex space-x-2 items-center">
@@ -252,6 +305,15 @@ function ControlSheet({
               onChange={changeHandler}
               className="mt-1"
               disabled={!data.external}
+            />
+          </div>
+          <div className="flex space-x-2 items-center">
+            <Label className="text-base font-semibold">Topic</Label>
+            <Combobox
+              options={topics}
+              getValue={(val) => {
+                updateTopic(val);
+              }}
             />
           </div>
         </div>

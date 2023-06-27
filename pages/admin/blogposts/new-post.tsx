@@ -8,7 +8,7 @@ const AdminHomePage = () => {
     //   <div className="w-[500px]"></div>
     // </div>
     <AdminHome
-      title="Blogposts"
+      title="New Post"
       showAddNewControls={true}
       addNewHandler={() => alert("To Implement")}
     >

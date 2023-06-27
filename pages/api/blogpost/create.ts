@@ -49,6 +49,7 @@ router.post(async (req: NextApiRequest, res: NextApiResponse) => {
       // close browser resources before return the result
       promise
         .then(() => browserContext)
+        // @ts-ignore
         .then((browser) => browser.destroyContext());
       return promise;
     };
@@ -72,7 +73,7 @@ router.post(async (req: NextApiRequest, res: NextApiResponse) => {
         externalLink,
         banner: fetchedMetadata.image,
         description: fetchedMetadata.description,
-        topicId: +topicId,
+        topicId: +topicId || undefined,
         published: publishNow,
         date: publishNow ? new Date().toISOString() : undefined,
       },
@@ -116,7 +117,12 @@ router.post(async (req: NextApiRequest, res: NextApiResponse) => {
 });
 
 export default router.handler({
-  onError: (err: ApiError, req: NextApiRequest, res: NextApiResponse) => {
+  // @ts-ignore
+  onError: (
+    err: { stack: string; statusCode: number; message: string },
+    req: NextApiRequest,
+    res: NextApiResponse
+  ) => {
     console.error(err.stack);
     res.status(err.statusCode || 500).end(err.message);
   },

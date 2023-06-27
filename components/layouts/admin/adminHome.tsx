@@ -1,11 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import SideBar from "@/components/elements/sidebar/adminSideBar";
 import { cn } from "@/lib/utils";
 
 const AdminHome = ({
   children,
   title,
-  count,
   showAddNewControls,
   addNewHandler,
 }: {

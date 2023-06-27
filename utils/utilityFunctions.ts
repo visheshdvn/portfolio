@@ -30,7 +30,7 @@ export function getSlugifiedString(str: string) {
 //
 // convert hex color to RGB
 //
-export function hexToRGB(hex) {
+export function hexToRGB(hex: string) {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   return result
     ? {
