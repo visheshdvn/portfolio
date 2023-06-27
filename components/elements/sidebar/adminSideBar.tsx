@@ -46,22 +46,22 @@ const sideBarSections = [
         },
         link: "/admin/blogposts",
       },
-      {
-        name: "Topics",
-        link: "/admin/topics",
-        icons: {
-          defaultIcon: topicOutline,
-          selectedIcon: topicSolid,
-        },
-      },
-      {
-        name: "Tags",
-        link: "/admin/tags",
-        icons: {
-          defaultIcon: tagsOutline,
-          selectedIcon: tagsSolid,
-        },
-      },
+      // {
+      //   name: "Topics",
+      //   link: "/admin/topics",
+      //   icons: {
+      //     defaultIcon: topicOutline,
+      //     selectedIcon: topicSolid,
+      //   },
+      // },
+      // {
+      //   name: "Tags",
+      //   link: "/admin/tags",
+      //   icons: {
+      //     defaultIcon: tagsOutline,
+      //     selectedIcon: tagsSolid,
+      //   },
+      // },
     ],
   },
   {

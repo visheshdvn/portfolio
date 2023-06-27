@@ -2,12 +2,13 @@ import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { comparePassword } from "@/utils/encryptDecryptPassword";
 import { PrismaClient } from "@prisma/client";
+import type { NextAuthOptions } from "next-auth";
 
 const prisma = new PrismaClient();
 
 const secret = process.env.TOKEN_SECRET;
 
-export default NextAuth({
+export const authOptions: NextAuthOptions = {
   // Configure one or more authentication providers
   pages: {
     signIn: "/auth/signin",
@@ -44,7 +45,7 @@ export default NextAuth({
         }
 
         const match = await comparePassword(
-          credentials?.password,
+          credentials?.password as string,
           user_found.password
         );
 
@@ -85,4 +86,6 @@ export default NextAuth({
       return session;
     },
   },
-});
+};
+
+export default NextAuth(authOptions);

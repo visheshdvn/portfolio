@@ -1,12 +1,15 @@
 import { createRouter } from "next-connect";
 import prisma from "@/lib/prisma";
 import { NextApiRequest, NextApiResponse } from "next";
-import { ApiError } from "next/dist/server/api-utils";
+// import { ApiError } from "next/dist/server/api-utils";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
+
 import {
   getSlugifiedString,
   getRandomCharacters,
   isValidURL,
 } from "@/utils/utilityFunctions";
+import { getServerSession } from "next-auth";
 const browserless = require("browserless")();
 const getHTML = require("html-get");
 
@@ -19,6 +22,13 @@ const metascraper = require("metascraper")([
 const router = createRouter<NextApiRequest, NextApiResponse>();
 
 router.post(async (req: NextApiRequest, res: NextApiResponse) => {
+  const session = await getServerSession(req, res, authOptions);
+  if (!session) {
+    return res
+      .status(401)
+      .json({ success: 0, data: {}, message: "Unauthorized" });
+  }
+
   const { body } = req;
   const {
     title,
