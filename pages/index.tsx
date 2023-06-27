@@ -5,6 +5,7 @@ import {
   BlogsSection,
 } from "@/components/HomePageSections";
 import { GetStaticProps } from "next";
+import prisma from "@/lib/prisma";
 
 export default function Home({ blogposts }) {
   return (
@@ -74,12 +75,38 @@ export const getStaticProps: GetStaticProps = async () => {
       lumbytesLink: "abcde",
     },
   ];
+  let blogposts = await prisma.blogPosts.findMany({
+    select: {
+      title: true,
+      slug: true,
+      id: true,
+      banner: true,
+      bannerAlt: true,
+      description: true,
+      content: true,
+      external: true,
+      externalLink: true,
+      date: true,
+      minuteRead: true,
+      topic: {
+        select: {
+          name: true,
+          slug: true,
+        },
+      },
+    },
+    where: {
+      published: true,
+    },
+    skip: 0,
+    take: 6,
+  });
 
-  // console.log("apollo data", JSON.stringify(data, null, 4));
+  blogposts = JSON.parse(JSON.stringify(blogposts));
 
   return {
     props: {
-      blogposts: data,
+      blogposts: blogposts,
     },
     revalidate: 14400,
   };

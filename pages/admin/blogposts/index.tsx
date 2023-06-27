@@ -119,7 +119,7 @@ const AdminHomePage = ({ blogposts }) => {
     }
 
     try {
-      const res = await axios.post("/blogpost/create", blogData);
+      const res = await axios.post("/blogposts/create", blogData);
       if (res.data.success === 1) {
         alert("Created");
       }
