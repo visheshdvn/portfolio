@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useRef } from "react";
 import { HomeSectionsLayout } from "../layouts";
 import { playfairDisplayFont } from "@/lib/fonts";
 import Image from "next/image";
+import { motion, useInView } from "framer-motion";
 
 const projectData = [
   {
@@ -35,9 +36,24 @@ const projectData = [
 ];
 
 const Projects = () => {
+  const projectsRef = useRef(null);
+  const isInView = useInView(projectsRef, { once: true });
+
   return (
     <HomeSectionsLayout heading="Projects.">
-      <div className="pt-5 space-y-20 max-w-[1120px]">
+      <div
+        ref={projectsRef}
+        // initial={{ opacity: 0 }}
+        // animate={{ opacity: 1 }}
+        // transition={{ duration: 1, delay: 1.2 }}
+        // viewport={{ once: true }}
+        // whileInView="onscreen"
+        className="pt-5 space-y-20 max-w-[1120px]"
+        style={{
+          opacity: isInView ? 1 : 0,
+          transition: "all 1.3s cubic-bezier(0.17, 0.55, 0.55, 1) 0.2s",
+        }}
+      >
         {projectData.map((data, i) => (
           <ProjectPeek key={i} data={data} ind={i} />
         ))}

@@ -32,7 +32,7 @@
     "cmdk": "^0.2.0",
     "eslint": "8.38.0",
     "eslint-config-next": "13.3.0",
-    "framer-motion": "^10.12.4",
+    "framer-motion": "^10.12.18",
     "graphql": "^16.6.0",
     "html-get": "^2.11.3",
     "lucide-react": "^0.193.0",

@@ -8,7 +8,7 @@ const Landing = () => {
         height: "calc(100vh)",
         backgroundImage: `url(/portfoliobg.jpg)`,
       }}
-      className="pt-[60px] bg-cover bg-no-repeat bg-center text-white snap-start relative"
+      className="pt-[60px] bg-cover bg-no-repeat bg-center text-white snap-start relative snap-always"
     >
       <div className="bg-gradient-to-b mt-[-60px] h-screen from-black/90 to-black/95 w-full absolute z-0"></div>
       <div className="container mx-auto h-full flex 2xl:px-">

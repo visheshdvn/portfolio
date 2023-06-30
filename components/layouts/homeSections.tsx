@@ -5,9 +5,10 @@ import { playfairDisplayFont } from "@/lib/fonts";
 interface LayoutType {
   heading: string;
   children?: JSX.Element;
+  targetRef?: React.MutableRefObject<null>;
 }
 
-const HomeSections = ({ heading, children }: LayoutType) => {
+const HomeSections = ({ targetRef, heading, children }: LayoutType) => {
   return (
     <>
       {/* head tags */}
@@ -15,7 +16,8 @@ const HomeSections = ({ heading, children }: LayoutType) => {
       {/* body */}
       <section
         style={{ perspective: "500px" }}
-        className="layout-screen snap-start"
+        className="layout-screen snap-start snap-always"
+        ref={targetRef}
       >
         <h1 className="font-medium text-7xl mb-14">
           <span style={playfairDisplayFont.style}>{heading}</span>
