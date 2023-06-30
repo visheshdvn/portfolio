@@ -6,75 +6,49 @@ import {
 } from "@/components/HomePageSections";
 import { GetStaticProps } from "next";
 import prisma from "@/lib/prisma";
+import { useEffect, useRef } from "react";
+import { useScroll, useTransform, motion } from "framer-motion";
 
 export default function Home({ blogposts }) {
+  const homeRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    container: homeRef,
+    offset: ["start start", "end end"],
+  });
+
+  const backgroundScrollPosition = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, -200]
+  );
+
   return (
-    <div className="h-screen overflow-y-scroll">
-      <Landing />
-      <About />
-      <Projects />
-      {!!blogposts && <BlogsSection data={blogposts} />}
-    </div>
+    <>
+      <motion.div
+        style={{ top: backgroundScrollPosition }}
+        className="absolute pt-[60px] inset-x-0 -z-50 space-y-28 h-screen overflow-hidden"
+      >
+        {Array(12)
+          .fill(0)
+          .map((e, ind) => (
+            <div key={ind} className="h-px w-full bg-[#F8F7F7]"></div>
+          ))}
+      </motion.div>
+      <div
+        ref={homeRef}
+        className="h-screen overflow-y-scroll snap-y snap-mandatory"
+      >
+        <Landing />
+        <About containerRef={homeRef} />
+        <Projects />
+        {!!blogposts && <BlogsSection data={blogposts} />}
+      </div>
+    </>
   );
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data = [
-    {
-      title: "First Post",
-      topic: "Code",
-      banner:
-        "https://lumbytes-development.s3.eu-west-1.amazonaws.com/Blockchain-1682684704605.jpg",
-      bannerAlt: "ABCDE",
-      lumbytes: true,
-      lumbytesLink: "abcde",
-    },
-    {
-      title: "Second Post",
-      topic: "Code",
-      banner:
-        "https://lumbytes-development.s3.eu-west-1.amazonaws.com/Blockchain-1682684704605.jpg",
-      bannerAlt: "ABCDE",
-      lumbytes: true,
-      lumbytesLink: "abcde",
-    },
-    {
-      title: "First Post",
-      topic: "Code",
-      banner:
-        "https://lumbytes-development.s3.eu-west-1.amazonaws.com/Blockchain-1682684704605.jpg",
-      bannerAlt: "ABCDE",
-      lumbytes: true,
-      lumbytesLink: "abcde",
-    },
-    {
-      title: "First Post",
-      topic: "Code",
-      banner:
-        "https://lumbytes-development.s3.eu-west-1.amazonaws.com/Blockchain-1682684704605.jpg",
-      bannerAlt: "ABCDE",
-      lumbytes: true,
-      lumbytesLink: "abcde",
-    },
-    {
-      title: "First Post",
-      topic: "Code",
-      banner:
-        "https://lumbytes-development.s3.eu-west-1.amazonaws.com/Blockchain-1682684704605.jpg",
-      bannerAlt: "ABCDE",
-      lumbytes: true,
-      lumbytesLink: "abcde",
-    },
-    {
-      title: "First Post",
-      topic: "Code",
-      banner:
-        "https://lumbytes-development.s3.eu-west-1.amazonaws.com/Blockchain-1682684704605.jpg",
-      bannerAlt: "ABCDE",
-      lumbytes: true,
-      lumbytesLink: "abcde",
-    },
-  ];
   let blogposts = await prisma.blogPosts.findMany({
     select: {
       title: true,
