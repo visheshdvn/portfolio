@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useRouter } from "next/router";
 import { Popover } from "@headlessui/react";
 import { signOut, useSession } from "next-auth/react";
@@ -20,6 +20,7 @@ import {
 } from "react-icons/ai";
 // import { latoFont } from "@/lib/fonts";
 import clsx from "clsx";
+import Link from "next/link";
 
 const blogpostsOutline = <BlogPostsNotSelected className="mr-2 h-5 w-5" />;
 const blogpostsSolid = <BlogpostSelected className="mr-2 h-5 w-5" />;
@@ -108,14 +109,14 @@ const LeftSideBar = () => {
             <div className="my-8 flex text-white">
               <div className="flex w-full">
                 <div className="flex w-4/5">
-                  <a href="/">
+                  <Link href="/">
                     <div
                       style={{
                         backgroundImage: `url(/logo/Logo-SimpletextDark.png)`,
                       }}
                       className="h-10 w-10 rounded-full border border-zinc-50 bg-cover bg-center"
                     ></div>
-                  </a>
+                  </Link>
                   <h4 className="ml-4 flex items-center text-3xl font-bold">
                     CMS
                   </h4>

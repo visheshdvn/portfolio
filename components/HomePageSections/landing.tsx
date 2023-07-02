@@ -7,6 +7,7 @@ const Landing = () => {
       style={{
         height: "calc(100vh)",
         backgroundImage: `url(/portfoliobg.jpg)`,
+        backgroundColor: "black"
       }}
       className="pt-[60px] bg-cover bg-no-repeat bg-center text-white snap-start relative snap-always"
     >

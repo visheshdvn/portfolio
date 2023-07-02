@@ -16,7 +16,7 @@ const HomeSections = ({ targetRef, heading, children }: LayoutType) => {
       {/* body */}
       <section
         style={{ perspective: "500px" }}
-        className="layout-screen snap-start snap-always"
+        className="layout-screen snap-start snap-always pb-64"
         ref={targetRef}
       >
         <h1 className="font-medium text-7xl mb-14">

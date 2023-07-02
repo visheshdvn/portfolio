@@ -17,10 +17,10 @@ const About = ({
   });
 
   const isInView = useInView(fadeInRef, { once: true });
-
+  
   return (
     <HomeSectionsLayout targetRef={targetRef} heading="More about myself.">
-      <section
+      <div
         ref={fadeInRef}
         // initial={{ opacity: 0 }}
         // animate={{ opacity: 1 }}
@@ -74,7 +74,7 @@ const About = ({
             way. What can be a better way to do so than building some cool apps?
           </p>
         </div>
-      </section>
+      </div>
     </HomeSectionsLayout>
   );
 };
