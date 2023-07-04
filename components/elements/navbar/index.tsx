@@ -51,7 +51,7 @@ export default function Navbar() {
       <Disclosure as="nav" className="fixed top-0 z-40 w-full bg-black/90">
         {({ open }) => (
           <>
-            <div style={{ paddingTop: "2px" }} className="mx-auto px-14">
+            <div className="mx-auto px-14">
               <div className="relative flex items-center justify-center h-[60px]">
                 {/* disclosure button */}
                 <div className="absolute inset-y-0 left-0 flex items-center md:hidden">

@@ -4,22 +4,23 @@ import { playfairDisplayFont } from "@/lib/fonts";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 
 const About = ({
-  containerRef,
+  parentRef,
+  myRef,
 }: {
-  containerRef: React.MutableRefObject<null>;
+  parentRef: React.MutableRefObject<null>;
+  myRef: React.MutableRefObject<null>;
 }) => {
-  const targetRef = useRef(null);
   const fadeInRef = useRef(null);
   const { scrollYProgress } = useScroll({
-    container: containerRef,
-    target: targetRef,
+    container: parentRef,
+    target: myRef,
     offset: ["start end", "end start"],
   });
 
   const isInView = useInView(fadeInRef, { once: true });
-  
+
   return (
-    <HomeSectionsLayout targetRef={targetRef} heading="More about myself.">
+    <HomeSectionsLayout id="about-section" sectionRef={myRef} heading="More about myself.">
       <div
         ref={fadeInRef}
         // initial={{ opacity: 0 }}
@@ -33,7 +34,7 @@ const About = ({
           opacity: isInView ? 1 : 0,
           transition: "all 1.3s cubic-bezier(0.17, 0.55, 0.55, 1) 0.2s",
         }}
-        className="max-w-[752px]"
+        className="max-w-[752px] w-full ml-[70px]"
       >
         <div>
           <h1 className="text-4xl mb-5">

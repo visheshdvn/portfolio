@@ -1,8 +1,18 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { HomeSectionsLayout } from "../layouts";
 import { playfairDisplayFont } from "@/lib/fonts";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
+import {
+  useScrollDirection,
+  ScrollDirection,
+} from "react-use-scroll-direction";
+import {
+  isElementBottomDivisionOnViewport,
+  isElementOnViewport,
+  isElementTopDivisionOnViewport,
+} from "@/utils/elementPosition";
+import { SECTIONS_SCROLL_OFFSET } from "@/lib/constants";
 
 const projectData = [
   {
@@ -35,29 +45,91 @@ const projectData = [
   },
 ];
 
-const Projects = () => {
+const Projects = ({
+  parentRef,
+  myRef,
+}: {
+  parentRef: React.RefObject<HTMLElement>;
+  myRef: React.RefObject<HTMLElement>;
+}) => {
   const projectsRef = useRef(null);
   const isInView = useInView(projectsRef, { once: true });
+  const { isScrolling, isScrollingUp, isScrollingDown, scrollDirection } =
+    useScrollDirection(parentRef?.current as unknown as HTMLElement);
+
+  const scrollSectionToPosition = (
+    parentRef: React.RefObject<HTMLElement>,
+    sectionRef: React.RefObject<HTMLElement>,
+    position: "top" | "bottom",
+    scrollDirection: ScrollDirection
+  ) => {
+    // console.log("h");
+
+    if (myRef?.current && parentRef?.current) {
+      if (isElementOnViewport(sectionRef)) {
+        let parentElement = parentRef.current as HTMLDivElement;
+        const currElement = myRef.current as HTMLDivElement;
+        const pos = currElement.getBoundingClientRect();
+        // console.log(position, scrollDirection);
+
+        if (scrollDirection === "DOWN") {
+          const bottomPos = isElementBottomDivisionOnViewport(sectionRef);
+          const topPos = isElementTopDivisionOnViewport(sectionRef);
+
+          if (bottomPos.is && bottomPos.bottom <= SECTIONS_SCROLL_OFFSET) {
+            parentElement?.scroll({
+              top:
+                parentElement.scrollTop +
+                pos.top +
+                pos.height -
+                window.innerHeight,
+              // (currElement.getBoundingClientRect().bottom - window.innerHeight),
+              // +145 for next section
+              behavior: "smooth",
+            });
+            return;
+          }
+
+          if (
+            topPos.is &&
+            topPos.top < window.innerHeight - SECTIONS_SCROLL_OFFSET
+          ) {
+            currElement.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+      }
+    }
+  };
+
+  // useEffect(() => {
+  //   if (isScrollingDown) {
+  //     scrollSectionToPosition(parentRef, myRef, "bottom");
+  //   }
+  // }, [isScrollingDown]);
+
+  useEffect(() => {
+    scrollSectionToPosition(parentRef, myRef, "bottom", scrollDirection);
+  }, [(parentRef.current as HTMLElement)?.scrollTop]);
 
   return (
-    <HomeSectionsLayout heading="Projects.">
-      <div
+    <HomeSectionsLayout
+      id="project-section"
+      sectionRef={myRef}
+      heading="Projects."
+    >
+      <section
         ref={projectsRef}
-        // initial={{ opacity: 0 }}
-        // animate={{ opacity: 1 }}
-        // transition={{ duration: 1, delay: 1.2 }}
-        // viewport={{ once: true }}
-        // whileInView="onscreen"
-        className="pt-5 space-y-20 max-w-[1120px]"
+        className="space-y-20 max-w-[1310px] ml-[70px]"
         style={{
           opacity: isInView ? 1 : 0,
           transition: "all 1.3s cubic-bezier(0.17, 0.55, 0.55, 1) 0.2s",
         }}
       >
+        {/* <button onClick={scrollCurrentSectionToBottom}>Scroll to bottom</button> */}
         {projectData.map((data, i) => (
           <ProjectPeek key={i} data={data} ind={i} />
         ))}
-      </div>
+      </section>
     </HomeSectionsLayout>
   );
 };
@@ -77,7 +149,7 @@ function ProjectPeek({
 }) {
   return (
     <>
-      <div className="w-full flex justify-between">
+      <div className="w-full flex justify-between max-w-[1180px]">
         <div
           className={`${
             ind % 2 == 0 ? "order-1" : "order-2"

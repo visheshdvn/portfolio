@@ -5,10 +5,11 @@ import { playfairDisplayFont } from "@/lib/fonts";
 interface LayoutType {
   heading: string;
   children?: JSX.Element;
-  targetRef?: React.MutableRefObject<null>;
+  sectionRef?: React.RefObject<HTMLElement>;
+  id?: string;
 }
 
-const HomeSections = ({ targetRef, heading, children }: LayoutType) => {
+const HomeSections = ({ sectionRef, heading, children, id }: LayoutType) => {
   return (
     <>
       {/* head tags */}
@@ -16,16 +17,34 @@ const HomeSections = ({ targetRef, heading, children }: LayoutType) => {
       {/* body */}
       <section
         style={{ perspective: "500px" }}
-        className="layout-screen snap-start snap-always pb-64"
-        ref={targetRef}
+        className="layout-screen snap-start snap-alway pb-64 border"
+        ref={sectionRef}
+        id={id || ""}
       >
-        <h1 className="font-medium text-7xl mb-14">
+        <h1 className="font-medium text-7xl mb-[109px]">
           <span style={playfairDisplayFont.style}>{heading}</span>
         </h1>
-        <div className="pl-[90px]">{children}</div>
+        <div className="">{children}</div>
       </section>
     </>
   );
 };
+
+// const HomeSections = React.forwardRef<HTMLDivElement, LayoutType>(
+//   (props, ref) => (
+//     <section
+//       style={{ perspective: "500px" }}
+//       className="layout-screen snap-start snap-always pb-64"
+//       id={props.id || ""}
+//       ref={ref}
+//     >
+//       <h1 className="font-medium text-7xl mb-[109px]">
+//         <span style={playfairDisplayFont.style}>{props.heading}</span>
+//       </h1>
+//       <div className="">{props.children}</div>
+//     </section>
+//   )
+// );
+// HomeSections.displayName = "HomeSections";
 
 export default HomeSections;

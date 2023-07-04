@@ -1,0 +1,1 @@
+export const SECTIONS_SCROLL_OFFSET = 60;
