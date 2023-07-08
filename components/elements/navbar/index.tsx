@@ -66,8 +66,8 @@ export default function Navbar({
     <>
       <Disclosure
         as="nav"
-        className={cn("fixed top-0 z-40 w-full", {
-          "bg-black/90": theme !== "light",
+        className={cn("fixed top-0 z-40 w-full bg-black/90", {
+          "bg-white": theme === "light",
         })}
       >
         {({ open }) => (

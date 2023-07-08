@@ -8,10 +8,10 @@ import { GetStaticProps } from "next";
 import prisma from "@/lib/prisma";
 import { useRef, useEffect, useState, useCallback } from "react";
 import { useScroll, useTransform, motion, useSpring } from "framer-motion";
-import { useScrollDirection } from "react-use-scroll-direction";
+// import { useScrollDirection } from "react-use-scroll-direction";
 // import { scrollToSection } from "@/lib/scroller";
 // import { useRouter } from "next/router";
-import LeftSideNav from "@/components/elements/sidenav/leftSideNav";
+import RightSideNav from "@/components/elements/sidenav/rightSideNav";
 
 export default function Home({ blogposts }) {
   const homePageRef = useRef(null);
@@ -19,8 +19,8 @@ export default function Home({ blogposts }) {
   const projectsSectionRef = useRef(null);
   const blogSectionRef = useRef(null);
 
-  const { isScrolling, isScrollingUp, isScrollingDown, scrollDirection } =
-    useScrollDirection(homePageRef?.current as unknown as HTMLDivElement);
+  // const { isScrolling, isScrollingUp, isScrollingDown, scrollDirection } =
+  //   useScrollDirection(homePageRef?.current as unknown as HTMLDivElement);
 
   const { scrollYProgress } = useScroll({
     container: homePageRef,
@@ -65,7 +65,7 @@ export default function Home({ blogposts }) {
           PROJECTS
         </span>
       </div> */}
-      <LeftSideNav text="Projects" link="/projects" />
+      <RightSideNav text="Projects" link="/projects" />
       <div
         id="home-sections-container"
         ref={homePageRef}
