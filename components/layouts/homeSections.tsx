@@ -17,7 +17,7 @@ const HomeSections = ({ sectionRef, heading, children, id }: LayoutType) => {
       {/* body */}
       <section
         style={{ perspective: "500px" }}
-        className="layout-screen snap-start snap-alway pb-64 border"
+        className="layout-screen snap-start snap-always pb-64"
         ref={sectionRef}
         id={id || ""}
       >

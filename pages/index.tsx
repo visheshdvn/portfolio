@@ -11,6 +11,7 @@ import { useScroll, useTransform, motion, useSpring } from "framer-motion";
 import { useScrollDirection } from "react-use-scroll-direction";
 // import { scrollToSection } from "@/lib/scroller";
 // import { useRouter } from "next/router";
+import LeftSideNav from "@/components/elements/sidenav/leftSideNav";
 
 export default function Home({ blogposts }) {
   const homePageRef = useRef(null);
@@ -59,15 +60,16 @@ export default function Home({ blogposts }) {
             <div key={ind} className="h-px w-full bg-[#F2f2f2]"></div>
           ))}
       </motion.div>
-      <div className="fixed right-0 h-screen flex justify-center items-center w-[90px] z-50">
+      {/* <div className="fixed right-0 h-screen flex justify-center items-center w-[90px] z-50">
         <span className="-rotate-90 text-sm font-bold tracking-[12px] text-black">
           PROJECTS
         </span>
-      </div>
+      </div> */}
+      <LeftSideNav text="Projects" link="/projects" />
       <div
         id="home-sections-container"
         ref={homePageRef}
-        className="h-screen overflow-y-scroll snap- snap-mandator"
+        className="h-screen overflow-y-scroll snap-y snap-mandatory"
       >
         <Landing parentRef={homePageRef} />
         <About parentRef={homePageRef} myRef={aboutSectionRef} />

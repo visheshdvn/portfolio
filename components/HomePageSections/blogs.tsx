@@ -3,17 +3,6 @@ import { HomeSectionsLayout } from "../layouts";
 import { latoFont, playfairDisplayFont } from "@/lib/fonts";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  useScrollDirection,
-  ScrollDirection,
-} from "react-use-scroll-direction";
-import {
-  isElementBottomDivisionOnViewport,
-  isElementOnViewport,
-  isElementTopDivisionOnViewport,
-} from "@/utils/elementPosition";
-import { SECTIONS_SCROLL_OFFSET } from "@/lib/constants";
-
 const BlogsSection = ({
   data,
   parentRef,
@@ -23,65 +12,6 @@ const BlogsSection = ({
   parentRef: React.RefObject<HTMLElement>;
   myRef: React.RefObject<HTMLElement>;
 }) => {
-  const { isScrolling, isScrollingUp, isScrollingDown, scrollDirection } =
-    useScrollDirection(parentRef?.current as unknown as HTMLElement);
-
-  const scrollSectionToPosition = (
-    parentRef: React.RefObject<HTMLElement>,
-    sectionRef: React.RefObject<HTMLElement>,
-    position: "top" | "bottom",
-    scrollDirection: ScrollDirection
-  ) => {
-    // console.log("h");
-
-    if (myRef?.current && parentRef?.current) {
-      if (isElementOnViewport(sectionRef)) {
-        let parentElement = parentRef.current as HTMLDivElement;
-        const currElement = myRef.current as HTMLDivElement;
-        const pos = currElement.getBoundingClientRect();
-        // console.log(position, scrollDirection);
-
-        if (scrollDirection === "DOWN") {
-          const bottomPos = isElementBottomDivisionOnViewport(sectionRef);
-          const topPos = isElementTopDivisionOnViewport(sectionRef);
-
-          console.log(
-            topPos,
-            topPos.top < window.innerHeight - SECTIONS_SCROLL_OFFSET
-          );
-
-          if (bottomPos.is && bottomPos.bottom <= SECTIONS_SCROLL_OFFSET) {
-            parentElement?.scroll({
-              top:
-                parentElement.scrollTop +
-                pos.top +
-                pos.height -
-                window.innerHeight,
-              // (currElement.getBoundingClientRect().bottom - window.innerHeight),
-              // +145 for next section
-              behavior: "smooth",
-            });
-            return;
-          }
-
-          if (
-            topPos.is &&
-            topPos.top < window.innerHeight - SECTIONS_SCROLL_OFFSET
-          ) {
-            console.log("st");
-            
-            currElement.scrollIntoView({ behavior: "smooth" });
-            return;
-          }
-        }
-      }
-    }
-  };
-
-  useEffect(() => {
-    scrollSectionToPosition(parentRef, myRef, "bottom", scrollDirection);
-  }, [(parentRef.current as HTMLElement)?.scrollTop]);
-
   return (
     <HomeSectionsLayout
       id="blog-section"
