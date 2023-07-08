@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Disclosure, Menu, Transition, Switch } from "@headlessui/react";
+import { cn } from "@/lib/utils";
 import {
   BellIcon,
   Bars3Icon as MenuIcon,
@@ -10,9 +11,9 @@ import {
 } from "@heroicons/react/24/outline";
 // import { useSession, signOut } from "next-auth/react";
 import { useTheme } from "next-themes";
-import Image from "next/legacy/image";
+// import Image from "next/legacy/image";
 // import { sun as SunIcon, moon as moonIcon } from "../../icons/themeSwitch";
-import { BiSun as SunIcon, BiMoon as moonIcon } from "react-icons/bi";
+// import { BiSun as SunIcon, BiMoon as moonIcon } from "react-icons/bi";
 import { Lato, Playfair_Display } from "next/font/google";
 import {
   BsCaretDownFill as CaretDownFill,
@@ -36,19 +37,39 @@ const navigation = [
   { name: "Connect", href: "/connect" },
 ];
 
-export default function Navbar() {
-  const { theme, setTheme } = useTheme();
+export default function Navbar({
+  navbarTheme,
+}: {
+  navbarTheme?: "dark" | "light";
+}) {
+  const [theme, setTheme] = useState<"light" | "dark">();
+  // console.log("navt", navbarTheme);
+
+  useEffect(() => {
+    if (navbarTheme !== "light") {
+      console.log("running 2", navbarTheme);
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  }, [navbarTheme, setTheme]);
+
   // const { data: session, status } = useSession();
   // const user = session?.user;
 
-  const [loaded, setLoaded] = useState(false);
-  useEffect(() => {
-    setLoaded(true);
-  }, []);
+  // const [loaded, setLoaded] = useState(false);
+  // useEffect(() => {
+  //   setLoaded(true);
+  // }, []);
 
   return (
     <>
-      <Disclosure as="nav" className="fixed top-0 z-40 w-full bg-black/90">
+      <Disclosure
+        as="nav"
+        className={cn("fixed top-0 z-40 w-full", {
+          "bg-black/90": theme !== "light",
+        })}
+      >
         {({ open }) => (
           <>
             <div className="mx-auto px-14">
@@ -75,23 +96,31 @@ export default function Navbar() {
                   >
                     <path
                       d="M7.75585 10.0732L12.4656 22.0379L17.1553 10.0732H19.0592L13.2873 24.3026H11.6439L5.85192 10.0732H7.75585Z"
-                      className="fill-white"
+                      className={cn("fill-white", {
+                        "fill-black": theme === "light",
+                      })}
                     />
                     <path
                       d="M24.9627 21.7129C23.8205 22.8376 22.3082 23.5167 20.7056 23.6342V23.0321C22.1378 22.916 23.4896 22.3039 24.5152 21.294C25.6597 20.1671 26.3042 18.637 26.3042 17.0399C26.3042 15.4428 25.6597 13.9127 24.5152 12.7857C23.4896 11.7759 22.1378 11.1638 20.7056 11.0477L20.7056 10.4456C22.3082 10.5631 23.8205 11.2422 24.9627 12.3668C26.2228 13.6075 26.9293 15.2886 26.9293 17.0399C26.9293 18.7911 26.2228 20.4722 24.9627 21.7129Z"
-                      className="stroke-white"
+                      className={cn("stroke-white", {
+                        "stroke-black": theme === "light",
+                      })}
                     />
                     <line
                       x1="13.3203"
                       y1="23.3385"
                       x2="20.2588"
                       y2="23.3385"
-                      className="stroke-white"
+                      className={cn("stroke-white", {
+                        "stroke-black": theme === "light",
+                      })}
                       strokeWidth="1.6083"
                     />
                     <path
                       d="M17.3255 10.717H20.2588"
-                      className="stroke-white"
+                      className={cn("stroke-white", {
+                        "stroke-black": theme === "light",
+                      })}
                       strokeWidth="1.6083"
                     />
                     <rect
@@ -101,20 +130,26 @@ export default function Navbar() {
                       height="31.4"
                       rx="15.7"
                       transform="matrix(1 0 0 -1 0 31.4)"
-                      className="stroke-white"
+                      className={cn("stroke-white", {
+                        "stroke-black": theme === "light",
+                      })}
                       strokeWidth="1.6"
                     />
                   </svg>
                   <div className="flex flex-col space-y-1">
                     <p
                       style={latoFont.style}
-                      className="leading-none tracking-[10.5px] text-sm text-white"
+                      className={`leading-none tracking-[10.5px] text-sm ${
+                        theme === "light" ? "text-black" : "text-white"
+                      }`}
                     >
                       Vishesh
                     </p>
                     <p
                       style={latoFont.style}
-                      className="leading-none text-sm tracking-[10.5px] text-white"
+                      className={`leading-none text-sm tracking-[10.5px] ${
+                        theme === "light" ? "text-black" : "text-white"
+                      }`}
                     >
                       Dhawan
                     </p>
@@ -130,13 +165,22 @@ export default function Navbar() {
                           <Link
                             style={playfairDisplayFont.style}
                             href={item.href}
-                            className="font-primary text-white text-sm font-bold hover:underline decoration-dotted"
+                            className={cn(
+                              "font-primary text-white text-sm font-bold hover:underline decoration-dotted",
+                              { "text-black": theme === "light" }
+                            )}
                           >
                             {item.name}
                           </Link>
                           {!!item?.dropOptions?.arrow && (
                             <span className="flex items-center">
-                              <CaretDown className="fill-neutral-400" />
+                              <CaretDown
+                                className={
+                                  theme === "dark"
+                                    ? "fill-neutral-400"
+                                    : "fill-neutral-600"
+                                }
+                              />
                             </span>
                           )}
                         </div>
