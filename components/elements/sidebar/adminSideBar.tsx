@@ -151,6 +151,7 @@ const LeftSideBar = () => {
             {user && (
               <div className="absolute bottom-8 left-1/2 flex w-60 -translate-x-1/2 transform text-white">
                 <div
+                  // @ts-ignore
                   style={{ backgroundImage: `url(${user.dp})` }}
                   className="mr-4 h-12 w-12 rounded-full bg-cover bg-center bg-white"
                 ></div>
@@ -185,12 +186,12 @@ const LeftSideBar = () => {
   );
 };
 
-function SideBarSection({ section }) {
+function SideBarSection({ section }: { section: any }) {
   return (
     <div className="">
       <h3 className="font-regular mb-6 text-lg">{section.head.name}</h3>
       <ul className="space-y-[19px]">
-        {section.navs.map((nav, i) => (
+        {section.navs.map((nav: any, i: number) => (
           <SideBarSectionItem nav={nav} key={i} />
         ))}
       </ul>
@@ -198,7 +199,7 @@ function SideBarSection({ section }) {
   );
 }
 
-function SideBarSectionItem({ nav }) {
+function SideBarSectionItem({ nav }: { nav: any }) {
   const selected = GetSelection(nav);
 
   return (
@@ -217,13 +218,23 @@ function SideBarSectionItem({ nav }) {
   );
 }
 
-function GetSelection(nav): boolean {
+function GetSelection(nav: any): boolean {
   const router = useRouter();
   // return nav.link === router.route;
   return router.route.startsWith(nav.link);
 }
 
-function PathOption({ checked, text, defaultIcon, checkedIcon }) {
+function PathOption({
+  checked,
+  text,
+  defaultIcon,
+  checkedIcon,
+}: {
+  checked: any;
+  text: any;
+  defaultIcon: any;
+  checkedIcon: any;
+}) {
   return (
     <div
       className={`font-primary flex h-14 w-60 cursor-pointer items-center pl-5 ${

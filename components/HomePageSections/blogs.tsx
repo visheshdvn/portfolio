@@ -20,12 +20,12 @@ const BlogsSection = ({
     >
       <section style={playfairDisplayFont.style} className="w-[1310px] mx-auto">
         <div className="w-full flex justify-between mb-24">
-          {data.slice(0, 3).map((d, i) => {
+          {data.slice(0, 3).map((d: any, i: number) => {
             return <BlogPeek key={i} data={d} />;
           })}
         </div>
         <div className="w-full flex justify-between">
-          {data.slice(3, 6).map((d, i) => {
+          {data.slice(3, 6).map((d: any, i: number) => {
             return <BlogPeek key={i} data={d} />;
           })}
         </div>
@@ -34,7 +34,7 @@ const BlogsSection = ({
   );
 };
 
-function BlogPeek({ data }) {
+function BlogPeek({ data }: { data: any }) {
   const { title, topic, slug, banner, bannerAlt, external, externalLink } =
     data;
 

@@ -1,13 +1,17 @@
 import React from "react";
 import { latoFont, playfairDisplayFont } from "@/lib/fonts";
 
-const Landing = () => {
+const Landing = ({
+  parentRef,
+}: {
+  parentRef: React.MutableRefObject<null>;
+}) => {
   return (
     <section
       style={{
         height: "calc(100vh)",
         backgroundImage: `url(/portfoliobg.jpg)`,
-        backgroundColor: "black"
+        backgroundColor: "black",
       }}
       className="pt-[60px] bg-cover bg-no-repeat bg-center text-white snap-start relative snap-always"
     >

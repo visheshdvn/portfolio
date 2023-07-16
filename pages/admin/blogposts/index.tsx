@@ -23,7 +23,7 @@ import { TopicOptions } from "@/types/globals";
 import { title } from "process";
 import { isValidURL } from "@/utils/utilityFunctions";
 
-const AdminHomePage = ({ blogposts }) => {
+const AdminHomePage = ({ blogposts }: { blogposts: any }) => {
   const sheetTriggerRef = useRef(null);
   const [sheetMode, setSheetMode] = useState<"create" | "edit">("create");
   const [actionId, setActionId] = useState<number | undefined>(undefined);
@@ -43,7 +43,7 @@ const AdminHomePage = ({ blogposts }) => {
     topicId: null,
   });
 
-  function updateBlogData(e) {
+  function updateBlogData(e: React.ChangeEvent<HTMLInputElement>) {
     if (e.target) {
       setBlogData({
         ...blogData,
@@ -159,7 +159,7 @@ const AdminHomePage = ({ blogposts }) => {
             </div>
 
             <div className="">
-              {blogposts.map((data, idx) => (
+              {blogposts.map((data: any, idx: number) => (
                 <Peek data={data} key={data.title + idx} />
               ))}
             </div>
@@ -196,7 +196,7 @@ const AdminHomePage = ({ blogposts }) => {
   );
 };
 
-function Peek({ data }) {
+function Peek({ data }: { data: any }) {
   const { title, topic, published, slug, external, externalLink } = data;
 
   return (
@@ -250,9 +250,9 @@ function ControlSheet({
   topics,
   updateTopic,
 }: {
-  saveHandler;
-  changeHandler;
-  data;
+  saveHandler: any;
+  changeHandler: any;
+  data: any;
   triggerRef?: React.Ref<HTMLButtonElement>;
   topics: TopicOptions[];
   updateTopic: (e: any) => void;
@@ -337,7 +337,7 @@ AdminHomePage.customProps = {
   displayNavBar: false,
 };
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps(context: any) {
   // const { query } = context;
   // console.log("para", query);
 

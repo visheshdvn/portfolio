@@ -13,7 +13,7 @@ import { useScroll, useTransform, motion, useSpring } from "framer-motion";
 // import { useRouter } from "next/router";
 import RightSideNav from "@/components/elements/sidenav/rightSideNav";
 
-export default function Home({ blogposts }) {
+export default function Home({ blogposts }: { blogposts: any }) {
   const homePageRef = useRef(null);
   const aboutSectionRef = useRef(null);
   const projectsSectionRef = useRef(null);

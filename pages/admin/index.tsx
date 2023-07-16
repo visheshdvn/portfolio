@@ -13,7 +13,7 @@ const index = () => {
 
 export default index;
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps(context: any) {
   return {
     redirect: {
       destination: "/admin/blogposts",
