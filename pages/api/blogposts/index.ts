@@ -46,7 +46,7 @@ router.get(async (req: NextApiRequest, res: NextApiResponse) => {
       published: includeUnPublished !== "true" || undefined,
     },
   });
-  res.status(200).json({ data: data, success: 1, msg: "Successful" });
+  res.status(200).json({ data: data, success: 1, msg: "SUCCESS" });
 });
 
 export default router.handler({

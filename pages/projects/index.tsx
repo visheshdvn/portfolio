@@ -64,7 +64,13 @@ const Projects: React.FC & customFCProps = (): JSX.Element => {
       </motion.div>
 
       <div className="">
-        <ContentPage title="Projects.">
+        <ContentPage
+          title="Projects."
+          rightSideNavLink="/blog"
+          rightSideNavText="BLOG"
+          leftSideNavLink="/"
+          leftSideNavText="HOME"
+        >
           <div className="flex justify-center">
             <div className="space-y-24">
               {projectData.map((data, i) => (
