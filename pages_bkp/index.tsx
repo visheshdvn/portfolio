@@ -3,7 +3,7 @@ import {
   Landing,
   Projects,
   BlogsSection,
-} from "@/src/components/HomePageSections";
+} from "@/src/components/PrimarySections";
 import { useRef } from "react";
 import { useScroll, useTransform, motion, useSpring } from "framer-motion";
 import RightSideNav from "@/src/components/elements/sidenav/rightSideNav";

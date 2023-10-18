@@ -9,17 +9,7 @@ import {
   XMarkIcon as XIcon,
   MagnifyingGlassIcon as SearchIcon,
 } from "@heroicons/react/24/outline";
-import { Lato, Playfair_Display } from "next/font/google";
-
-export const latoFont = Lato({
-  weight: ["700"],
-  subsets: ["latin"],
-});
-
-const playfairDisplayFont = Playfair_Display({
-  weight: "400",
-  subsets: ["latin"],
-});
+import { playfairDisplayFont, latoFont } from "@/src/lib/fonts";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -38,7 +28,6 @@ export default function Navbar({
 
   useEffect(() => {
     if (navbarTheme !== "light") {
-      console.log("running 2", navbarTheme);
       setTheme("dark");
     } else {
       setTheme("light");
@@ -49,9 +38,12 @@ export default function Navbar({
     <>
       <Disclosure
         as="nav"
-        className={cn("fixed top-0 z-40 w-full bg-black/90", {
-          "bg-white": theme === "light",
-        })}
+        className={cn(
+          "fixed top-0 z-40 w-full bg-black/30 border-b border-[#202020]",
+          {
+            "bg-white": theme === "light",
+          }
+        )}
       >
         {({ open }) => (
           <>
@@ -149,7 +141,7 @@ export default function Navbar({
                             style={playfairDisplayFont.style}
                             href={item.href}
                             className={cn(
-                              "font-primary text-white text-sm font-bold hover:underline decoration-dotted",
+                              "font-primary text-white text-sm font-normal hover:underline decoration-dotted",
                               { "text-black": theme === "light" }
                             )}
                           >
@@ -174,109 +166,6 @@ export default function Navbar({
                       <SearchIcon className="h-full w-full stroke-white" />
                     </button>
                   </Link>
-                  {/* theme switch below*/}
-                  {/* <Switch
-                    checked={false}
-                    onChange={() => {
-                      if (theme === "light") {
-                        setTheme("dark");
-                      } else {
-                        setTheme("light");
-                      }
-                    }}
-                    // style={{ marginTop: "2px" }}
-                    className="inline-flex w-6 cursor-pointer items-center focus:outline-none"
-                  >
-                    <div
-                      style={{ width: "30px", height: "30px" }}
-                      className="absolute flex transform items-center justify-center rounded-full transition-all duration-200 hover:bg-gray-100 dark:hover:bg-gray-500"
-                    >
-                      <div className="h-5 w-5 text-xl">
-                        {loaded && theme === "dark" ? (
-                          // <>{moonIcon}</>
-                          <MoonIcon />
-                        ) : (
-                          // <>{SunIcon}</>
-                          <SunIcon className="fill-black" />
-                        )}
-                      </div>
-                    </div>
-                  </Switch> */}
-
-                  {/* Profile dropdown */}
-                  {/* {session && (
-                    <Menu as="div" className="relative ml-5 pl-3">
-                      <div>
-                        <Menu.Button className="aspect-1 flex overflow-hidden rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-offset-2 focus:ring-offset-white">
-                          <span className="sr-only">Open user menu</span>
-                          {(session && session.user.dp && (
-                            <Image
-                              src={user.dp}
-                              alt={user.dpalt || "default user"}
-                              height={32}
-                              width={32}
-                            />
-                          )) || (
-                            <div className="aspect-1 flex h-[32px] items-center justify-center rounded-full border-2 border-gray-800">
-                              <svg
-                                viewBox="0 0 18 19"
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="aspect-1 w-full scale-75 transform rounded-full bg-transparent fill-gray-800"
-                              >
-                                <path d="M4.5 4.5C4.5 6.981 6.519 9 9 9C11.481 9 13.5 6.981 13.5 4.5C13.5 2.019 11.481 0 9 0C6.519 0 4.5 2.019 4.5 4.5ZM17 19H18V18C18 14.141 14.859 11 11 11H7C3.14 11 0 14.141 0 18V19H17Z" />
-                              </svg>
-                            </div>
-                          )}
-                        </Menu.Button>
-                      </div>
-                      <Transition
-                        as={"div"}
-                        enter="transition ease-out duration-100"
-                        enterFrom="transform opacity-0 scale-95"
-                        enterTo="transform opacity-100 scale-100"
-                        leave="transition ease-in duration-75"
-                        leaveFrom="transform opacity-100 scale-100"
-                        leaveTo="transform opacity-0 scale-95"
-                      >
-                        <Menu.Items className="absolute right-0 mt-2 w-40 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                          {(status === "authenticated" && !!session.user && (
-                            <>
-                              <Menu.Item>
-                                <ItemLink
-                                  text={`@${user.username}`}
-                                  link={`/user/${user.username}`}
-                                />
-                              </Menu.Item>
-                              <div className="mb-1 px-2">
-                                <hr className="text-black" />
-                              </div>
-                              {session.user.roles.includes("CREATOR") && (
-                                <ItemLink
-                                  text="Dashboard"
-                                  link={`/me/dashboard`}
-                                />
-                              )}
-                              {(user.roles.includes("ADMIN") ||
-                                user.roles.includes("SUPERUSER")) && (
-                                <ItemLink text="Admin" link={`/admin`} />
-                              )}
-                              <Menu.Item>
-                                <ItemLink
-                                  text="Settings"
-                                  link={`/me/settings`}
-                                />
-                              </Menu.Item>
-                              <ItemButton text="Sign Out" action={signOut} />
-                            </>
-                          )) || (
-                            <>
-                              <ItemLink text="Sign In" link="/auth/signin" />
-                            </>
-                          )}
-                        </Menu.Items>
-                      </Transition>
-                    </Menu>
-                  )} */}
                 </div>
               </div>
             </div>
@@ -294,10 +183,7 @@ export default function Navbar({
                     key={item.name}
                     legacyBehavior
                   >
-                    <a
-                      className="font-primary text-black dark:text-white block rounded-md px-3 py-2 text-base font-medium"
-                      // aria-aria-current={item.current ? "page" : undefined}
-                    >
+                    <a className="font-primary text-black dark:text-white block rounded-md px-3 py-2 text-base font-medium">
                       {item.name}
                     </a>
                   </Link>

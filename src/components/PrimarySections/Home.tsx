@@ -1,24 +1,23 @@
 import React from "react";
 import { latoFont, playfairDisplayFont } from "@/src/lib/fonts";
 
-const Landing = ({
-  parentRef,
-}: {
-  parentRef?: React.MutableRefObject<null>;
-}) => {
+const Home = () => {
   return (
     <section
       style={{
-        height: "100vh",
+        height: "calc(100vh - 60px)",
       }}
-      className="pt-[60px] bg-cover bg-no-repeat bg-center text-white snap-start relative snap-always"
+      className="bg-cover bg-no-repeat bg-center text-white snap-start relative snap-always"
     >
       <div className="bg-gradient-to-b mt-[-60px] h-screen from-black/90 to-black/95 w-full absolute z-0"></div>
       <div className="container mx-auto h-full flex">
         <section className="2xl:w-[900px] xl:w-[800px] flex flex-col h-full z-10">
           <div className="2xl:h-[705px] relative">
             <div className="absolute left-[73px] top-[120px] z-10">
-              <h3 style={latoFont.style} className="text-[22px] font-bold mb-3">
+              <h3
+                style={playfairDisplayFont.style}
+                className="text-2xl font-bold mb-3"
+              >
                 Hi, I am
               </h3>
               <h1
@@ -73,4 +72,4 @@ const Landing = ({
   );
 };
 
-export default Landing;
+export default Home;
