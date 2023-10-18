@@ -12,7 +12,7 @@ const ContentPage = ({
   leftSideNavText,
 }: {
   title: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   rightSideNavText?: string;
   leftSideNavText?: string;
   rightSideNavLink?: string;

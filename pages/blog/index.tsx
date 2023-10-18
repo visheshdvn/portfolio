@@ -1,17 +1,48 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ContentPage from "@/components/layouts/contentPage";
 import { customFCProps } from "@/types/globals";
 import { playfairDisplayFont, latoFont } from "@/lib/fonts";
 import Image from "next/image";
 import { useScroll, useTransform, motion, useSpring } from "framer-motion";
-import { GetStaticProps } from "next";
 import Link from "next/link";
-import prisma from "@/lib/prisma";
-import { useBlogposts } from "@/hooks/blogposts/useBlogposts";
+
+const BLOGPOSTS = [
+  {
+    id: "askdbl323",
+    title: "the title of blog",
+    topic: {
+      name: "Web Development",
+    },
+    externalLink: "http://google.com",
+    banner: "https://source.unsplash.com/random",
+    bannerAlt: "Alt text",
+    external: true,
+  },
+  {
+    id: "askdbl323",
+    title: "the title of blog",
+    topic: {
+      name: "Web Development",
+    },
+    externalLink: "http://google.com",
+    banner: "https://source.unsplash.com/random",
+    bannerAlt: "Alt text",
+    external: true,
+  },
+  {
+    id: "askdbl323",
+    title: "the title of blog",
+    topic: {
+      name: "Web Development",
+    },
+    externalLink: "http://google.com",
+    banner: "https://source.unsplash.com/random",
+    bannerAlt: "Alt text",
+    external: true,
+  },
+];
 
 const Blog: React.FC & customFCProps = (props: any): JSX.Element => {
-  const { data: blogposts, loading, error, refetch } = useBlogposts();
-
   const { scrollYProgress } = useScroll();
 
   const backgroundScrollPosition = useTransform(
@@ -47,21 +78,19 @@ const Blog: React.FC & customFCProps = (props: any): JSX.Element => {
           rightSideNavText="CONNECT"
         >
           <section className="2xl:w-[1310px] xl:w-[1100px] lg:w-[840px] mx-auto grid grid-cols-12 xl:gap-16 gap-8">
-            {!loading &&
-              !!blogposts &&
-              blogposts.map((data: any, i: number) => (
-                <BlogPeek
-                  key={data.title}
-                  title={data.title}
-                  slug={data.slug}
-                  id={data.id}
-                  banner={data.banner}
-                  bannerAlt={data.bannerAlt}
-                  external={data.external}
-                  externalLink={data.externalLink}
-                  topic={data.topic}
-                />
-              ))}
+            {BLOGPOSTS.map((data: any, i: number) => (
+              <BlogPeek
+                key={data.title}
+                title={data.title}
+                slug={data.slug}
+                id={data.id}
+                banner={data.banner}
+                bannerAlt={data.bannerAlt}
+                external={data.external}
+                externalLink={data.externalLink}
+                topic={data.topic}
+              />
+            ))}
           </section>
         </ContentPage>
       </div>
@@ -96,7 +125,12 @@ function BlogPeek({
       <div className="">
         <div className="w-full relative">
           <div className="aspect-w-16 aspect-h-10 w-full">
-            <Image src={banner} alt={bannerAlt || title} fill={true} />
+            <Image
+              src={banner}
+              alt={bannerAlt || title}
+              fill={true}
+              className="object-cover"
+            />
           </div>
           {external && !!externalLink?.trim() && (
             <div className="absolute bottom-0 right-0">
@@ -130,37 +164,3 @@ Blog.customProps = {
 };
 
 export default Blog;
-
-export const getStaticProps: GetStaticProps = async () => {
-  let blogposts = await prisma.blogPosts.findMany({
-    select: {
-      title: true,
-      slug: true,
-      id: true,
-      banner: true,
-      bannerAlt: true,
-      external: true,
-      externalLink: true,
-      topic: {
-        select: {
-          name: true,
-          slug: true,
-        },
-      },
-    },
-    where: {
-      published: true,
-    },
-    skip: 0,
-    take: 6,
-  });
-
-  blogposts = JSON.parse(JSON.stringify(blogposts));
-
-  return {
-    props: {
-      initialPosts: [blogposts.slice(0, 3), blogposts.slice(3, 6)],
-    },
-    revalidate: 14400,
-  };
-};
