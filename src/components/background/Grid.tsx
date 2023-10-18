@@ -47,8 +47,9 @@ function drawGrid(
   yStart: number = 0,
   xStart: number = 0
 ) {
-  ctx.strokeStyle = "#181818";
   ctx.lineWidth = 0.8;
+  ctx.strokeStyle = "#181818";
+  const SQUARE_SIDE = 104;
   // draw horizontal lines
   while (yStart < window.innerHeight) {
     // console.log("these lines");
@@ -57,7 +58,7 @@ function drawGrid(
     ctx.lineTo(window.innerWidth, yStart);
     ctx.stroke();
 
-    yStart += 104;
+    yStart += SQUARE_SIDE;
   }
 
   //   draw vertical lines
@@ -67,6 +68,6 @@ function drawGrid(
     ctx.lineTo(xStart, window.innerHeight);
     ctx.stroke();
 
-    xStart += 104;
+    xStart += SQUARE_SIDE;
   }
 }

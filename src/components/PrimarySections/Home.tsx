@@ -9,7 +9,7 @@ const Home = () => {
       }}
       className="bg-cover bg-no-repeat bg-center text-white snap-start relative snap-always"
     >
-      <div className="bg-gradient-to-b mt-[-60px] h-screen from-black/90 to-black/95 w-full absolute z-0"></div>
+      <div className="mt-[-60px] h-screen w-full absolute z-0"></div>
       <div className="container mx-auto h-full flex">
         <section className="2xl:w-[900px] xl:w-[800px] flex flex-col h-full z-10">
           <div className="2xl:h-[705px] relative">
