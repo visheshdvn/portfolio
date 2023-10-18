@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
-import ContentPage from "@/components/layouts/contentPage";
+import ContentPage from "@/src/components/layouts/contentPage";
 import { customFCProps } from "@/types/globals";
-import { playfairDisplayFont } from "@/lib/fonts";
+import { playfairDisplayFont } from "@/src/lib/fonts";
 import Image from "next/image";
 import { useScroll, useTransform, motion, useSpring } from "framer-motion";
 

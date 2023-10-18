@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { HomeSectionsLayout } from "../layouts";
-import { playfairDisplayFont } from "@/lib/fonts";
+import { playfairDisplayFont } from "@/src/lib/fonts";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 
 const About = ({

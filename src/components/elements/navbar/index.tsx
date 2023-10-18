@@ -1,24 +1,15 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Disclosure, Menu, Transition, Switch } from "@headlessui/react";
-import { cn } from "@/lib/utils";
+import { Disclosure } from "@headlessui/react";
+import { cn } from "@/src/lib/utils";
 import {
-  BellIcon,
   Bars3Icon as MenuIcon,
   XMarkIcon as XIcon,
   MagnifyingGlassIcon as SearchIcon,
-  MoonIcon,
 } from "@heroicons/react/24/outline";
-// import { useSession, signOut } from "next-auth/react";
-import { useTheme } from "next-themes";
-// import Image from "next/legacy/image";
-// import { sun as SunIcon, moon as moonIcon } from "../../icons/themeSwitch";
-// import { BiSun as SunIcon, BiMoon as moonIcon } from "react-icons/bi";
 import { Lato, Playfair_Display } from "next/font/google";
-import {
-  BsCaretDownFill as CaretDownFill,
-  BsCaretDown as CaretDown,
-} from "react-icons/bs";
 
 export const latoFont = Lato({
   weight: ["700"],
@@ -31,8 +22,9 @@ const playfairDisplayFont = Playfair_Display({
 });
 
 const navigation = [
-  { name: "About", href: "/", dropOptions: { arrow: true } },
-  { name: "Projects", href: "/projects", dropOptions: { arrow: true } },
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Projects", href: "/projects" },
   { name: "Blog", href: "/blog" },
   { name: "Connect", href: "/connect" },
 ];
@@ -43,7 +35,6 @@ export default function Navbar({
   navbarTheme?: "dark" | "light";
 }) {
   const [theme, setTheme] = useState<"light" | "dark">();
-  // console.log("navt", navbarTheme);
 
   useEffect(() => {
     if (navbarTheme !== "light") {
@@ -53,14 +44,6 @@ export default function Navbar({
       setTheme("light");
     }
   }, [navbarTheme, setTheme]);
-
-  // const { data: session, status } = useSession();
-  // const user = session?.user;
-
-  // const [loaded, setLoaded] = useState(false);
-  // useEffect(() => {
-  //   setLoaded(true);
-  // }, []);
 
   return (
     <>
@@ -159,7 +142,7 @@ export default function Navbar({
                 <div className="flex flex-shrink-0 items-center">
                   {/* nav links */}
                   <div className="hidden items-center md:flex">
-                    <div className="flex xl:space-x-8 space-x-6">
+                    <div className="flex xl:space-x-10 space-x-6">
                       {navigation.map((item) => (
                         <div className="flex space-x-1" key={item.name}>
                           <Link
@@ -172,17 +155,6 @@ export default function Navbar({
                           >
                             {item.name}
                           </Link>
-                          {!!item?.dropOptions?.arrow && (
-                            <span className="flex items-center">
-                              <CaretDown
-                                className={
-                                  theme === "dark"
-                                    ? "fill-neutral-400"
-                                    : "fill-neutral-600"
-                                }
-                              />
-                            </span>
-                          )}
                         </div>
                       ))}
                     </div>

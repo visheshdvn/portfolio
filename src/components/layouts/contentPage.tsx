@@ -1,7 +1,7 @@
 import React from "react";
 import LeftSideNav from "../elements/sidenav/leftSideNav";
 import RightSideNav from "../elements/sidenav/rightSideNav";
-import { playfairDisplayFont } from "@/lib/fonts";
+import { playfairDisplayFont } from "@/src/lib/fonts";
 
 const ContentPage = ({
   title,

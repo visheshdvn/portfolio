@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { HomeSectionsLayout } from "../layouts";
-import { playfairDisplayFont } from "@/lib/fonts";
+import { playfairDisplayFont } from "@/src/lib/fonts";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 const projectData = [

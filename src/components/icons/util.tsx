@@ -1,7 +1,7 @@
 import { TbChevronDown } from "react-icons/tb";
 
 import React from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/src/lib/utils";
 
 export const ChevronDown = ({
   className,

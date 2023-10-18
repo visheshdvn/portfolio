@@ -1,22 +1,20 @@
 import React from "react";
-import { latoFont, playfairDisplayFont } from "@/lib/fonts";
+import { latoFont, playfairDisplayFont } from "@/src/lib/fonts";
 
 const Landing = ({
   parentRef,
 }: {
-  parentRef: React.MutableRefObject<null>;
+  parentRef?: React.MutableRefObject<null>;
 }) => {
   return (
     <section
       style={{
-        height: "calc(100vh)",
-        backgroundImage: `url(/portfoliobg.jpg)`,
-        backgroundColor: "black",
+        height: "100vh",
       }}
       className="pt-[60px] bg-cover bg-no-repeat bg-center text-white snap-start relative snap-always"
     >
       <div className="bg-gradient-to-b mt-[-60px] h-screen from-black/90 to-black/95 w-full absolute z-0"></div>
-      <div className="container mx-auto h-full flex 2xl:px-">
+      <div className="container mx-auto h-full flex">
         <section className="2xl:w-[900px] xl:w-[800px] flex flex-col h-full z-10">
           <div className="2xl:h-[705px] relative">
             <div className="absolute left-[73px] top-[120px] z-10">

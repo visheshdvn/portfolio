@@ -1,5 +1,5 @@
 import React from "react";
-import { playfairDisplayFont } from "@/lib/fonts";
+import { playfairDisplayFont } from "@/src/lib/fonts";
 // import { useIsOverflow } from "@/utils/hasYOverflow";
 
 interface LayoutType {

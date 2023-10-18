@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { HomeSectionsLayout } from "../layouts";
-import { latoFont, playfairDisplayFont } from "@/lib/fonts";
+import { latoFont, playfairDisplayFont } from "@/src/lib/fonts";
 import Image from "next/image";
 import Link from "next/link";
 const BlogsSection = ({

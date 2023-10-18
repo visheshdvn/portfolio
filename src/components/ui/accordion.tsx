@@ -4,9 +4,9 @@ import * as React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 // import { ChevronDown } from "lucide-react"
 // import {TbChevronDown as ChevronDown} from "react-icons/tb"
-import { ChevronDown } from "@/components/icons/util";
+import { ChevronDown } from "@/src/components/icons/util";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/src/lib/utils";
 
 const Accordion = AccordionPrimitive.Root;
 
