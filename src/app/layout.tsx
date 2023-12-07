@@ -1,6 +1,6 @@
 import Navbar from "@/src/components/elements/navbar";
-import "@/src/styles/globals.css";
 import AnimatedBG from "../components/background/Grid";
+import "@/src/styles/globals.css";
 
 export const metadata = {
   title: "Vishesh Dhawan",
