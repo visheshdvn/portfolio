@@ -47,7 +47,7 @@ function drawGrid(
   yStart: number = 0,
   xStart: number = 0
 ) {
-  ctx.lineWidth = 0.8;
+  ctx.lineWidth = 0.9;
   ctx.strokeStyle = "#181818";
   const SQUARE_SIDE = 104;
   // draw horizontal lines
