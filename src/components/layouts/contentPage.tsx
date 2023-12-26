@@ -1,7 +1,5 @@
 import React from "react";
-import LeftSideNav from "../elements/sidenav/leftSideNav";
-import RightSideNav from "../elements/sidenav/rightSideNav";
-import { playfairDisplayFont } from "@/src/lib/fonts";
+import SideNav from "../elements/sidenav";
 
 const ContentPage = ({
   title,
@@ -21,18 +19,19 @@ const ContentPage = ({
   return (
     <>
       {rightSideNavLink && rightSideNavText && (
-        <RightSideNav text={rightSideNavText} link={rightSideNavLink} />
+        <SideNav
+          variant="right"
+          text={rightSideNavText}
+          link={rightSideNavLink}
+        />
       )}
       {leftSideNavLink && leftSideNavText && (
-        <LeftSideNav text={leftSideNavText} link={leftSideNavLink} />
+        <SideNav variant="left" text={leftSideNavText} link={leftSideNavLink} />
       )}
       <div className="pt-[106px] container px-0 pb-28">
         <header>
           <div className="flex justify-center">
-            <h1
-              style={playfairDisplayFont.style}
-              className="font-medium xl:text-9xl lg:text-[110px] leading-[1] xl:w-full lg:w-[840px]"
-            >
+            <h1 className="font-medium xl:text-9xl lg:text-[110px] leading-[1] xl:w-full lg:w-[840px] font-primary">
               {title}
             </h1>
           </div>
