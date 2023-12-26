@@ -18,6 +18,8 @@ module.exports = {
     },
     fontFamily: {
       serif: ["Georgia", ...defaultTheme.fontFamily.serif],
+      primary: ["var(--playfair_display-font)"],
+      secondary: ["var(--lato-font)", ...defaultTheme.fontFamily.sans],
     },
     extend: {
       colors: {

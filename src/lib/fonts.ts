@@ -5,6 +5,7 @@ export const playfairDisplayFont = Playfair_Display({
   subsets: ["latin"],
   style: "normal",
   preload: true,
+  variable: "--playfair_display-font",
 });
 
 export const latoFont = Lato({
@@ -12,4 +13,5 @@ export const latoFont = Lato({
   subsets: ["latin"],
   style: "normal",
   preload: true,
+  variable: "--lato-font",
 });
