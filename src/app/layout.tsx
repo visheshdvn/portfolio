@@ -1,9 +1,9 @@
 import Navbar from "@/src/components/elements/navbar";
-import AnimatedBG from "../components/background/Grid";
+import AnimatedBG from "@/src/components/background/Grid";
 import "@/src/styles/globals.css";
 import { latoFont, playfairDisplayFont } from "@/src/lib/fonts";
-import SideNav from "../components/elements/sidenav";
-import { ThemeProvider } from "../context/theme";
+import SideNav from "@/src/components/elements/sidenav";
+import { ThemeProvider } from "@/src/context/theme";
 
 export const metadata = {
   title: "Vishesh Dhawan",
