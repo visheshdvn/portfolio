@@ -1,4 +1,6 @@
 import slugify from "slugify";
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 //
 // generate random string of length n -> default 6
@@ -60,4 +62,11 @@ export function isValidURL(str: string) {
   } catch (e) {
     return false;
   }
+}
+
+//
+//  merge tailwind classes
+//
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
 }
