@@ -3,11 +3,15 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import clsx from "clsx";
+import { cn } from "@/src/lib/utils";
 // import { motion } from "framer-motion";
+
+const DARK_MODE_GRID_COLOR = "#202020";
+const LIGHT_MODE_GRID_COLOR = "#F2F2F2";
 
 export default function AnimatedBG() {
   const pathname = usePathname();
-  const [gridColor, setGridColor] = useState("#f2f2f2");
+  const [colorMode, setColorMode] = useState<"dark" | "light">("dark");
 
   let canvasRef = useRef(null);
 
@@ -17,11 +21,16 @@ export default function AnimatedBG() {
   const [context2D, setContext2D] = useState<CanvasRenderingContext2D | null>();
 
   const redrawCanvas = useCallback(() => {
-    if (context2D && gridColor) {
+    if (context2D && colorMode) {
       context2D.clearRect(0, 0, window.innerWidth, window.innerHeight);
-      drawGrid(context2D, 0, 0, gridColor);
+      drawGrid(
+        context2D,
+        0,
+        0,
+        colorMode === "dark" ? DARK_MODE_GRID_COLOR : LIGHT_MODE_GRID_COLOR
+      );
     }
-  }, [context2D, gridColor]);
+  }, [context2D, colorMode]);
 
   // initialize the canvas
   useEffect(() => {
@@ -42,19 +51,22 @@ export default function AnimatedBG() {
   // set grid color on route change and draw canvas
   useEffect(() => {
     if (pathname === "/") {
-      setGridColor("#202020");
+      setColorMode("dark");
     } else {
-      setGridColor("#f2f2f2");
+      setColorMode("light");
     }
 
     redrawCanvas();
-  }, [pathname, context2D, gridColor, redrawCanvas]);
+  }, [pathname, context2D, redrawCanvas]);
 
   return (
     <>
       <canvas
         ref={canvasRef}
-        className={clsx("h-screen w-screen absolute")}
+        className={cn("h-screen w-screen absolute -z-50", {
+          "bg-black": colorMode === "dark",
+          "bg-white": colorMode === "light",
+        })}
       ></canvas>
     </>
   );

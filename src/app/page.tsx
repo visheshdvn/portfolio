@@ -4,7 +4,7 @@ import { Home as HomeSection, Intro } from "src/components/PrimarySections";
 const Home = () => {
   return (
     <>
-      <div className="h-screen w-screen overflow-hidden pt-[60px] text-white bg-black">
+      <div className="h-screen w-screen overflow-hidden pt-[60px] text-white">
         <div id="home-sections-container" className="">
           {/* <HomeSection /> */}
           <Intro />

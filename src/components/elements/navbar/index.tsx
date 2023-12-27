@@ -3,13 +3,13 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Disclosure } from "@headlessui/react";
-import { cn } from "@/src/lib/utils";
+import { cn } from "@/src/utils/utilityFunctions";
 import {
   Bars3Icon as MenuIcon,
   XMarkIcon as XIcon,
   MagnifyingGlassIcon as SearchIcon,
 } from "@heroicons/react/24/outline";
-import { playfairDisplayFont, latoFont } from "@/src/lib/fonts";
+import { usePathname } from "next/navigation";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -19,29 +19,27 @@ const navigation = [
   { name: "Connect", href: "/connect" },
 ];
 
-export default function Navbar({
-  navbarTheme,
-}: {
-  navbarTheme?: "dark" | "light";
-}) {
-  const [theme, setTheme] = useState<"light" | "dark">();
+export default function Navbar() {
+  const [theme, setTheme] = useState<"light" | "dark">("dark");
+  const pathname = usePathname();
+  // console.log("path", pathname);
 
   useEffect(() => {
-    if (navbarTheme !== "light") {
-      setTheme("dark");
-    } else {
+    if (pathname !== "/") {
       setTheme("light");
+    } else {
+      setTheme("dark");
     }
-  }, [navbarTheme, setTheme]);
+  }, [pathname, setTheme]);
 
   return (
     <>
       <Disclosure
         as="nav"
         className={cn(
-          "fixed top-0 z-40 w-full bg-black/30 border-b border-[#202020]",
+          "fixed top-0 z-40 w-full bg-black/20 border-b border-[#202020]",
           {
-            "bg-white": theme === "light",
+            "bg-white/20": theme === "light",
           }
         )}
       >
@@ -113,16 +111,14 @@ export default function Navbar({
                   </svg>
                   <div className="flex flex-col space-y-1">
                     <p
-                      style={latoFont.style}
-                      className={`leading-none tracking-[10.5px] text-sm ${
+                      className={`leading-none tracking-[10.5px] text-sm font-secondary ${
                         theme === "light" ? "text-black" : "text-white"
                       }`}
                     >
                       Vishesh
                     </p>
                     <p
-                      style={latoFont.style}
-                      className={`leading-none text-sm tracking-[10.5px] ${
+                      className={`leading-none text-sm tracking-[10.5px] font-secondary ${
                         theme === "light" ? "text-black" : "text-white"
                       }`}
                     >
@@ -138,7 +134,6 @@ export default function Navbar({
                       {navigation.map((item) => (
                         <div className="flex space-x-1" key={item.name}>
                           <Link
-                            style={playfairDisplayFont.style}
                             href={item.href}
                             className={cn(
                               "font-primary text-white text-sm font-normal hover:underline decoration-dotted",
@@ -163,7 +158,11 @@ export default function Navbar({
                   </button> */}
                   <Link href={"/search"} legacyBehavior>
                     <button className="mr-4 h-5 w-5 outline-none">
-                      <SearchIcon className="h-full w-full stroke-white" />
+                      <SearchIcon
+                        className={cn("h-full w-full stroke-2 stroke-white", {
+                          "stroke-black": theme === "light",
+                        })}
+                      />
                     </button>
                   </Link>
                 </div>
