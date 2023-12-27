@@ -1,17 +1,22 @@
 "use client";
 
-import React, { useEffect, useState, useRef, useCallback } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
-import clsx from "clsx";
+import React, {
+  useEffect,
+  useState,
+  useRef,
+  useCallback,
+  useContext,
+} from "react";
 import { cn } from "@/src/lib/utils";
-// import { motion } from "framer-motion";
+import { ThemeContext } from "@/src/context/theme";
 
 const DARK_MODE_GRID_COLOR = "#202020";
 const LIGHT_MODE_GRID_COLOR = "#F2F2F2";
 
 export default function AnimatedBG() {
-  const pathname = usePathname();
-  const [colorMode, setColorMode] = useState<"dark" | "light">("dark");
+  // @ts-ignore
+  const { theme } = useContext(ThemeContext);
+  // console.log("theme in grid", theme);
 
   let canvasRef = useRef(null);
 
@@ -21,16 +26,16 @@ export default function AnimatedBG() {
   const [context2D, setContext2D] = useState<CanvasRenderingContext2D | null>();
 
   const redrawCanvas = useCallback(() => {
-    if (context2D && colorMode) {
+    if (context2D && theme) {
       context2D.clearRect(0, 0, window.innerWidth, window.innerHeight);
       drawGrid(
         context2D,
         0,
         0,
-        colorMode === "dark" ? DARK_MODE_GRID_COLOR : LIGHT_MODE_GRID_COLOR
+        theme === "dark" ? DARK_MODE_GRID_COLOR : LIGHT_MODE_GRID_COLOR
       );
     }
-  }, [context2D, colorMode]);
+  }, [context2D, theme]);
 
   // initialize the canvas
   useEffect(() => {
@@ -50,22 +55,16 @@ export default function AnimatedBG() {
 
   // set grid color on route change and draw canvas
   useEffect(() => {
-    if (pathname === "/") {
-      setColorMode("dark");
-    } else {
-      setColorMode("light");
-    }
-
     redrawCanvas();
-  }, [pathname, context2D, redrawCanvas]);
+  }, [theme, context2D, redrawCanvas]);
 
   return (
     <>
       <canvas
         ref={canvasRef}
         className={cn("h-screen w-screen absolute -z-50", {
-          "bg-black": colorMode === "dark",
-          "bg-white": colorMode === "light",
+          "bg-black": theme === "dark",
+          "bg-white": theme === "light",
         })}
       ></canvas>
     </>

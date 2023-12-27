@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import { Disclosure } from "@headlessui/react";
 import { cn } from "@/src/utils/utilityFunctions";
@@ -10,6 +10,7 @@ import {
   MagnifyingGlassIcon as SearchIcon,
 } from "@heroicons/react/24/outline";
 import { usePathname } from "next/navigation";
+import { ThemeContext } from "@/src/context/theme";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -20,9 +21,10 @@ const navigation = [
 ];
 
 export default function Navbar() {
-  const [theme, setTheme] = useState<"light" | "dark">("dark");
+  
+  // @ts-ignore
+  const { theme, setTheme } = useContext(ThemeContext);
   const pathname = usePathname();
-  // console.log("path", pathname);
 
   useEffect(() => {
     if (pathname !== "/") {
