@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${latoFont.variable} ${playfairDisplayFont.variable}`}>
+      <body className={`${latoFont.variable} ${playfairDisplayFont.variable} overflow-x-hidden`}>
         <ThemeProvider>
           <Navbar />
           <AnimatedBG />

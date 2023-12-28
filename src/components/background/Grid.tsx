@@ -62,7 +62,7 @@ export default function AnimatedBG() {
     <>
       <canvas
         ref={canvasRef}
-        className={cn("h-screen w-screen absolute -z-50", {
+        className={cn("h-screen w-screen fixed -z-50", {
           "bg-black": theme === "dark",
           "bg-white": theme === "light",
         })}

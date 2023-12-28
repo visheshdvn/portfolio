@@ -8,7 +8,7 @@
 }
 
 .about-para {
-  @apply text-lg leading-[1.45];
+  @apply text-lg leading-[1.45] font-serif font-normal;
 }
 
 .about-para:not(:last-of-type) {
@@ -17,4 +17,10 @@
 
 .global-spacing {
   @apply pt-[60px];
+}
+
+/* content section */
+
+.content-section {
+  @apply max-w-[1308px] mx-auto;
 }
