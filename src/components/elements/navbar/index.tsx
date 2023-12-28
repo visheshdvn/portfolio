@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import Link from "next/link";
 import { Disclosure } from "@headlessui/react";
 import { cn } from "@/src/utils/utilityFunctions";
@@ -41,7 +41,7 @@ export default function Navbar() {
         className={cn(
           "fixed top-0 z-40 w-full bg-black/20 border-b border-[#202020]",
           {
-            "bg-white/20": theme === "light",
+            "bg-clip-padding bg-gray-100 backdrop-filter backdrop-blur-sm bg-opacity-20": theme === "light",
           }
         )}
       >
@@ -113,14 +113,14 @@ export default function Navbar() {
                   </svg>
                   <div className="flex flex-col space-y-1">
                     <p
-                      className={`leading-none tracking-[10.5px] text-sm font-secondary ${
+                      className={`leading-none font-bold tracking-[10.5px] text-sm font-secondary ${
                         theme === "light" ? "text-black" : "text-white"
                       }`}
                     >
                       Vishesh
                     </p>
                     <p
-                      className={`leading-none text-sm tracking-[10.5px] font-secondary ${
+                      className={`leading-none font-bold text-sm tracking-[10.5px] font-secondary ${
                         theme === "light" ? "text-black" : "text-white"
                       }`}
                     >
@@ -196,26 +196,5 @@ export default function Navbar() {
         )}
       </Disclosure>
     </>
-  );
-}
-
-function ItemButton({ text, action }: { text: string; action: () => void }) {
-  return (
-    <button
-      onClick={action}
-      className="font-primary block w-full px-4 py-2 text-left text-sm font-bold text-gray-700 hover:bg-gray-100"
-    >
-      {text}
-    </button>
-  );
-}
-
-function ItemLink({ text, link }: { text: string; link: string }) {
-  return (
-    <Link href={`${link}`} legacyBehavior>
-      <a className="font-primary block px-4 py-2 text-sm font-bold text-gray-700 hover:bg-gray-100">
-        {text}
-      </a>
-    </Link>
   );
 }
