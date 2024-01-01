@@ -1,8 +1,29 @@
-import React from "react";
+"use client";
+
+import React, { useContext, useEffect } from "react";
 import { About as AboutSection } from "@/src/components/PrimarySections";
 import Image from "next/image";
+import { type SideNavDataType } from "@/src/context/sideNav";
+import { SideNavContext } from "@/src/context/sideNav";
 
 const About = () => {
+  // @ts-ignore
+  const { navData, setNavData } = useContext(SideNavContext);
+  // console.log(navData);
+  useEffect(() => {
+    setNavData<SideNavDataType>({
+      ...navData,
+      right: {
+        text: "PROJECTS",
+        link: "/projects",
+      },
+      left: {
+        text: "HOME",
+        link: "/",
+      },
+    });
+  }, []);
+
   return (
     <main>
       <div className="mt-10">

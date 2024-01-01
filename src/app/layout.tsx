@@ -2,8 +2,10 @@ import Navbar from "@/src/components/elements/navbar";
 import AnimatedBG from "@/src/components/background/Grid";
 import "@/src/styles/globals.css";
 import { latoFont, playfairDisplayFont } from "@/src/lib/fonts";
-import SideNav from "@/src/components/elements/sidenav";
+import SideNav from "@/src/components/elements/sidenav/atom";
+import SideNavs from "@/src/components/elements/sidenav";
 import { ThemeProvider } from "@/src/context/theme";
+import { SideNavProvider } from "@/src/context/sideNav";
 
 export const metadata = {
   title: "Vishesh Dhawan",
@@ -18,12 +20,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${latoFont.variable} ${playfairDisplayFont.variable} overflow-x-hidden`}>
+      <body
+        className={`${latoFont.variable} ${playfairDisplayFont.variable} overflow-x-hidden`}
+      >
         <ThemeProvider>
-          <Navbar />
-          <AnimatedBG />
-          <SideNav variant="right" text="ABOUT" link="/about" />
-          {children}
+          <SideNavProvider>
+            <Navbar />
+            <AnimatedBG />
+            <SideNavs />
+            {children}
+          </SideNavProvider>
         </ThemeProvider>
       </body>
     </html>
