@@ -17,7 +17,7 @@ const Home = () => {
       },
       left: null,
     });
-  }, [setNavData, navData]);
+  }, []);
 
   return (
     <>

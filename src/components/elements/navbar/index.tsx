@@ -21,7 +21,6 @@ const navigation = [
 ];
 
 export default function Navbar() {
-  
   // @ts-ignore
   const { theme, setTheme } = useContext(ThemeContext);
   const pathname = usePathname();
@@ -41,7 +40,8 @@ export default function Navbar() {
         className={cn(
           "fixed top-0 z-40 w-full bg-black/20 border-b border-[#202020]",
           {
-            "bg-clip-padding bg-gray-100 backdrop-filter backdrop-blur-sm bg-opacity-20": theme === "light",
+            "bg-clip-padding bg-gray-100 backdrop-filter backdrop-blur-sm bg-opacity-20":
+              theme === "light",
           }
         )}
       >

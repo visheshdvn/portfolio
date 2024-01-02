@@ -21,7 +21,7 @@ const BlogPage = () => {
         link: "/connect",
       },
     });
-  }, [navData, setNavData]);
+  }, []);
 
   return (
     <>

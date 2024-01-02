@@ -18,7 +18,7 @@ const ConnectPage = () => {
       },
       right: null,
     });
-  }, [navData, setNavData]);
+  }, []);
 
   return (
     <>

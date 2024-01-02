@@ -8,7 +8,6 @@ import SideNav from "./atom";
 const SideNavs = () => {
   // @ts-ignore
   const { navData } = useContext(SideNavContext);
-  // console.log(navData);
 
   return (
     <>

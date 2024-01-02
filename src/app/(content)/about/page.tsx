@@ -23,7 +23,7 @@ const About = () => {
         link: "/",
       },
     });
-  }, [navData, setNavData]);
+  }, []);
 
   return (
     <>

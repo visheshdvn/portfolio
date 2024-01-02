@@ -21,7 +21,7 @@ const ProjectsPage = () => {
         link: "/blog",
       },
     });
-  }, [navData, setNavData]);
+  }, []);
 
   return (
     <>
