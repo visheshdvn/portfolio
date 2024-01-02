@@ -5,7 +5,7 @@ import { type SideNavDataType } from "@/src/context/sideNav";
 import { SideNavContext } from "@/src/context/sideNav";
 import Watermark from "@/src/components/background/Watermark";
 
-const BlogPage = () => {
+const ConnectPage = () => {
   // @ts-ignore
   const { navData, setNavData } = useContext(SideNavContext);
 
@@ -13,13 +13,10 @@ const BlogPage = () => {
     setNavData<SideNavDataType>({
       ...navData,
       left: {
-        text: "PROJECTS",
-        link: "/projects",
+        text: "BLOG",
+        link: "/blog",
       },
-      right: {
-        text: "CONNECT",
-        link: "/connect",
-      },
+      right: null,
     });
   }, [navData, setNavData]);
 
@@ -27,8 +24,8 @@ const BlogPage = () => {
     <>
       <main>
         <div className="mt-10">
-          <h1 className="font-primary pt-1 text-9xl font-medium mb-20">
-            Blog.
+          <h1 className="font-primary pt-1 text-9xl font-medium mb-20 text-white">
+            Connect.
           </h1>
           <div className="content-section mb-24">
             <div className="grid grid-cols-2 gap-4">
@@ -38,9 +35,9 @@ const BlogPage = () => {
           </div>
         </div>
       </main>
-      <Watermark text="BLOG" />
+      <Watermark text="CONNECT" className="text-[#202020]" />
     </>
   );
 };
 
-export default BlogPage;
+export default ConnectPage;

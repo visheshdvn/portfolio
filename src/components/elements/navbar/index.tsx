@@ -27,10 +27,10 @@ export default function Navbar() {
   const pathname = usePathname();
 
   useEffect(() => {
-    if (pathname !== "/") {
-      setTheme("light");
-    } else {
+    if (pathname == "/" || pathname == "/connect") {
       setTheme("dark");
+    } else {
+      setTheme("light");
     }
   }, [pathname, setTheme]);
 

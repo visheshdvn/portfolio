@@ -1,26 +1,24 @@
 "use client";
 
 import React, { useContext, useEffect } from "react";
-import { About as AboutSection } from "@/src/components/PrimarySections";
-import Image from "next/image";
 import { type SideNavDataType } from "@/src/context/sideNav";
 import { SideNavContext } from "@/src/context/sideNav";
 import Watermark from "@/src/components/background/Watermark";
 
-const About = () => {
+const ProjectsPage = () => {
   // @ts-ignore
   const { navData, setNavData } = useContext(SideNavContext);
   // console.log(navData);
   useEffect(() => {
     setNavData<SideNavDataType>({
       ...navData,
-      right: {
-        text: "PROJECTS",
-        link: "/projects",
-      },
       left: {
-        text: "HOME",
-        link: "/",
+        text: "ABOUT",
+        link: "/about",
+      },
+      right: {
+        text: "BLOG",
+        link: "/blog",
       },
     });
   }, [navData, setNavData]);
@@ -30,10 +28,10 @@ const About = () => {
       <main>
         <div className="mt-10">
           <h1 className="font-primary pt-1 text-9xl font-medium mb-20">
-            About.
+            Projects.
           </h1>
           <div className="content-section mb-24">
-            <div className="grid grid-cols-7 gap-4">
+            {/* <div className="grid grid-cols-7 gap-4">
               <div className="col-span-4 pr-5">
                 <AboutSection />
               </div>
@@ -49,13 +47,13 @@ const About = () => {
                   />
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </main>
-      <Watermark text="ABOUT" />
+      <Watermark text="Projects" />
     </>
   );
 };
 
-export default About;
+export default ProjectsPage;

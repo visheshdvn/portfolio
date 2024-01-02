@@ -16,11 +16,11 @@ const Watermark = ({
         <div
           {...props}
           className={cn(
-            "absolute font-secondary text-[152px] font-black -z-10 text-[#f8f7f7] top-[70%] left-1/2",
+            "absolute font-secondary text-[152px] font-black -z-10 text-[#f8f7f7] top-[68%] left-1/2",
             className
           )}
         >
-          <p className="leading-none select-none">{text}</p>
+          <p className="leading-none select-none uppercase">{text}</p>
         </div>
       </div>
     </>
