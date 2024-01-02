@@ -111,7 +111,7 @@ export default function Navbar() {
                       strokeWidth="1.6"
                     />
                   </svg>
-                  <div className="flex flex-col space-y-1">
+                  <div className="flex flex-col space-y-1 select-none">
                     <p
                       className={`leading-none font-bold tracking-[10.5px] text-sm font-secondary ${
                         theme === "light" ? "text-black" : "text-white"

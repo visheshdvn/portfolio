@@ -38,7 +38,7 @@ const About = () => {
                 <AboutSection />
               </div>
               <div className="relative col-span-3">
-                <div className="absolute right-0 -top-32 w-[512px] h-[512px] border border-black">
+                <div className="absolute right-0 -top-32 w-[512px] h-[512px] border border-black select-none">
                   <Image
                     fill={true}
                     src="https://source.unsplash.com/random/512×512?face"

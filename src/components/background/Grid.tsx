@@ -10,7 +10,7 @@ import React, {
 import { cn } from "@/src/lib/utils";
 import { ThemeContext } from "@/src/context/theme";
 
-const DARK_MODE_GRID_COLOR = "#202020";
+const DARK_MODE_GRID_COLOR = "#222222";
 const LIGHT_MODE_GRID_COLOR = "#F2F2F2";
 
 export default function AnimatedBG() {
@@ -79,7 +79,7 @@ function drawGrid(
 ) {
   // console.log(gridColor);
 
-  ctx.lineWidth = 0.9;
+  ctx.lineWidth = 0.8;
   ctx.strokeStyle = gridColor;
   const SQUARE_SIDE = 104;
   // draw horizontal lines
