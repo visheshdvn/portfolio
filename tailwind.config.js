@@ -24,6 +24,7 @@ module.exports = {
     extend: {
       colors: {
         "borders-dark": "#363636",
+        "borders-light": "#71717A"
       },
     },
   },

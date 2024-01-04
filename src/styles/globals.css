@@ -24,3 +24,8 @@
 .content-section {
   @apply max-w-[1308px] mx-auto;
 }
+
+/*  */
+.project-list:not(:last-of-type) {
+  @apply border-b-2 border-borders-light;
+}

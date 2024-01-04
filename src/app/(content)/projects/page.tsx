@@ -1,14 +1,50 @@
 "use client";
 
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { type SideNavDataType } from "@/src/context/sideNav";
 import { SideNavContext } from "@/src/context/sideNav";
 import Watermark from "@/src/components/background/Watermark";
+import Link from "next/link";
+import Image from "next/image";
+import { cn } from "@/src/lib/utils";
+import { useInView } from "framer-motion";
+
+const projects = [
+  {
+    displayName: "lumbytes.com",
+    about: "Lumbytes if a blogging website",
+    url: "https://lumbytes.com",
+    tech: "full-stack",
+    banner: "https://source.unsplash.com/random/512×512?painting",
+    bannerAlt: "LumBytes",
+  },
+  {
+    displayName: "Portfolio",
+    about: "My portfolio",
+    url: "https://lumbytes.com",
+    tech: "full-stack",
+    banner: "https://source.unsplash.com/random/512×512?funny",
+    bannerAlt: "Portfolio",
+  },
+];
 
 const ProjectsPage = () => {
   // @ts-ignore
   const { navData, setNavData } = useContext(SideNavContext);
-  // console.log(navData);
+  const [hovererdProject, setHovererdProject] = useState(projects[0]);
+  const imageSlateRef = useRef(null);
+  const gridRef = useRef(null);
+
+  useEffect(() => {
+    if (gridRef.current) {
+      const slate = gridRef.current as HTMLElement;
+      const distanceFromBottom =
+        window.innerHeight - slate.getBoundingClientRect().bottom;
+
+      slate.style.height = slate.offsetHeight + distanceFromBottom + "px";
+    }
+  }, [gridRef]);
+
   useEffect(() => {
     setNavData<SideNavDataType>({
       ...navData,
@@ -23,6 +59,8 @@ const ProjectsPage = () => {
     });
   }, []);
 
+  const isInView = useInView(imageSlateRef, { once: true });
+
   return (
     <>
       <main>
@@ -31,23 +69,68 @@ const ProjectsPage = () => {
             Projects.
           </h1>
           <div className="content-section mb-24">
-            {/* <div className="grid grid-cols-7 gap-4">
-              <div className="col-span-4 pr-5">
-                <AboutSection />
-              </div>
-              <div className="relative col-span-3">
-                <div className="absolute right-0 -top-32 w-[512px] h-[512px] border border-black select-none">
+            <div ref={gridRef} className="grid grid-cols-11 gap-4">
+              <div
+                className="col-span-6 pr-5"
+                ref={imageSlateRef}
+                style={{
+                  opacity: isInView ? 1 : 0,
+                  transition: "all 0.3s cubic-bezier(0.17, 0.55, 0.55, 1) 0.2s",
+                }}
+              >
+                <div className="relative max-w-[666px] h-full rounded-tr-3xl overflow-hidden">
                   <Image
-                    fill={true}
-                    src="https://images.unsplash.com/photo-1521119989659-a83eee488004?q=80&w=512&auto=format&fit=crop"
-                    // src="https://source.unsplash.com/random/512×512?face"
-                    alt="Vishesh Dhawan"
-                    priority
+                    src={hovererdProject.banner}
+                    alt={hovererdProject.bannerAlt}
                     className="object-cover object-center"
+                    fill={true}
+                    sizes="(max-width: 700px) 100vw, 33vw"
+                    priority
                   />
                 </div>
               </div>
-            </div> */}
+              <div className="relative col-span-5 font-secondary">
+                <div className="flex flex-col w-full mt-5">
+                  {projects.map((project) => {
+                    return (
+                      <div
+                        key={project.displayName}
+                        onMouseEnter={() => setHovererdProject(project)}
+                        onMouseLeave={() => setHovererdProject(projects[0])}
+                        className={cn(
+                          "flex items-center w-full h-20 font-bold hover:text-black text-[28px] project-list text-borders-light cursor-pointer px-2",
+                          {
+                            "text-black":
+                              hovererdProject.displayName ===
+                              project.displayName,
+                          }
+                        )}
+                      >
+                        {project.url ? (
+                          <Link
+                            href={project.url}
+                            className="flex-1"
+                            target="_blank"
+                          >
+                            <h4 className="leading-none transform transition-colors duration-800">
+                              {project.displayName}
+                            </h4>
+                          </Link>
+                        ) : (
+                          <h4 className="flex-1 leading-none transform transition-colors duration-800">
+                            {project.displayName}
+                          </h4>
+                        )}
+
+                        <div className="font-semibold text-sm leading-none">
+                          {project.tech}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </main>
