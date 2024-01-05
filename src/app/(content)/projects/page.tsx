@@ -23,7 +23,8 @@ const projects = [
     about: "My portfolio",
     url: "https://lumbytes.com",
     tech: "full-stack",
-    banner: "https://source.unsplash.com/random/512×512?funny",
+    banner:
+      "https://images.unsplash.com/flagged/photo-1572392640988-ba48d1a74457?q=80&w=1964&auto=format&fit=crop",
     bannerAlt: "Portfolio",
   },
 ];
@@ -40,7 +41,6 @@ const ProjectsPage = () => {
       const slate = gridRef.current as HTMLElement;
       const distanceFromBottom =
         window.innerHeight - slate.getBoundingClientRect().bottom;
-
       slate.style.height = slate.offsetHeight + distanceFromBottom + "px";
     }
   }, [gridRef]);
@@ -90,7 +90,7 @@ const ProjectsPage = () => {
                 </div>
               </div>
               <div className="relative col-span-5 font-secondary">
-                <div className="flex flex-col w-full mt-5">
+                <div className="flex flex-col w-full">
                   {projects.map((project) => {
                     return (
                       <div

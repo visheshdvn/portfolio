@@ -34,7 +34,7 @@ const BlogsSection = ({
   );
 };
 
-function BlogPeek({ data }: { data: any }) {
+export function BlogPeek({ data }: { data: any }) {
   const { title, topic, slug, banner, bannerAlt, external, externalLink } =
     data;
 

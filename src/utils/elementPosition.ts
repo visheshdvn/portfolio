@@ -1,5 +1,3 @@
-import { posix } from "path";
-
 export function isElementBelowViewport(
   elementRef: React.RefObject<HTMLElement>
 ) {

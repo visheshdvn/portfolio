@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
-import { playfairDisplayFont } from "@/src/lib/fonts";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { useScroll, useInView } from "framer-motion";
 
 const About = ({
   parentRef,
@@ -29,10 +28,10 @@ const About = ({
       // viewport={{ once: true }}
       // whileInView="onscreen"
       style={{
-        ...playfairDisplayFont.style,
         opacity: isInView ? 1 : 0,
         transition: "all 1.3s cubic-bezier(0.17, 0.55, 0.55, 1) 0.2s",
       }}
+      className="font-primary"
     >
       <div>
         <h1 className="text-4xl mb-5 font-medium">Professional Experience</h1>

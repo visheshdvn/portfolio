@@ -29,3 +29,16 @@
 .project-list:not(:last-of-type) {
   @apply border-b-2 border-borders-light;
 }
+
+/*  */
+.blog-list:nth-of-type(3n + 1) {
+  /* @apply; */
+}
+
+.blog-list:nth-of-type(3n) {
+  @apply flex justify-end;
+}
+
+.blog-list:nth-of-type(3n-1) {
+  @apply flex justify-center;
+}
