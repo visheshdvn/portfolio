@@ -154,7 +154,7 @@ const BlogPage = () => {
   );
 };
 
-export function BlogPeek({ data }: { data: any }) {
+function BlogPeek({ data }: { data: any }) {
   const { title, topic, slug, banner, bannerAlt, external, externalLink } =
     data;
 
