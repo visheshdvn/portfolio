@@ -24,7 +24,19 @@ module.exports = {
     extend: {
       colors: {
         "borders-dark": "#363636",
-        "borders-light": "#71717A"
+        "borders-light": "#71717A",
+      },
+      transitionDuration: {
+        10000: "20000ms",
+      },
+      animation: {
+        fade: "fadeIn 3s ease-in-out",
+      },
+      keyframes: {
+        fadeIn: {
+          from: { opacity: 0 },
+          to: { opacity: 1 },
+        },
       },
     },
   },
