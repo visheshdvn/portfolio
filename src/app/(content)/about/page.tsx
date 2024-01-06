@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { About as AboutSection } from "@/src/components/PrimarySections";
 import Image from "next/image";
 import { type SideNavDataType } from "@/src/context/sideNav";
 import { SideNavContext } from "@/src/context/sideNav";
 import Watermark from "@/src/components/background/Watermark";
+import { useScroll, useInView } from "framer-motion";
 
 const About = () => {
   // @ts-ignore
@@ -25,6 +26,9 @@ const About = () => {
     });
   }, []);
 
+  const fadeInRef = useRef(null);
+  const isInView = useInView(fadeInRef, { once: true });
+
   return (
     <>
       <main>
@@ -38,7 +42,15 @@ const About = () => {
                 <AboutSection />
               </div>
               <div className="relative col-span-3">
-                <div className="absolute right-0 -top-32 w-[512px] h-[512px] border border-black select-none">
+                <div
+                  ref={fadeInRef}
+                  style={{
+                    opacity: isInView ? 1 : 0,
+                    transition:
+                      "all .7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+                  }}
+                  className="absolute right-0 -top-32 w-[512px] h-[512px] border border-black select-none"
+                >
                   <Image
                     fill={true}
                     src="https://images.unsplash.com/photo-1521119989659-a83eee488004?q=80&w=512&auto=format&fit=crop"

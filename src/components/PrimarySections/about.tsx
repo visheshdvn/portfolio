@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
-import { useScroll, useInView } from "framer-motion";
+import React from "react";
 
 const About = ({
   parentRef,
@@ -10,29 +9,12 @@ const About = ({
   parentRef?: React.MutableRefObject<null>;
   myRef?: React.MutableRefObject<null>;
 }) => {
-  const fadeInRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    container: parentRef,
-    target: myRef,
-    offset: ["start end", "end start"],
-  });
+  
 
-  const isInView = useInView(fadeInRef, { once: true });
+  
 
   return (
-    <div
-      ref={fadeInRef}
-      // initial={{ opacity: 0 }}
-      // animate={{ opacity: 1 }}
-      // transition={{ duration: 1, delay: 1.2 }}
-      // viewport={{ once: true }}
-      // whileInView="onscreen"
-      style={{
-        opacity: isInView ? 1 : 0,
-        transition: "all 1.3s cubic-bezier(0.17, 0.55, 0.55, 1) 0.2s",
-      }}
-      className="font-primary"
-    >
+    <div className="font-primary">
       <div>
         <h1 className="text-4xl mb-5 font-medium">Professional Experience</h1>
         <p className="about-para">
