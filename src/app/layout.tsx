@@ -1,8 +1,7 @@
+import "@/src/styles/globals.css";
 import Navbar from "@/src/components/elements/navbar";
 import AnimatedBG from "@/src/components/background/Grid";
-import "@/src/styles/globals.css";
 import { latoFont, playfairDisplayFont } from "@/src/lib/fonts";
-import SideNav from "@/src/components/elements/sidenav/atom";
 import SideNavs from "@/src/components/elements/sidenav";
 import { ThemeProvider } from "@/src/context/theme";
 import { SideNavProvider } from "@/src/context/sideNav";

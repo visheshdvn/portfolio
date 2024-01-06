@@ -6,7 +6,7 @@ import Image from "next/image";
 import { type SideNavDataType } from "@/src/context/sideNav";
 import { SideNavContext } from "@/src/context/sideNav";
 import Watermark from "@/src/components/background/Watermark";
-import { useScroll, useInView } from "framer-motion";
+import { useInView } from "framer-motion";
 
 const About = () => {
   // @ts-ignore

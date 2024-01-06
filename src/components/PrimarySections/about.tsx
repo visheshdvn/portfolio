@@ -2,17 +2,7 @@
 
 import React from "react";
 
-const About = ({
-  parentRef,
-  myRef,
-}: {
-  parentRef?: React.MutableRefObject<null>;
-  myRef?: React.MutableRefObject<null>;
-}) => {
-  
-
-  
-
+const About = () => {
   return (
     <div className="font-primary">
       <div>
