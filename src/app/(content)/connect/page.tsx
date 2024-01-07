@@ -39,6 +39,8 @@ const ConnectPage = () => {
                     alt="Vishesh Dhawan"
                     fill={true}
                     sizes="(max-width: 200px)"
+                    placeholder="blur"
+                    blurDataURL={"/me_connect.jpg"}
                     priority
                   />
                 </div>
