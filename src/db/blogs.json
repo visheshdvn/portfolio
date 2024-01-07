@@ -1,0 +1,156 @@
+[
+  {
+    "title": "Master React hooks: Introduction with examples and best practices",
+    "topic": {
+      "name": "WEB DEVELOPMENT"
+    },
+    "slug": "",
+    "banner": "https://lumbytes-development.s3.eu-west-1.amazonaws.com/Blockchain-1682684704605.jpg",
+    "bannerAlt": "LumBytes - React Hooks explained.",
+    "external": true,
+    "externalLink": "https://lumbytes.com/code/master-react-hooks-introduction-with-examples-and-best-pactiecs-awu0om"
+  },
+  {
+    "title": "Top 10 best backend development frameworks to build modern web applications",
+    "topic": {
+      "name": "WEB DEVELOPMENT"
+    },
+    "slug": "",
+    "banner": "https://lumbytes-development.s3.eu-west-1.amazonaws.com/backend+Frameworks-1680802717875.png",
+    "bannerAlt": "top 10 backend frameworks",
+    "external": true,
+    "externalLink": "top 10 backend frameworks"
+  },
+  {
+    "title": "Proof of Work (PoW) consensus algorithm.",
+    "topic": {
+      "name": "BLOCKCHAIN"
+    },
+    "slug": "",
+    "banner": "https://lumbytes-development.s3.eu-west-1.amazonaws.com/Proof%20of%20Work-1680802509973.jpg",
+    "bannerAlt": "proof of work",
+    "external": true,
+    "externalLink": "https://lumbytes.com/code/proof-of-work-pow-consensus-algorithm"
+  },
+  {
+    "title": "What are the consensus algorithms in blockchains?",
+    "topic": {
+      "name": "BLOCKCHAIN"
+    },
+    "slug": "",
+    "banner": "https://lumbytes-development.s3.eu-west-1.amazonaws.com/Consensus%20Algorithms-1680802163037.png",
+    "bannerAlt": "consensus algorithms",
+    "external": true,
+    "externalLink": "https://lumbytes.com/code/what-are-the-consensus-algorithms-in-blockchains"
+  },
+  {
+    "title": "What are smart contracts?",
+    "topic": {
+      "name": "BLOCKCHAIN"
+    },
+    "slug": "",
+    "banner": "https://lumbytes-development.s3.eu-west-1.amazonaws.com/smart%20contracts-1680801937007.jpg",
+    "bannerAlt": "ethereum",
+    "external": true,
+    "externalLink": "https://lumbytes.com/code/what-are-smart-contracts"
+  },
+  {
+    "title": "What is Decentralized Finance - DeFi?",
+    "topic": {
+      "name": "BLOCKCHAIN"
+    },
+    "slug": "",
+    "banner": "https://lumbytes-development.s3.eu-west-1.amazonaws.com/DeFi-1680801521475.png",
+    "bannerAlt": "DeFi",
+    "external": true,
+    "externalLink": "https://lumbytes.com/code/what-is-decentralized-finance-defi"
+  },
+  {
+    "title": "What is SEO? Learn how to improve your SEO and bring traffic to your business.",
+    "topic": {
+      "name": "DIGITAL MARKETING"
+    },
+    "slug": "",
+    "banner": "https://lumbytes-development.s3.eu-west-1.amazonaws.com/merakist-l5if0iQfV4c-unsplash-1680801198706.jpg",
+    "bannerAlt": "SEO",
+    "external": true,
+    "externalLink": "https://lumbytes.com/digital-marketing/what-is-seo-learn-how-to-improve-your-seo-and-bring-traffic-to-your-business"
+  },
+  {
+    "title": "Best Linux distros for programming in 2022.",
+    "topic": {
+      "name": "INFOTAINMENT"
+    },
+    "slug": "",
+    "banner": "https://lumbytes-development.s3.eu-west-1.amazonaws.com/code-1680800745793.jpg",
+    "bannerAlt": "code",
+    "external": true,
+    "externalLink": "https://lumbytes.com/code/best-linux-distros-for-programming-in-2021"
+  },
+  {
+    "title": "Best programming languages for blockchain development in 2022.",
+    "topic": {
+      "name": "BLOCKCHAIN"
+    },
+    "slug": "",
+    "banner": "https://lumbytes-development.s3.eu-west-1.amazonaws.com/Pogramming%20languages%20for%20blockchain-1680800679726.png",
+    "bannerAlt": "ethereum",
+    "external": true,
+    "externalLink": "https://lumbytes.com/code/best-programming-languages-for-blockchain-development-in-2022"
+  },
+  {
+    "title": "SQL vs NoSQL databases. Which one should you use for your project?",
+    "topic": {
+      "name": "DBMS"
+    },
+    "slug": null,
+    "banner": "https://lumbytes-development.s3.eu-west-1.amazonaws.com/SQLvsNo-Header-1680799921857.jpg",
+    "bannerAlt": "sql vs no sql database",
+    "external": true,
+    "externalLink": "https://lumbytes.com/code/sql-vs-nosql-databases-which-one-should-you-use-for-your-project"
+  },
+  {
+    "title": "An Introduction to docker 🐋",
+    "topic": {
+      "name": "BACKEND"
+    },
+    "slug": null,
+    "banner": "https://lumbytes-development.s3.eu-west-1.amazonaws.com/Docker-1680799492825.png",
+    "bannerAlt": "docker",
+    "external": true,
+    "externalLink": "https://lumbytes.com/code/an-introduction-to-docker"
+  },
+  {
+    "title": "What is blockchain technology?",
+    "topic": {
+      "name": "BLOCKCHAIN"
+    },
+    "slug": null,
+    "banner": "https://lumbytes-development.s3.eu-west-1.amazonaws.com/Blockchain-1680798920333.png",
+    "bannerAlt": "blockchain",
+    "external": true,
+    "externalLink": "https://lumbytes.com/code/what-is-blockchain-technology"
+  },
+  {
+    "title": "Best hacking gadgets for hackers.",
+    "topic": {
+      "name": "INFOTAINMENT"
+    },
+    "slug": null,
+    "banner": "https://lumbytes-development.s3.eu-west-1.amazonaws.com/hacker-1680798677129.jpg",
+    "bannerAlt": "hacker",
+    "external": true,
+    "externalLink": "https://lumbytes.com/code/best-hacking-gadgets-for-hackers"
+  },
+  {
+    "title": "Battle of CSS Frameworks: Bootstrap vs Tailwind 🏆",
+    "topic": {
+      "name": "WEB DEVELOPMENT"
+    },
+    "slug": null,
+    "banner": "https://lumbytes-development.s3.eu-west-1.amazonaws.com/tailwind-css-vs-bootstrap-1680800154677.jpg",
+    "bannerAlt": "bootstrap vs tailwind css",
+    "external": true,
+    "externalLink": "https://lumbytes.com/code/battle-of-css-frameworks-bootstrap-vs-tailwind-78hkmk"
+  }
+]

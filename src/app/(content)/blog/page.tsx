@@ -6,99 +6,7 @@ import { SideNavContext } from "@/src/context/sideNav";
 import Watermark from "@/src/components/background/Watermark";
 import Link from "next/link";
 import Image from "next/image";
-
-const blogData = [
-  {
-    title: "ABCDEF",
-    topic: { name: "AI" },
-    slug: "abcd",
-    banner: "https://source.unsplash.com/random/512×512?painting",
-    bannerAlt: "text",
-    external: true,
-    externalLink: "www.google.com",
-  },
-  {
-    title: "ABCD",
-    topic: { name: "ML" },
-    slug: "abcd",
-    banner: "https://source.unsplash.com/random/512×512?art",
-    bannerAlt: "text",
-    external: true,
-    externalLink: "www.google.com",
-  },
-  {
-    title: "ABCD",
-    topic: { name: "blockchain" },
-    slug: "abcd",
-    banner: "https://source.unsplash.com/random/512×512?canvas",
-    bannerAlt: "text",
-    external: false,
-    externalLink: "www.google.com",
-  },
-  {
-    title: "ABCD",
-    topic: { name: "ML" },
-    slug: "abcd",
-    banner: "https://source.unsplash.com/random/512×512?code",
-    bannerAlt: "text",
-    external: true,
-    externalLink: "www.google.com",
-  },
-  {
-    title: "ABCD",
-    topic: { name: "ML" },
-    slug: "abcd",
-    banner: "https://source.unsplash.com/random/512×512?text",
-    bannerAlt: "text",
-    external: true,
-    externalLink: "www.google.com",
-  },
-  {
-    title: "ABCD",
-    topic: { name: "ML" },
-    slug: "abcd",
-    banner: "https://source.unsplash.com/random/512×512?tech",
-    bannerAlt: "text",
-    external: true,
-    externalLink: "www.google.com",
-  },
-  {
-    title: "ABCD",
-    topic: { name: "ML" },
-    slug: "abcd",
-    banner: "https://source.unsplash.com/random/512×512?bot",
-    bannerAlt: "text",
-    external: true,
-    externalLink: "www.google.com",
-  },
-  {
-    title: "ABCD",
-    topic: { name: "ML" },
-    slug: "abcd",
-    banner: "https://source.unsplash.com/random/512×512?text",
-    bannerAlt: "text",
-    external: true,
-    externalLink: "www.google.com",
-  },
-  {
-    title: "ABCD",
-    topic: { name: "ML" },
-    slug: "abcd",
-    banner: "https://source.unsplash.com/random/512×512?tech",
-    bannerAlt: "text",
-    external: true,
-    externalLink: "www.google.com",
-  },
-  {
-    title: "ABCD",
-    topic: { name: "ML" },
-    slug: "abcd",
-    banner: "https://source.unsplash.com/random/512×512?bot",
-    bannerAlt: "text",
-    external: true,
-    externalLink: "www.google.com",
-  },
-];
+import blogData from "@/src/db/blogs.json";
 
 const BlogPage = () => {
   // @ts-ignore
@@ -127,10 +35,25 @@ const BlogPage = () => {
           </h1>
           <div className="content-section mb-24">
             <div className="grid grid-cols-2 gap-4 mb-20">
-              <div>
-                <h2 className="font-primary font-bold text-5xl">
+              <div className="pr-8">
+                <h2 className="font-primary font-bold text-5xl mb-10">
                   Why do I blog?
                 </h2>
+                <p className="font-serif text-lg leading-[1.45] pl-">
+                  Blogging serves as my canvas to express my fervor for the web.
+                  It&#39;s not just a documentation of my personal journey but a
+                  platform where I distill complex concepts and turn them into
+                  accessible insights.
+                  <br />
+                  <br />
+                  Beyond personal satisfaction, I also believe in the power of
+                  sharing knowledge, and through my blog, I aim to provide
+                  valuable content that aids others in their learning process.
+                  Whether it&#39;s demystifying complex concepts or sharing
+                  practical tips, my goal is to foster a supportive community
+                  where we can all grow and thrive together in the dynamic
+                  realms of web development and blockchain.
+                </p>
               </div>
               <div>
                 <BlogPeek data={blogData[0]} />
@@ -149,7 +72,7 @@ const BlogPage = () => {
           </div>
         </div>
       </main>
-      <Watermark text="BLOG" />
+      <Watermark text="BLOG" className="transform -translate-x-1/2" />
     </>
   );
 };
@@ -159,15 +82,15 @@ function BlogPeek({ data }: { data: any }) {
     data;
 
   return (
-    <div className="">
+    <div className="blogpeek-container">
       <Link href={externalLink} target="_blank">
         <div className="w-full relative">
-          <div className="aspect-w-16 aspect-h-10 w-full">
+          <div className="aspect-w-16 aspect-h-10 w-full overflow-hidden">
             <Image
               src={banner}
               alt={bannerAlt}
               fill={true}
-              className="object-cover object-center"
+              className="object-cover object-center blogpeek-banner"
               sizes="(max-width: 700px), 33vw"
             />
           </div>
