@@ -79,13 +79,19 @@ const ProjectsPage = () => {
                 }}
               >
                 <div className="relative max-w-[666px] h-full rounded-tr-3xl overflow-hidden">
-                  <Image
+                  {/* <Image
                     src={hovererdProject.banner}
                     alt={hovererdProject.bannerAlt}
                     className="object-cover object-center"
                     fill={true}
                     sizes="(max-width: 700px) 100vw, 33vw"
                     priority
+                  /> */}
+                  <img
+                    src={hovererdProject.banner}
+                    alt={hovererdProject.bannerAlt}
+                    className="absolute w-full h-full inset-0 object-cover object-center"
+                    fetchPriority="high"
                   />
                 </div>
               </div>
