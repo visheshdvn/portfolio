@@ -50,14 +50,15 @@ const Intro = () => {
           <div className="grid grid-cols-11 gap-4 px-3">
             <div className="col-span-5 text-lg font-medium font-primary">
               I specialize in creating fast and SEO friendly web applications
-              with the best technologies internet has to offer.
+              with the best technologies out there.
             </div>
             <div className="col-span-6 flex justify-between">
               <p className="text-left w-52 text-lg font-medium font-primary">
-                Proficient in creating web apps leveraging React ecosystem.
+                Amateur blogger sharing everything I learn on the internet.
               </p>
               <p className="text-left w-52 text-lg font-medium font-primary">
-                Certified Blockchain Architect” via the blockchain council.
+                &ldquo;Certified Blockchain Architect&rdquo; via the blockchain
+                council.
               </p>
               <p className="text-left w-52 text-lg font-medium font-primary">
                 2 years work experience as a software engineer in an MNC.
