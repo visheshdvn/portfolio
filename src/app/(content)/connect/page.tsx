@@ -3,7 +3,6 @@
 import React, { useContext, useEffect } from "react";
 import { type SideNavDataType } from "@/src/context/sideNav";
 import { SideNavContext } from "@/src/context/sideNav";
-import Watermark from "@/src/components/background/Watermark";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -29,7 +28,7 @@ const ConnectPage = () => {
           <h1 className="font-primary pt-1 text-9xl font-medium mb-10 text-white">
             Connect.
           </h1>
-          <div className="fixed -z-10 h-screen w-screen inset-0 god-creating-adam"></div>
+          <div className="fixed -z-10 h-screen w-screen inset-0 god-creating-adam" />
           <div className="content-section mb-24 text-white">
             {/* photo section */}
             <div className="flex justify-center mb-32">
