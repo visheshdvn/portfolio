@@ -11,7 +11,18 @@ import {
 } from "@heroicons/react/24/outline";
 import { usePathname } from "next/navigation";
 import { ThemeContext } from "@/src/context/theme";
+import {
+  FaLinkedin as LinkedIcon,
+  FaGithub as GithubIcon,
+} from "react-icons/fa";
+import { SiGmail as MailIcon } from "react-icons/si";
+import {
+  GITHUB_PROFILE_URL,
+  LINKEDIN_PROFILE_URL,
+  MAIL_ID,
+} from "@/src/utils/constants";
 
+// navigation links
 const navigation = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
@@ -150,30 +161,31 @@ export default function Navbar() {
                   </div>
                 </div>
 
-                <div className="flex-1 justify-end bsolute inset-y-0 right-0 flex items-center md:ml-6 md:pr-0">
-                  {/* <button
-                    type="button"
-                    className="hidden rounded-full bg-white p-1 text-gray-600 hover:text-black focus:text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                  >
-                    <span className="sr-only">View notifications</span>
-                    <BellIcon className="h-6 w-6" aria-hidden="true" />
-                  </button> */}
-                  <Link href={"/search"} legacyBehavior>
-                    <button className="mr-4 h-5 w-5 outline-none">
-                      <SearchIcon
-                        className={cn("h-full w-full stroke-2 stroke-white", {
-                          "stroke-black": theme === "light",
-                        })}
-                      />
-                    </button>
+                <div className="flex-1 justify-end bsolute inset-y-0 right-0 flex items-center md:ml-6 md:pr-0 space-x-6">
+                  <Link href={`mailto:${MAIL_ID}`} target="_blank">
+                    <MailIcon
+                      className={cn("h-5 w-5 fill-black", {
+                        "fill-white": theme === "dark",
+                      })}
+                    />
+                  </Link>
+                  <Link href={GITHUB_PROFILE_URL} target="_blank">
+                    <GithubIcon
+                      className={cn("h-5 w-5", {
+                        "fill-white": theme === "dark",
+                      })}
+                    />
+                  </Link>
+                  <Link href={LINKEDIN_PROFILE_URL} target="_blank">
+                    <LinkedIcon
+                      className={cn("h-5 w-5 fill-black", {
+                        "fill-white": theme === "dark",
+                      })}
+                    />
                   </Link>
                 </div>
               </div>
             </div>
-            <div
-              style={{ height: "1px" }}
-              className="w-full bg-black dark:bg-[#E9E9E9]"
-            ></div>
 
             <Disclosure.Panel className="md:hidden">
               <div className="space-y-1 border px-2 pt-2 pb-3">
