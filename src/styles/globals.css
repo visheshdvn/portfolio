@@ -25,6 +25,10 @@
   @apply max-w-[1308px] mx-auto;
 }
 
+.content-page-heading {
+  @apply font-primary pt-1 text-9xl font-medium mb-20;
+}
+
 /*  */
 .project-list:not(:last-of-type) {
   @apply border-b-2 border-borders-light;

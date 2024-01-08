@@ -11,7 +11,7 @@ import { useInView } from "framer-motion";
 const About = () => {
   // @ts-ignore
   const { navData, setNavData } = useContext(SideNavContext);
-  // console.log(navData);
+
   useEffect(() => {
     setNavData<SideNavDataType>({
       ...navData,
@@ -33,15 +33,13 @@ const About = () => {
     <>
       <main>
         <div className="mt-10">
-          <h1 className="font-primary pt-1 text-9xl font-medium mb-20">
-            About.
-          </h1>
+          <h1 className="content-page-heading">About.</h1>
           <div className="content-section mb-24">
             <div
               ref={fadeInRef}
               style={{
                 opacity: isInView ? 1 : 0,
-                transition: "all .7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+                transition: "all .7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.3s",
                 transform: isInView
                   ? "translate(0px, 0px)"
                   : "translate(0px, 16px)",
@@ -52,9 +50,7 @@ const About = () => {
                 <AboutSection />
               </div>
               <div className="relative col-span-3">
-                <div
-                  className="absolute right-0 -top-32 w-[512px] h-[512px] border border-black select-none"
-                >
+                <div className="absolute right-0 -top-32 w-[512px] h-[512px] border border-black select-none">
                   <Image
                     fill={true}
                     src="https://images.unsplash.com/photo-1521119989659-a83eee488004?q=80&w=512&auto=format&fit=crop"
@@ -72,7 +68,7 @@ const About = () => {
       <Watermark
         style={{
           opacity: isInView ? 1 : 0,
-          transition: "all .7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+          transition: "all .7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.3s",
           transform: isInView ? "translate(0px, 0px)" : "translate(0px, 160px)",
         }}
         text="ABOUT"

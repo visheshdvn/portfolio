@@ -7,7 +7,6 @@ import { cn } from "@/src/utils/utilityFunctions";
 import {
   Bars3Icon as MenuIcon,
   XMarkIcon as XIcon,
-  MagnifyingGlassIcon as SearchIcon,
 } from "@heroicons/react/24/outline";
 import { usePathname } from "next/navigation";
 import { ThemeContext } from "@/src/context/theme";

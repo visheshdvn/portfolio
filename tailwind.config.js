@@ -30,7 +30,7 @@ module.exports = {
         10000: "20000ms",
       },
       animation: {
-        fade: "fadeIn 3s ease-in-out",
+        fade: "fadeIn 2s ease-in",
       },
       keyframes: {
         fadeIn: {

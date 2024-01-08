@@ -11,7 +11,7 @@ import { useInView } from "framer-motion";
 
 const projects = [
   {
-    displayName: "lumbytes.com",
+    displayName: "LumBytes.com",
     about: "Lumbytes if a blogging website",
     url: "https://lumbytes.com",
     tech: "full-stack",
@@ -33,7 +33,7 @@ const ProjectsPage = () => {
   // @ts-ignore
   const { navData, setNavData } = useContext(SideNavContext);
   const [hovererdProject, setHovererdProject] = useState(projects[0]);
-  const imageSlateRef = useRef(null);
+  const whenOnScreen = useRef(null);
   const gridRef = useRef(null);
 
   useEffect(() => {
@@ -59,44 +59,51 @@ const ProjectsPage = () => {
     });
   }, []);
 
-  const isInView = useInView(imageSlateRef, { once: true });
+  const isInView = useInView(gridRef, { once: true });
 
   return (
     <>
       <main>
         <div className="mt-10">
-          <h1 className="font-primary pt-1 text-9xl font-medium mb-20">
-            Projects.
-          </h1>
+          <h1 className="content-page-heading">Projects.</h1>
           <div className="content-section mb-24">
             <div ref={gridRef} className="grid grid-cols-11 gap-4">
-              <div
-                className="col-span-6 pr-5"
-                ref={imageSlateRef}
-                style={{
-                  opacity: isInView ? 1 : 0,
-                  transition: "all 0.3s cubic-bezier(0.17, 0.55, 0.55, 1) 0.2s",
-                }}
-              >
-                <div className="relative max-w-[666px] h-full rounded-tr-3xl overflow-hidden">
-                  {/* <Image
+              <div className="col-span-6 pr-5">
+                <div
+                  style={{
+                    opacity: isInView ? 1 : 0,
+                    transition:
+                      "all 0.3s cubic-bezier(0.17, 0.55, 0.55, 1) 0.2s",
+                    transform: isInView
+                      ? "translate(0px, 0px)"
+                      : "translate(0px, 16px)",
+                  }}
+                  className="relative max-w-[666px] h-full rounded-tr-3xl overflow-hidden"
+                >
+                  <Image
                     src={hovererdProject.banner}
                     alt={hovererdProject.bannerAlt}
                     className="object-cover object-center"
                     fill={true}
                     sizes="(max-width: 700px) 100vw, 33vw"
                     priority
-                  /> */}
-                  <img
+                  />
+                  {/* <img
                     src={hovererdProject.banner}
                     alt={hovererdProject.bannerAlt}
                     className="absolute w-full h-full inset-0 object-cover object-center"
                     fetchPriority="high"
-                  />
+                  /> */}
                 </div>
               </div>
               <div className="relative col-span-5 font-secondary">
-                <div className="flex flex-col w-full">
+                <div
+                  // style={{
+                  //   opacity: isInView ? 1 : 0,
+                  //   transition: "all 0.3s cubic-bezier(0.17, 0.55, 0.55, 1) 0",
+                  // }}
+                  className="flex flex-col w-full"
+                >
                   {projects.map((project) => {
                     return (
                       <div
@@ -140,7 +147,14 @@ const ProjectsPage = () => {
           </div>
         </div>
       </main>
-      <Watermark text="Projects" />
+      <Watermark
+        style={{
+          opacity: isInView ? 1 : 0,
+          transition: "all .7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.2s",
+          transform: isInView ? "translate(0px, 0px)" : "translate(0px, 160px)",
+        }}
+        text="Projects"
+      />
     </>
   );
 };

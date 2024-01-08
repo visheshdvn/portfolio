@@ -1,14 +1,18 @@
 "use client";
 
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { type SideNavDataType } from "@/src/context/sideNav";
 import { SideNavContext } from "@/src/context/sideNav";
 import Watermark from "@/src/components/background/Watermark";
 import Link from "next/link";
 import Image from "next/image";
 import blogData from "@/src/db/blogs.json";
+import { useInView } from "framer-motion";
 
 const BlogPage = () => {
+  const whenOnScreen = useRef(null);
+  const isInView = useInView(whenOnScreen, { once: true });
+
   // @ts-ignore
   const { navData, setNavData } = useContext(SideNavContext);
 
@@ -28,11 +32,9 @@ const BlogPage = () => {
 
   return (
     <>
-      <main>
+      <main ref={whenOnScreen}>
         <div className="mt-10">
-          <h1 className="font-primary pt-1 text-9xl font-medium mb-20">
-            Blog.
-          </h1>
+          <h1 className="content-page-heading">Blog.</h1>
           <div className="content-section mb-24">
             <div className="grid grid-cols-2 gap-4 mb-20">
               <div className="pr-8">
@@ -55,12 +57,29 @@ const BlogPage = () => {
                   realms of web development and blockchain.
                 </p>
               </div>
-              <div>
+              <div
+                style={{
+                  opacity: isInView ? 1 : 0,
+                  transition: "all .7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.3s",
+                  transform: isInView
+                    ? "translate(0px, 0px)"
+                    : "translate(0px, 16px)",
+                }}
+              >
                 <BlogPeek data={blogData[0]} />
               </div>
             </div>
 
-            <div className="grid grid-cols-3">
+            <div
+              style={{
+                opacity: isInView ? 1 : 0,
+                transition: "all .7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.3s",
+                transform: isInView
+                  ? "translate(0px, 0px)"
+                  : "translate(0px, 16px)",
+              }}
+              className="grid grid-cols-3"
+            >
               {blogData.slice(1).map((data, i) => (
                 <div key={i} className="blog-list mb-20">
                   <div className="w-[384px]">
@@ -72,7 +91,17 @@ const BlogPage = () => {
           </div>
         </div>
       </main>
-      <Watermark text="BLOG" className="transform -translate-x-1/2" />
+      <Watermark
+        style={{
+          opacity: isInView ? 1 : 0,
+          transition: "all .7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.3s",
+          transform: isInView
+            ? "translate(-50%, 0px)"
+            : "translate(-50%, 160px)",
+        }}
+        text="BLOG"
+        className="transform "
+      />
     </>
   );
 };
