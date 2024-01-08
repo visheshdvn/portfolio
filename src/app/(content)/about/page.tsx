@@ -37,18 +37,22 @@ const About = () => {
             About.
           </h1>
           <div className="content-section mb-24">
-            <div className="grid grid-cols-7 gap-4">
+            <div
+              ref={fadeInRef}
+              style={{
+                opacity: isInView ? 1 : 0,
+                transition: "all .7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+                transform: isInView
+                  ? "translate(0px, 0px)"
+                  : "translate(0px, 16px)",
+              }}
+              className="grid grid-cols-7 gap-4"
+            >
               <div className="col-span-4 pr-5">
                 <AboutSection />
               </div>
               <div className="relative col-span-3">
                 <div
-                  ref={fadeInRef}
-                  style={{
-                    opacity: isInView ? 1 : 0,
-                    transition:
-                      "all .7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-                  }}
                   className="absolute right-0 -top-32 w-[512px] h-[512px] border border-black select-none"
                 >
                   <Image
@@ -65,7 +69,14 @@ const About = () => {
           </div>
         </div>
       </main>
-      <Watermark text="ABOUT" />
+      <Watermark
+        style={{
+          opacity: isInView ? 1 : 0,
+          transition: "all .7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+          transform: isInView ? "translate(0px, 0px)" : "translate(0px, 160px)",
+        }}
+        text="ABOUT"
+      />
     </>
   );
 };
