@@ -5,15 +5,19 @@ import { TbPeace as PeaceIcon } from "react-icons/tb";
 import { LuCode2 as CodeIcon } from "react-icons/lu";
 
 const Intro = () => {
+  // console.log(window.devicePixelRatio);
+  // const makeSmaller = window.devicePixelRatio === 1.25;
+  // console.log(makeSmaller);
+
   return (
     <section
       style={{
-        height: "calc(100vh - 60px)",
+        height: "calc(100vh - 56px)",
       }}
       className="flex items-center"
     >
-      <div className="container z-10 -mt-[60px]">
-        <div className="w-full h-full">
+      <div className="container z-10 -mt-[56px]">
+        <div className="w-full h-full xl:scale-[90%] 2xl:scale-[80%] 3xl:scale-[100%]">
           <div className="grid grid-cols-11 gap-4 px-3">
             <div className="col-span-5 flex items-end">
               <div className="">

@@ -8,6 +8,7 @@ import Link from "next/link";
 import Image from "next/image";
 import blogData from "@/src/db/blogs.json";
 import { useInView } from "framer-motion";
+import { cn } from "@/src/lib/utils";
 
 const BlogPage = () => {
   const whenOnScreen = useRef(null);
@@ -33,7 +34,7 @@ const BlogPage = () => {
   return (
     <>
       <main ref={whenOnScreen}>
-        <div className="mt-10">
+        <div className="3xl:mt-10 2xl:mt-8">
           <h1 className="content-page-heading">Blog.</h1>
           <div className="content-section mb-24">
             <div className="grid grid-cols-2 gap-4 mb-20">
@@ -48,13 +49,10 @@ const BlogPage = () => {
                   accessible insights.
                   <br />
                   <br />
-                  Beyond personal satisfaction, I also believe in the power of
-                  sharing knowledge, and through my blog, I aim to provide
-                  valuable content that aids others in their learning process.
-                  Whether it&#39;s demystifying complex concepts or sharing
-                  practical tips, my goal is to foster a supportive community
-                  where we can all grow and thrive together in the dynamic
-                  realms of web development and blockchain.
+                  Beyond personal fulfillment, I believe in sharing knowledge.
+                  Through my blog, I provide valuable content to aid others in
+                  learning, fostering a supportive community for growth in web
+                  development and blockchain.
                 </p>
               </div>
               <div
@@ -66,7 +64,7 @@ const BlogPage = () => {
                     : "translate(0px, 16px)",
                 }}
               >
-                <BlogPeek data={blogData[0]} />
+                <BlogPeek data={blogData[0]} variant="xl" />
               </div>
             </div>
 
@@ -82,7 +80,7 @@ const BlogPage = () => {
             >
               {blogData.slice(1).map((data, i) => (
                 <div key={i} className="blog-list mb-20">
-                  <div className="w-[384px]">
+                  <div className="3xl:w-[384px] 2xl:w-[310px] 3xl:scale-100">
                     <BlogPeek data={data} />
                   </div>
                 </div>
@@ -106,7 +104,13 @@ const BlogPage = () => {
   );
 };
 
-function BlogPeek({ data }: { data: any }) {
+function BlogPeek({
+  data,
+  variant = "normal",
+}: {
+  data: any;
+  variant?: "xl" | "normal";
+}) {
   const { title, topic, slug, banner, bannerAlt, external, externalLink } =
     data;
 
@@ -140,7 +144,14 @@ function BlogPeek({ data }: { data: any }) {
           {topic.name.replace("_", " ")}
         </h3>
         <Link href={externalLink} target="_blank">
-          <h1 className="font-medium text-[22px] leading-tight font-primary line-clamp-3">
+          <h1
+            className={cn(
+              "font-medium 3xl:text-[22px] leading-tight font-primary line-clamp-3 2xl:text-xl 2xl:leading-tight",
+              {
+                "3xl:text-3xl 3xl:leading-tight": variant === "xl",
+              }
+            )}
+          >
             {title}
           </h1>
         </Link>

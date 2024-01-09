@@ -22,11 +22,11 @@
 /* content section */
 
 .content-section {
-  @apply max-w-[1308px] mx-auto;
+  @apply 3xl:max-w-[1308px] mx-auto 2xl:max-w-[1080px];
 }
 
 .content-page-heading {
-  @apply font-primary pt-1 text-9xl font-medium mb-20;
+  @apply font-primary pt-1 3xl:text-9xl font-medium 3xl:mb-20 3xl:w-full 2xl:text-[120px] 2xl:w-4/5 mx-auto xl:mb-16 2xl:leading-none;
 }
 
 /*  */
@@ -36,7 +36,7 @@
 
 /*  */
 .blog-list:nth-of-type(3n + 1) {
-  /* @apply; */
+  @apply flex justify-start;
 }
 
 .blog-list:nth-of-type(3n) {

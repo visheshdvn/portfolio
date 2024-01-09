@@ -16,6 +16,14 @@ module.exports = {
         "2xl": "1472px",
       },
     },
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+      "3xl": "1900px",
+    },
     fontFamily: {
       serif: ["Georgia", ...defaultTheme.fontFamily.serif],
       primary: ["var(--playfair_display-font)"],

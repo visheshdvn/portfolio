@@ -64,7 +64,7 @@ const ProjectsPage = () => {
   return (
     <>
       <main>
-        <div className="mt-10">
+        <div className="3xl:mt-10 2xl:mt-8">
           <h1 className="content-page-heading">Projects.</h1>
           <div className="content-section mb-24">
             <div ref={gridRef} className="grid grid-cols-11 gap-4">

@@ -58,7 +58,7 @@ export default function Navbar() {
         {({ open }) => (
           <>
             <div className="mx-auto px-14">
-              <div className="relative flex items-center justify-center h-[60px]">
+              <div className="relative flex items-center justify-center h-[56px]">
                 {/* disclosure button */}
                 <div className="absolute inset-y-0 left-0 flex items-center md:hidden">
                   {/* Mobile menu button*/}

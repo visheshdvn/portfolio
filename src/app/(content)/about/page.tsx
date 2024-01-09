@@ -32,7 +32,7 @@ const About = () => {
   return (
     <>
       <main>
-        <div className="mt-10">
+        <div className="3xl:mt-10 2xl:mt-8">
           <h1 className="content-page-heading">About.</h1>
           <div className="content-section mb-24">
             <div
@@ -49,16 +49,18 @@ const About = () => {
               <div className="col-span-4 pr-5">
                 <AboutSection />
               </div>
-              <div className="relative col-span-3">
-                <div className="absolute right-0 -top-32 w-[512px] h-[512px] border border-black select-none">
-                  <Image
-                    fill={true}
-                    src="https://images.unsplash.com/photo-1521119989659-a83eee488004?q=80&w=512&auto=format&fit=crop"
-                    // src="https://source.unsplash.com/random/512×512?face"
-                    alt="Vishesh Dhawan"
-                    priority
-                    className="object-cover object-center"
-                  />
+              <div className="col-span-3">
+                <div className="w-full">
+                  <div className="absolute right-0 3xl:-top-32 2xl:-top-[120px] 3xl:w-[512px] 3xl:h-[512px] 2xl:w-[438px] 2xl:h-[438px] border border-black select-none">
+                    <Image
+                      fill={true}
+                      src="https://images.unsplash.com/photo-1521119989659-a83eee488004?q=80&w=512&auto=format&fit=crop"
+                      // src="https://source.unsplash.com/random/512×512?face"
+                      alt="Vishesh Dhawan"
+                      priority
+                      className="object-cover object-center"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
