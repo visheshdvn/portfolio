@@ -32,7 +32,7 @@ const About = () => {
   return (
     <>
       <main>
-        <div className="3xl:mt-10 2xl:mt-8">
+        <div className="3xl:mt-10 xl:mt-8">
           <h1 className="content-page-heading">About.</h1>
           <div className="content-section mb-24">
             <div
@@ -46,12 +46,12 @@ const About = () => {
               }}
               className="grid grid-cols-7 gap-4"
             >
-              <div className="col-span-4 pr-5">
+              <div className="col-span-4 2xl:pr-5 xl:pr-3">
                 <AboutSection />
               </div>
               <div className="col-span-3">
-                <div className="w-full">
-                  <div className="absolute right-0 3xl:-top-32 2xl:-top-[120px] 3xl:w-[512px] 3xl:h-[512px] 2xl:w-[438px] 2xl:h-[438px] border border-black select-none">
+                <div className="w-full relative">
+                  <div className="absolute right-0 3xl:-top-32 2xl:-top-[120px] xl:-top-[88px] 3xl:w-[512px] 3xl:h-[512px] 2xl:w-[412px] 2xl:h-[412px] xl:w-[341px] xl:h-[341px] border border-black select-none">
                     <Image
                       fill={true}
                       src="https://images.unsplash.com/photo-1521119989659-a83eee488004?q=80&w=512&auto=format&fit=crop"

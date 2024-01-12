@@ -70,7 +70,14 @@ function drawGrid(
 ) {
   ctx.lineWidth = 0.8;
   ctx.strokeStyle = gridColor;
-  const SQUARE_SIDE = 104;
+  let SQUARE_SIDE;
+  if (window.innerWidth > 1536) {
+    SQUARE_SIDE = 104;
+  } else if (window.innerWidth > 1024) {
+    SQUARE_SIDE = 80;
+  } else {
+    SQUARE_SIDE = 60;
+  }
   // draw horizontal lines
   while (yStart < window.innerHeight) {
     ctx.beginPath();

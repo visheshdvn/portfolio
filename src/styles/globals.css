@@ -8,7 +8,7 @@
 }
 
 .about-para {
-  @apply text-lg leading-[1.45] font-serif font-normal;
+  @apply 2xl:text-lg xl:text-base leading-[1.45] font-serif font-normal;
 }
 
 .about-para:not(:last-of-type) {
@@ -22,11 +22,11 @@
 /* content section */
 
 .content-section {
-  @apply 3xl:max-w-[1308px] mx-auto 2xl:max-w-[1080px];
+  @apply 3xl:max-w-[1308px] xl:w-[89%] mx-auto;
 }
 
 .content-page-heading {
-  @apply font-primary pt-1 3xl:text-9xl font-medium 3xl:mb-20 3xl:w-full 2xl:text-[120px] 2xl:w-4/5 mx-auto xl:mb-16 2xl:leading-none;
+  @apply font-primary pt-1 3xl:text-9xl font-medium 3xl:mb-20 2xl:text-[120px] xl:text-[88px] xl:leading-none mx-auto 2xl:mb-16 xl:mb-14 2xl:leading-none;
 }
 
 /*  */

@@ -34,15 +34,15 @@ const BlogPage = () => {
   return (
     <>
       <main ref={whenOnScreen}>
-        <div className="3xl:mt-10 2xl:mt-8">
+        <div className="3xl:mt-10 xl:mt-8">
           <h1 className="content-page-heading">Blog.</h1>
           <div className="content-section mb-24">
             <div className="grid grid-cols-2 gap-4 mb-20">
               <div className="pr-8">
-                <h2 className="font-primary font-bold text-5xl mb-10">
+                <h2 className="font-primary font-bold text-5xl 2xl:mb-10 xl:mb-6">
                   Why do I blog?
                 </h2>
-                <p className="font-serif text-lg leading-[1.45] pl-">
+                <p className="font-serif 2xl:text-lg leading-[1.45] xl:text-base">
                   Blogging serves as my canvas to express my fervor for the web.
                   It&#39;s not just a documentation of my personal journey but a
                   platform where I distill complex concepts and turn them into
@@ -80,7 +80,10 @@ const BlogPage = () => {
             >
               {blogData.slice(1).map((data, i) => (
                 <div key={i} className="blog-list mb-20">
-                  <div className="3xl:w-[384px] 2xl:w-[310px] 3xl:scale-100">
+                  {/* <div className="3xl:max-w-[384px] 2xl:max-w-[310px] xl:max-w-[260px] flex-1">
+                    <BlogPeek data={data} />
+                  </div> */}
+                  <div className="max-w-[88.1%] flex-1">
                     <BlogPeek data={data} />
                   </div>
                 </div>
@@ -148,7 +151,8 @@ function BlogPeek({
             className={cn(
               "font-medium 3xl:text-[22px] leading-tight font-primary line-clamp-3 2xl:text-xl 2xl:leading-tight",
               {
-                "3xl:text-3xl 3xl:leading-tight": variant === "xl",
+                "3xl:text-3xl 3xl:leading-tight 2xl:text-3xl 2xl:leading-tight xl:text-2xl xl:leading-tight":
+                  variant === "xl",
               }
             )}
           >
