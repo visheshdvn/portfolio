@@ -17,20 +17,20 @@ const Intro = () => {
       className="flex items-center"
     >
       <div className="container z-10 -mt-[56px]">
-        <div className="w-full h-full xl:scale-[90%] 2xl:scale-[80%] 3xl:scale-[100%]">
+        <div className="w-full h-full xl:scale-100 mx-auto xl:max-w-[calc(0.77*1280px)] 2xl:max-w-max 2xl:scale-[80%] 3xl:scale-[100%]">
           <div className="grid grid-cols-11 gap-4 px-3">
             <div className="col-span-5 flex items-end">
               <div className="">
-                <h3 className="font-bold text-2xl mb-3 font-primary">
+                <h3 className="font-bold 2xl:text-2xl xl:text-xl mb-3 font-primary">
                   Hi, I am
                 </h3>
-                <h1 className="font-medium text-[120px] font-primary uppercase leading-none mb-6">
+                <h1 className="font-medium 2xl:text-[120px] xl:text-[80px] font-primary uppercase leading-none 2xl:mb-6 xl:mb-4">
                   Vishesh
                 </h1>
-                <h1 className="font-medium text-[120px] uppercase leading-none font-primary">
+                <h1 className="font-medium 2xl:text-[120px] xl:text-[80px] uppercase leading-none font-primary">
                   Dhawan
                 </h1>
-                <h2 className="leading-none mt-10 font-medium text-lg text-[#757575] font-secondary">
+                <h2 className="leading-none 2xl:mt-10 xl:mt-6 font-medium 2xl:text-lg xl:text-sm text-[#757575] font-secondary">
                   Full-Stack web developer • Blockchain developer
                 </h2>
               </div>
@@ -38,34 +38,34 @@ const Intro = () => {
             <div className="col-span-6 flex justify-between">
               <IconCard
                 color="#6A1919"
-                icon={<HeartIcon className="h-[88px] w-[88px]" />}
+                icon={<HeartIcon className="2xl:h-[88px] 2xl:w-[88px] xl:h-16 xl:w-16" />}
               />
               <IconCard
                 color="#404040"
-                icon={<PeaceIcon className="h-[88px] w-[88px]" />}
+                icon={<PeaceIcon className="2xl:h-[88px] 2xl:w-[88px] xl:h-16 xl:w-16" />}
               />
               <IconCard
                 color="#1E3A8A"
-                icon={<CodeIcon className="h-[88px] w-[88px]" />}
+                icon={<CodeIcon className="2xl:h-[88px] 2xl:w-[88px] xl:h-16 xl:w-16" />}
               />
             </div>
           </div>
-          <div className="border-b mt-12 mb-14" />
-          <div className="grid grid-cols-11 gap-4 px-3">
-            <div className="col-span-5 text-lg font-medium font-primary">
+          <div className="border-b 2xl:mt-12 xl:mt-10 2xl:mb-14 xl:mb-10" />
+          <div className="grid grid-cols-11 gap-4 px-3 2xl:text-lg xl:text-sm">
+            <div className="col-span-5 font-medium font-primary 2xl:pr-14 xl:pr-8">
               I specialize in creating fast and SEO friendly web applications
               with the best technologies out there.
             </div>
             <div className="col-span-6 flex justify-between">
-              <p className="text-left w-52 text-lg font-medium font-primary">
+              <p className="text-left 2xl:w-52 xl:w-[148px] font-medium font-primary">
                 Amateur blogger sharing everything I learn on the internet.
               </p>
-              <p className="text-left w-52 text-lg font-medium font-primary">
+              <p className="text-left 2xl:w-52 xl:w-[148px] font-medium font-primary">
                 &ldquo;Certified Blockchain Architect&rdquo; via the blockchain
                 council.
               </p>
-              <p className="text-left w-52 text-lg font-medium font-primary">
-                2 years work experience as a software engineer in an MNC.
+              <p className="text-left 2xl:w-52 xl:w-[128px] font-medium font-primary">
+                2 years work exp. as a software engineer in an MNC.
               </p>
             </div>
           </div>
@@ -83,7 +83,7 @@ function IconCard({ color, icon }: { color: string; icon: React.ReactNode }) {
       style={{
         backgroundColor: `rgba(${hexColor?.r}, ${hexColor?.g}, ${hexColor?.b}, 60%)`,
       }}
-      className="w-52 h-[407px] flex flex-col items-center justify-end pb-10"
+      className="2xl:w-52 xl:w-[148px] 2xl:h-[407px] xl:h-[280px] flex flex-col items-center justify-end 2xl:pb-10 xl:pb-6"
     >
       {icon}
     </div>

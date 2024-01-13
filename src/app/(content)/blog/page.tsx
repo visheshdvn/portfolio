@@ -80,9 +80,6 @@ const BlogPage = () => {
             >
               {blogData.slice(1).map((data, i) => (
                 <div key={i} className="blog-list mb-20">
-                  {/* <div className="3xl:max-w-[384px] 2xl:max-w-[310px] xl:max-w-[260px] flex-1">
-                    <BlogPeek data={data} />
-                  </div> */}
                   <div className="max-w-[88.1%] flex-1">
                     <BlogPeek data={data} />
                   </div>

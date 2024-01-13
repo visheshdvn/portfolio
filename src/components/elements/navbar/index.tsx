@@ -72,70 +72,72 @@ export default function Navbar() {
                   </Disclosure.Button>
                 </div>
                 {/* mame logo */}
-                <div className="flex-1 flex space-x-3 items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 33 33"
-                    className="h-9 w-9"
-                    fill="none"
-                  >
-                    <path
-                      d="M7.75585 10.0732L12.4656 22.0379L17.1553 10.0732H19.0592L13.2873 24.3026H11.6439L5.85192 10.0732H7.75585Z"
-                      className={cn("fill-white", {
-                        "fill-black": theme === "light",
-                      })}
-                    />
-                    <path
-                      d="M24.9627 21.7129C23.8205 22.8376 22.3082 23.5167 20.7056 23.6342V23.0321C22.1378 22.916 23.4896 22.3039 24.5152 21.294C25.6597 20.1671 26.3042 18.637 26.3042 17.0399C26.3042 15.4428 25.6597 13.9127 24.5152 12.7857C23.4896 11.7759 22.1378 11.1638 20.7056 11.0477L20.7056 10.4456C22.3082 10.5631 23.8205 11.2422 24.9627 12.3668C26.2228 13.6075 26.9293 15.2886 26.9293 17.0399C26.9293 18.7911 26.2228 20.4722 24.9627 21.7129Z"
-                      className={cn("stroke-white", {
-                        "stroke-black": theme === "light",
-                      })}
-                    />
-                    <line
-                      x1="13.3203"
-                      y1="23.3385"
-                      x2="20.2588"
-                      y2="23.3385"
-                      className={cn("stroke-white", {
-                        "stroke-black": theme === "light",
-                      })}
-                      strokeWidth="1.6083"
-                    />
-                    <path
-                      d="M17.3255 10.717H20.2588"
-                      className={cn("stroke-white", {
-                        "stroke-black": theme === "light",
-                      })}
-                      strokeWidth="1.6083"
-                    />
-                    <rect
-                      x="0.8"
-                      y="-0.8"
-                      width="31.4"
-                      height="31.4"
-                      rx="15.7"
-                      transform="matrix(1 0 0 -1 0 31.4)"
-                      className={cn("stroke-white", {
-                        "stroke-black": theme === "light",
-                      })}
-                      strokeWidth="1.6"
-                    />
-                  </svg>
-                  <div className="flex flex-col space-y-1 select-none">
-                    <p
-                      className={`leading-none font-bold tracking-[10.5px] text-sm font-secondary ${
-                        theme === "light" ? "text-black" : "text-white"
-                      }`}
+                <div className="flex-1">
+                  <div className="flex space-x-3 items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 33 33"
+                      className="h-[34px] w-[34px]"
+                      fill="none"
                     >
-                      Vishesh
-                    </p>
-                    <p
-                      className={`leading-none font-bold text-sm tracking-[10.5px] font-secondary ${
-                        theme === "light" ? "text-black" : "text-white"
-                      }`}
-                    >
-                      Dhawan
-                    </p>
+                      <path
+                        d="M7.75585 10.0732L12.4656 22.0379L17.1553 10.0732H19.0592L13.2873 24.3026H11.6439L5.85192 10.0732H7.75585Z"
+                        className={cn("fill-white", {
+                          "fill-black": theme === "light",
+                        })}
+                      />
+                      <path
+                        d="M24.9627 21.7129C23.8205 22.8376 22.3082 23.5167 20.7056 23.6342V23.0321C22.1378 22.916 23.4896 22.3039 24.5152 21.294C25.6597 20.1671 26.3042 18.637 26.3042 17.0399C26.3042 15.4428 25.6597 13.9127 24.5152 12.7857C23.4896 11.7759 22.1378 11.1638 20.7056 11.0477L20.7056 10.4456C22.3082 10.5631 23.8205 11.2422 24.9627 12.3668C26.2228 13.6075 26.9293 15.2886 26.9293 17.0399C26.9293 18.7911 26.2228 20.4722 24.9627 21.7129Z"
+                        className={cn("stroke-white", {
+                          "stroke-black": theme === "light",
+                        })}
+                      />
+                      <line
+                        x1="13.3203"
+                        y1="23.3385"
+                        x2="20.2588"
+                        y2="23.3385"
+                        className={cn("stroke-white", {
+                          "stroke-black": theme === "light",
+                        })}
+                        strokeWidth="1.6083"
+                      />
+                      <path
+                        d="M17.3255 10.717H20.2588"
+                        className={cn("stroke-white", {
+                          "stroke-black": theme === "light",
+                        })}
+                        strokeWidth="1.6083"
+                      />
+                      <rect
+                        x="0.8"
+                        y="-0.8"
+                        width="31.4"
+                        height="31.4"
+                        rx="15.7"
+                        transform="matrix(1 0 0 -1 0 31.4)"
+                        className={cn("stroke-white", {
+                          "stroke-black": theme === "light",
+                        })}
+                        strokeWidth="1.6"
+                      />
+                    </svg>
+                    <div className="flex flex-col space-y-1 select-none">
+                      <p
+                        className={`leading-none font-bold tracking-[10.5px] text-sm font-secondary ${
+                          theme === "light" ? "text-black" : "text-white"
+                        }`}
+                      >
+                        Vishesh
+                      </p>
+                      <p
+                        className={`leading-none font-bold text-sm tracking-[10.5px] font-secondary ${
+                          theme === "light" ? "text-black" : "text-white"
+                        }`}
+                      >
+                        Dhawan
+                      </p>
+                    </div>
                   </div>
                 </div>
                 {/*  */}
