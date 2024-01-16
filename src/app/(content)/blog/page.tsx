@@ -9,6 +9,7 @@ import Image from "next/image";
 import blogData from "@/src/db/blogs.json";
 import { useInView } from "framer-motion";
 import { cn } from "@/src/lib/utils";
+import ContentPageHeading from "@/src/components/elements/heading/contentPageHeading";
 
 const BlogPage = () => {
   const whenOnScreen = useRef(null);
@@ -34,15 +35,15 @@ const BlogPage = () => {
   return (
     <>
       <main ref={whenOnScreen}>
-        <div className="3xl:mt-10 xl:mt-8">
-          <h1 className="content-page-heading">Blog.</h1>
+        <div className="content-page-position">
+          <ContentPageHeading text="Blog." />
           <div className="content-section mb-24">
             <div className="grid grid-cols-2 gap-4 mb-20">
-              <div className="pr-8">
-                <h2 className="font-primary font-bold text-5xl 2xl:mb-10 xl:mb-6">
+              <div className="xl:pr-8 pr-3">
+                <h2 className="font-primary font-bold text-5xl 2xl:mb-10 xl:mb-6 mb-4">
                   Why do I blog?
                 </h2>
-                <p className="font-serif 2xl:text-lg leading-[1.45] xl:text-base">
+                <p className="font-serif 2xl:text-lg leading-[1.45] xl:text-base text-lg">
                   Blogging serves as my canvas to express my fervor for the web.
                   It&#39;s not just a documentation of my personal journey but a
                   platform where I distill complex concepts and turn them into
@@ -76,7 +77,7 @@ const BlogPage = () => {
                   ? "translate(0px, 0px)"
                   : "translate(0px, 16px)",
               }}
-              className="grid grid-cols-3"
+              className="grid xl:grid-cols-3 md:grid-cols-2"
             >
               {blogData.slice(1).map((data, i) => (
                 <div key={i} className="blog-list mb-20">
@@ -146,9 +147,9 @@ function BlogPeek({
         <Link href={externalLink} target="_blank">
           <h1
             className={cn(
-              "font-medium 3xl:text-[22px] leading-tight font-primary line-clamp-3 2xl:text-xl 2xl:leading-tight",
+              "font-medium 3xl:text-[22px] leading-tight font-primary line-clamp-3 2xl:text-xl 2xl:leading-tight lg:text-xl lg:leading-tight",
               {
-                "3xl:text-3xl 3xl:leading-tight 2xl:text-3xl 2xl:leading-tight xl:text-2xl xl:leading-tight":
+                "3xl:text-3xl 3xl:leading-tight 2xl:text-3xl 2xl:leading-tight lg:text-2xl xl:leading-tight text-2xl":
                   variant === "xl",
               }
             )}

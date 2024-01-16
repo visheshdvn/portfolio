@@ -8,6 +8,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/src/lib/utils";
 import { useInView } from "framer-motion";
+import ContentPageHeading from "@/src/components/elements/heading/contentPageHeading";
 
 const projects = [
   {
@@ -64,11 +65,11 @@ const ProjectsPage = () => {
   return (
     <>
       <main>
-        <div className="3xl:mt-10 xl:mt-8">
-          <h1 className="content-page-heading">Projects.</h1>
-          <div className="content-section mb-24">
+        <div className="content-page-position">
+          <ContentPageHeading text="Projects." />
+          <div className="content-section mb-24 pt-6">
             <div ref={gridRef} className="grid grid-cols-11 gap-4">
-              <div className="col-span-6 pr-5">
+              <div className="col-span-6 pr-5 hidden xl:block">
                 <div
                   style={{
                     opacity: isInView ? 1 : 0,
@@ -96,47 +97,55 @@ const ProjectsPage = () => {
                   /> */}
                 </div>
               </div>
-              <div className="relative col-span-5 font-secondary">
-                <div
-                  // style={{
-                  //   opacity: isInView ? 1 : 0,
-                  //   transition: "all 0.3s cubic-bezier(0.17, 0.55, 0.55, 1) 0",
-                  // }}
-                  className="flex flex-col w-full"
-                >
+              <div className="relative col-span-11 xl:col-span-5 font-secondary">
+                <div className="flex flex-col w-full">
                   {projects.map((project) => {
                     return (
                       <div
                         key={project.displayName}
-                        onMouseEnter={() => setHovererdProject(project)}
-                        onMouseLeave={() => setHovererdProject(projects[0])}
-                        className={cn(
-                          "flex items-center w-full h-20 font-bold hover:text-black text-[28px] project-list text-borders-light cursor-pointer px-2",
-                          {
-                            "text-black":
-                              hovererdProject.displayName ===
-                              project.displayName,
-                          }
-                        )}
+                        className="project-list mb-20 xl:mb-0"
                       >
-                        {project.url ? (
-                          <Link
-                            href={project.url}
-                            className="flex-1"
-                            target="_blank"
-                          >
-                            <h4 className="leading-none transform transition-colors duration-800">
+                        <div className="block xl:hidden h-48 relative">
+                          <Link href={project.url || "#"} target="_blank">
+                            <Image
+                              src={project.banner}
+                              alt={project.bannerAlt}
+                              fill={true}
+                              className="object-center object-cover"
+                            />
+                          </Link>
+                        </div>
+                        <div
+                          onMouseEnter={() => setHovererdProject(project)}
+                          onMouseLeave={() => setHovererdProject(projects[0])}
+                          className={cn(
+                            "flex items-center w-full h-20 font-bold hover:text-black text-[28px] text-black xl:text-borders-light cursor-pointer xl:px-2",
+                            {
+                              "xl:text-black":
+                                hovererdProject.displayName ===
+                                project.displayName,
+                            }
+                          )}
+                        >
+                          {project.url ? (
+                            <Link
+                              href={project.url}
+                              className="flex-1"
+                              target="_blank"
+                            >
+                              <h4 className="leading-none transform transition-colors duration-800 text-4xl">
+                                {project.displayName}
+                              </h4>
+                            </Link>
+                          ) : (
+                            <h4 className="flex-1 leading-none transform transition-colors duration-800 text-3xl">
                               {project.displayName}
                             </h4>
-                          </Link>
-                        ) : (
-                          <h4 className="flex-1 leading-none transform transition-colors duration-800">
-                            {project.displayName}
-                          </h4>
-                        )}
+                          )}
 
-                        <div className="font-semibold text-sm leading-none">
-                          {project.tech}
+                          <div className="font-semibold xl:text-sm text-base leading-none">
+                            {project.tech}
+                          </div>
                         </div>
                       </div>
                     );

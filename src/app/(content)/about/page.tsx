@@ -7,6 +7,7 @@ import { type SideNavDataType } from "@/src/context/sideNav";
 import { SideNavContext } from "@/src/context/sideNav";
 import Watermark from "@/src/components/background/Watermark";
 import { useInView } from "framer-motion";
+import ContentPageHeading from "@/src/components/elements/heading/contentPageHeading";
 
 const About = () => {
   // @ts-ignore
@@ -32,8 +33,8 @@ const About = () => {
   return (
     <>
       <main>
-        <div className="3xl:mt-10 xl:mt-8">
-          <h1 className="content-page-heading">About.</h1>
+        <div className="content-page-position">
+          <ContentPageHeading text="About." />
           <div className="content-section mb-24">
             <div
               ref={fadeInRef}
@@ -46,12 +47,12 @@ const About = () => {
               }}
               className="grid grid-cols-7 gap-4"
             >
-              <div className="col-span-4 2xl:pr-5 xl:pr-3">
+              <div className="xl:col-span-4 col-span-7 2xl:pr-5 xl:pr-3 order-2 xl:order-1">
                 <AboutSection />
               </div>
-              <div className="col-span-3">
-                <div className="w-full relative">
-                  <div className="absolute right-0 3xl:-top-32 2xl:-top-[120px] xl:-top-[88px] 3xl:w-[512px] 3xl:h-[512px] 2xl:w-[412px] 2xl:h-[412px] xl:w-[341px] xl:h-[341px] border border-black select-none">
+              <div className="xl:col-span-3 col-span-7 order-1 xl:order-2">
+                <div className="w-full xl:relative flex xl:block justify-center mb-12 xl:mb-0">
+                  <div className="xl:absolute relative right-0 3xl:-top-32 2xl:-top-[120px] xl:-top-[88px] 3xl:w-[512px] 3xl:h-[512px] 2xl:w-[412px] 2xl:h-[412px] xl:w-[341px] xl:h-[341px] lg:h-96 lg:w-96 border border-black select-none">
                     <Image
                       fill={true}
                       src="https://images.unsplash.com/photo-1521119989659-a83eee488004?q=80&w=512&auto=format&fit=crop"

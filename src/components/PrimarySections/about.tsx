@@ -13,7 +13,7 @@ const About = () => {
           melodies of music and strumming my guitar. I am always curious to
           learning new technologies and turning ideas into reality with them.
         </p>
-        <h1 className="2xl:text-4xl xl:text-3xl mb-5 font-medium">Professional Experience</h1>
+        <h1 className="2xl:text-4xl xl:text-3xl xl:mb-5 mb-8 font-medium lg:text-4xl">Professional Experience</h1>
         <p className="about-para">
           I am working as a software engineer at Digitate (a venture of Tata
           Consultancy Services - TCS) in Pune India. Before joining Digitate, I
@@ -30,7 +30,7 @@ const About = () => {
         </p>
       </div>
       <div className="mt-6">
-        <h1 className="2xl:text-4xl xl:text-3xl mb-5 font-medium">Personal Development</h1>
+        <h1 className="2xl:text-4xl xl:text-3xl xl:mb-5 mb-8 font-medium lg:text-4xl">Personal Development</h1>
         <p className="about-para">
           Creating Fun projects with a full time job is hard, but I make sure to
           find my way around and create some interesting stuff in the moments I
