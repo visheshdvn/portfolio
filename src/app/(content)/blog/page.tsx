@@ -10,10 +10,12 @@ import blogData from "@/src/db/blogs.json";
 import { useInView } from "framer-motion";
 import { cn } from "@/src/lib/utils";
 import ContentPageHeading from "@/src/components/elements/heading/contentPageHeading";
+import useWindowSize from "@/src/hooks/useWindowSize";
 
 const BlogPage = () => {
   const whenOnScreen = useRef(null);
   const isInView = useInView(whenOnScreen, { once: true });
+  const { width } = useWindowSize();
 
   // @ts-ignore
   const { navData, setNavData } = useContext(SideNavContext);
@@ -80,7 +82,7 @@ const BlogPage = () => {
               }}
               className="grid xl:grid-cols-3 md:grid-cols-2"
             >
-              {window.innerWidth < 1024 && (
+              {(width as number) < 1024 && (
                 <div className="max-w-[88.1%] flex-1 lg:hidden">
                   <BlogPeek data={blogData[0]} />
                 </div>
