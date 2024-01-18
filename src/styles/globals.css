@@ -8,11 +8,11 @@
 }
 
 .about-para {
-  @apply 2xl:text-lg xl:text-base lg:text-xl leading-[1.45] font-serif font-normal;
+  @apply 2xl:text-lg xl:text-base md:text-xl leading-[1.45] font-serif font-normal;
 }
 
 .about-para:not(:last-of-type) {
-  @apply xl:mb-5 mb-8;
+  @apply mb-8;
 }
 
 .global-spacing {

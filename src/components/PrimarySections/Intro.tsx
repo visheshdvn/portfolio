@@ -3,6 +3,7 @@ import React from "react";
 import { IoMdHeart as HeartIcon } from "react-icons/io";
 import { TbPeace as PeaceIcon } from "react-icons/tb";
 import { LuCode2 as CodeIcon } from "react-icons/lu";
+import Image from "next/image";
 
 const Intro = () => {
   // console.log(window.devicePixelRatio);
@@ -35,19 +36,34 @@ const Intro = () => {
                 </h2>
               </div>
             </div>
-            <div className="col-span-6 flex justify-between">
-              <IconCard
+            <div className="col-span-6 overflow-hidden">
+              <div className="aspect-w-16 aspect-h-9">
+                <Image
+                  src={"/me_home.jpg"}
+                  alt="Vishesh Dhawan"
+                  fill
+                  className="object-center object-cover"
+                  priority
+                />
+              </div>
+              {/* <IconCard
                 color="#6A1919"
-                icon={<HeartIcon className="2xl:h-[88px] 2xl:w-[88px] xl:h-16 xl:w-16" />}
+                icon={
+                  <HeartIcon className="2xl:h-[88px] 2xl:w-[88px] xl:h-16 xl:w-16" />
+                }
               />
               <IconCard
                 color="#404040"
-                icon={<PeaceIcon className="2xl:h-[88px] 2xl:w-[88px] xl:h-16 xl:w-16" />}
+                icon={
+                  <PeaceIcon className="2xl:h-[88px] 2xl:w-[88px] xl:h-16 xl:w-16" />
+                }
               />
               <IconCard
                 color="#1E3A8A"
-                icon={<CodeIcon className="2xl:h-[88px] 2xl:w-[88px] xl:h-16 xl:w-16" />}
-              />
+                icon={
+                  <CodeIcon className="2xl:h-[88px] 2xl:w-[88px] xl:h-16 xl:w-16" />
+                }
+              /> */}
             </div>
           </div>
           <div className="border-b 2xl:mt-12 xl:mt-10 2xl:mb-14 xl:mb-10" />

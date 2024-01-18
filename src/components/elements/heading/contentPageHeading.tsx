@@ -12,7 +12,7 @@ const ContentPageHeading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
         ref={ref}
         {...props}
         className={cn(
-          "font-primary pt-1 font-medium 3xl:text-9xl 2xl:text-[120px] xl:text-[88px] lg:text-9xl 2xl:leading-none xl:leading-none lg:leading-none 3xl:mb-20 mx-auto 2xl:mb-16 lg:mb-16 xl:mb-14",
+          "font-primary pt-1 font-medium 3xl:text-9xl 2xl:text-[120px] md:text-[112px] lg:text-9xl 2xl:leading-none xl:leading-none lg:leading-none md:leading-none 3xl:mb-20 mx-auto 2xl:mb-16 xl:mb-14 md:mb-16",
           className
         )}
       >

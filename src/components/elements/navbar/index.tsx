@@ -48,26 +48,36 @@ export default function Navbar() {
       <Disclosure
         as="nav"
         className={cn(
-          "fixed top-0 z-40 w-full bg-black/20 border-b border-[#202020]",
+          "fixed top-0 z-40 w-full bg-clip-padding backdrop-filter backdrop-blur-sm",
           {
-            "bg-clip-padding bg-gray-100 backdrop-filter backdrop-blur-sm bg-opacity-20":
-              theme === "light",
+            "bg-gray-100 bg-opacity-20": theme === "light",
+            "bg-black/20": theme === "dark",
           }
         )}
       >
         {({ open }) => (
           <>
-            <div className="mx-auto px-14">
+            <div className="mx-auto md:px-14 px-3 border-b border-[#222]">
               <div className="relative flex items-center justify-center h-14">
                 {/* disclosure button */}
-                <div className="absolute inset-y-0 left-0 flex items-center md:hidden">
+                <div className="absolute inset-y-0 right-0 flex items-center lg:hidden">
                   {/* Mobile menu button*/}
-                  <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                  <Disclosure.Button className="inline-flex items-center justify-center p-2 fill-black text-black outline-none ">
                     <span className="sr-only">Open main menu</span>
                     {open ? (
-                      <XIcon className="block h-6 w-6" aria-hidden="true" />
+                      <XIcon
+                        className={cn("block h-6 w-6 stroke-2 stroke-black", {
+                          "stroke-white": theme === "dark",
+                        })}
+                        aria-hidden="true"
+                      />
                     ) : (
-                      <MenuIcon className="block h-6 w-6" aria-hidden="true" />
+                      <MenuIcon
+                        className={cn("block h-6 w-6 stroke-2 stroke-black", {
+                          "stroke-white": theme === "dark",
+                        })}
+                        aria-hidden="true"
+                      />
                     )}
                   </Disclosure.Button>
                 </div>
@@ -122,7 +132,7 @@ export default function Navbar() {
                         strokeWidth="1.6"
                       />
                     </svg>
-                    <div className="flex flex-col space-y-1 select-none">
+                    <div className="md:flex flex-col space-y-1 select-none hidden">
                       <p
                         className={`leading-none font-bold tracking-[10.5px] text-sm font-secondary ${
                           theme === "light" ? "text-black" : "text-white"
@@ -143,7 +153,7 @@ export default function Navbar() {
                 {/*  */}
                 <div className="flex flex-shrink-0 items-center">
                   {/* nav links */}
-                  <div className="hidden items-center md:flex">
+                  <div className="hidden items-center lg:flex">
                     <div className="flex xl:space-x-10 space-x-6">
                       {navigation.map((item) => (
                         <div className="flex space-x-1" key={item.name}>
@@ -162,7 +172,7 @@ export default function Navbar() {
                   </div>
                 </div>
 
-                <div className="flex-1 justify-end bsolute inset-y-0 right-0 flex items-center md:ml-6 md:pr-0 space-x-6">
+                <div className="flex-1 justify-end inset-y-0 right-0 lg:flex items-center md:ml-6 md:pr-0 space-x-6 hidden">
                   <Link href={`mailto:${MAIL_ID}`} target="_blank">
                     <MailIcon
                       className={cn("h-5 w-5 fill-black", {
@@ -188,21 +198,50 @@ export default function Navbar() {
               </div>
             </div>
 
-            <Disclosure.Panel className="md:hidden">
-              <div className="space-y-1 border px-2 pt-2 pb-3">
-                {navigation.map((item) => (
-                  <Link
-                    href={item.href}
-                    passHref
-                    key={item.name}
-                    legacyBehavior
-                  >
-                    <a className="font-primary text-black dark:text-white block rounded-md px-3 py-2 text-base font-medium">
-                      {item.name}
-                    </a>
+            <Disclosure.Panel className="lg:hidden h-screen z-50">
+              <div className="pt-2 pb-5 px-3 md:px-14">
+                <div
+                  className={cn("text-black", {
+                    "text-white": theme === "dark",
+                  })}
+                >
+                  {navigation.map((item) => (
+                    <Link
+                      href={item.href}
+                      passHref
+                      key={item.name}
+                      legacyBehavior
+                    >
+                      <a className="font-primary block rounded-md px-3 py-2 text-2xl font-medium text-right mb-4">
+                        {item.name}
+                      </a>
+                    </Link>
+                  ))}
+                </div>
+                <hr className={cn("border-neutral-500 mb-4")} />
+                <div className="flex-1 justify-end bsolute inset-y-0 right-0 flex items-center space-x-6 pt-3 px-3">
+                  <Link href={`mailto:${MAIL_ID}`} target="_blank">
+                    <MailIcon
+                      className={cn("h-5 w-5 fill-black", {
+                        "fill-white": theme === "dark",
+                      })}
+                    />
                   </Link>
-                ))}
-                <hr />
+                  <Link href={GITHUB_PROFILE_URL} target="_blank">
+                    <GithubIcon
+                      className={cn("h-5 w-5", {
+                        "fill-white": theme === "dark",
+                      })}
+                    />
+                  </Link>
+                  <Link href={LINKEDIN_PROFILE_URL} target="_blank">
+                    <LinkedIcon
+                      className={cn("h-5 w-5 fill-black", {
+                        "fill-white": theme === "dark",
+                      })}
+                    />
+                  </Link>
+                </div>
               </div>
             </Disclosure.Panel>
           </>

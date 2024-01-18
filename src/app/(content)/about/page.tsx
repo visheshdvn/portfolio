@@ -52,7 +52,7 @@ const About = () => {
               </div>
               <div className="xl:col-span-3 col-span-7 order-1 xl:order-2">
                 <div className="w-full xl:relative flex xl:block justify-center mb-12 xl:mb-0">
-                  <div className="xl:absolute relative right-0 3xl:-top-32 2xl:-top-[120px] xl:-top-[88px] 3xl:w-[512px] 3xl:h-[512px] 2xl:w-[412px] 2xl:h-[412px] xl:w-[341px] xl:h-[341px] lg:h-96 lg:w-96 border border-black select-none">
+                  <div className="xl:absolute relative right-0 3xl:-top-32 2xl:-top-[120px] xl:-top-[88px] 3xl:w-[512px] 3xl:h-[512px] 2xl:w-[412px] 2xl:h-[412px] xl:w-[341px] xl:h-[341px] lg:h-96 lg:w-96 md:w-[341px] md:h-[341px] border border-black select-none">
                     <Image
                       fill={true}
                       src="https://images.unsplash.com/photo-1521119989659-a83eee488004?q=80&w=512&auto=format&fit=crop"

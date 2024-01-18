@@ -38,12 +38,12 @@ const BlogPage = () => {
         <div className="content-page-position">
           <ContentPageHeading text="Blog." />
           <div className="content-section mb-24">
-            <div className="grid grid-cols-2 gap-4 mb-20">
-              <div className="xl:pr-8 pr-3">
+            <div className="grid grid-cols-2 gap-4 lg:mb-20 md:mb-16">
+              <div className="xl:pr-8 pr-3 col-span-2 lg:col-span-1">
                 <h2 className="font-primary font-bold text-5xl 2xl:mb-10 xl:mb-6 mb-4">
                   Why do I blog?
                 </h2>
-                <p className="font-serif 2xl:text-lg leading-[1.45] xl:text-base text-lg">
+                <p className="font-serif 2xl:text-lg leading-[1.45] xl:text-base text-lg md:text-xl">
                   Blogging serves as my canvas to express my fervor for the web.
                   It&#39;s not just a documentation of my personal journey but a
                   platform where I distill complex concepts and turn them into
@@ -64,6 +64,7 @@ const BlogPage = () => {
                     ? "translate(0px, 0px)"
                     : "translate(0px, 16px)",
                 }}
+                className="hidden lg:block"
               >
                 <BlogPeek data={blogData[0]} variant="xl" />
               </div>
@@ -79,6 +80,11 @@ const BlogPage = () => {
               }}
               className="grid xl:grid-cols-3 md:grid-cols-2"
             >
+              {window.innerWidth < 1024 && (
+                <div className="max-w-[88.1%] flex-1 lg:hidden">
+                  <BlogPeek data={blogData[0]} />
+                </div>
+              )}
               {blogData.slice(1).map((data, i) => (
                 <div key={i} className="blog-list mb-20">
                   <div className="max-w-[88.1%] flex-1">
