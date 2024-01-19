@@ -71,7 +71,7 @@ const ConnectPage = () => {
             </div>
 
             {/* buttons */}
-            <div className="flex justify-between xl:flex-row flex-col  lg:space-y-14 space-y-8 xl:space-y-0 items-center">
+            <div className="flex justify-between xl:flex-row flex-col lg:space-y-14 space-y-11 xl:space-y-0 items-center">
               {[
                 {
                   text: "LinkedIn",

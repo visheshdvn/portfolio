@@ -50,7 +50,7 @@ export default function Navbar() {
         className={cn(
           "fixed top-0 z-40 w-full bg-clip-padding backdrop-filter backdrop-blur-sm",
           {
-            "bg-gray-100 bg-opacity-20": theme === "light",
+            "bg-gray-100/30": theme === "light",
             "bg-black/20": theme === "dark",
           }
         )}

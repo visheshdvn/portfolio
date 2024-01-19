@@ -5,6 +5,7 @@ import { latoFont, playfairDisplayFont } from "@/src/lib/fonts";
 import SideNavs from "@/src/components/elements/sidenav";
 import { ThemeProvider } from "@/src/context/theme";
 import { SideNavProvider } from "@/src/context/sideNav";
+import BottomNav from "@/src/components/elements/bottomNav/BottomNav";
 
 export const metadata = {
   title: "Vishesh Dhawan",
@@ -28,6 +29,7 @@ export default function RootLayout({
             <AnimatedBG />
             <SideNavs />
             {children}
+            <BottomNav />
           </SideNavProvider>
         </ThemeProvider>
       </body>

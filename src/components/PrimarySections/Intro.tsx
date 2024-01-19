@@ -42,7 +42,7 @@ const Intro = () => {
             <div className="relative xl:col-span-6 col-span-11 order-1 xl:order-2 xl:overflow-hidden">
               <div className="aspect-w-16 aspect-h-9 transform xl:translate-x-0 lg:-translate-x-[100px] md:-translate-x-[80px] lg:h-[542px] md:h-[407px] xl:h-auto mb-8 xl:mb-0">
                 <Image
-                  src={"/me_home.jpg"}
+                  src={"/me_home_red.jpg"}
                   alt="Vishesh Dhawan"
                   fill
                   className="object-center object-cover"

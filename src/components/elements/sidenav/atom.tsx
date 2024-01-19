@@ -6,7 +6,7 @@ import { ThemeContext } from "@/src/context/theme";
 
 const sideNavVariants = cva(
   [
-    "fixed flex h-screen items-center pointer-events-none justify-center bg-transparent 2xl:w-[90px] w-16 z-40",
+    "fixed hidden lg:flex h-screen items-center pointer-events-none justify-center bg-transparent 2xl:w-[90px] w-16 z-40",
   ],
   {
     variants: {
