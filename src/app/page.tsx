@@ -22,7 +22,7 @@ const Home = () => {
   return (
     <>
       <div className="h-screen w-screen overflow-hidden pt-[60px] text-white">
-        <div id="home-sections-container" className="">
+        <div id="home-sections-container">
           <Intro />
         </div>
       </div>
