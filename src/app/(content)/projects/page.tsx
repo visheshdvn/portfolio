@@ -67,7 +67,7 @@ const ProjectsPage = () => {
       <main>
         <div className="content-page-position">
           <ContentPageHeading text="Projects." />
-          <div className="content-section mb-24 pt-6">
+          <div className="content-section mb-24 md:pt-6">
             <div ref={gridRef} className="grid grid-cols-11 gap-4">
               <div className="col-span-6 pr-5 hidden xl:block">
                 <div
@@ -103,9 +103,9 @@ const ProjectsPage = () => {
                     return (
                       <div
                         key={project.displayName}
-                        className="project-list mb-20 xl:mb-0"
+                        className="project-list lg:mb-16 md:mb-14 mb-8 xl:mb-0"
                       >
-                        <div className="block xl:hidden h-48 relative">
+                        <div className="block xl:hidden md:h-48 h-36 relative">
                           <Link href={project.url || "#"} target="_blank">
                             <Image
                               src={project.banner}
@@ -127,23 +127,17 @@ const ProjectsPage = () => {
                             }
                           )}
                         >
-                          {project.url ? (
-                            <Link
-                              href={project.url}
-                              className="flex-1"
-                              target="_blank"
-                            >
-                              <h4 className="leading-none transform transition-colors duration-800 text-4xl">
-                                {project.displayName}
-                              </h4>
-                            </Link>
-                          ) : (
-                            <h4 className="flex-1 leading-none transform transition-colors duration-800 text-3xl">
+                          <Link
+                            href={project.url}
+                            className="flex-1"
+                            target="_blank"
+                          >
+                            <h4 className="leading-none transform transition-colors duration-800 lg:text-4xl md:text-3xl text-2xl">
                               {project.displayName}
                             </h4>
-                          )}
+                          </Link>
 
-                          <div className="font-semibold xl:text-sm text-base leading-none">
+                          <div className="font-semibold text-sm leading-none">
                             {project.tech}
                           </div>
                         </div>

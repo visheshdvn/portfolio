@@ -27,7 +27,7 @@ const ConnectPage = () => {
       <main>
         <div className="mt-10">
           <ContentPageHeading
-            text={"Connect"}
+            text={"Connect."}
             className="text-white 3xl:mb-10 2xl:mb-8 xl:mb-6 lg:mb-20"
           />
           <div className="fixed -z-10 h-screen w-screen inset-0 god-creating-adam" />

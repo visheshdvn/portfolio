@@ -21,7 +21,7 @@ const BottomNav = () => {
       className={cn(
         "fixed bottom-0 text-white z-40 w-screen border-t h-10 md:h-10 flex lg:hidden bg-clip-padding backdrop-filter backdrop-blur-sm",
         {
-          "bg-white/100": theme === "light",
+          "bg-white/80": theme === "light",
           "bg-black/80 border-[#222]": theme === "dark",
         }
       )}
@@ -71,14 +71,14 @@ const NavBtn: React.FC<BottomNavButtonProps> = ({
     <div
       {...props}
       className={cn(
-        "flex-1 h-full flex justify-center items-center font-secondary font-bold text-base leading-none md:text-base",
+        "flex-1 h-full flex justify-center items-center font-secondary font-bold text-sm leading-none md:text-base",
         { "text-black": theme === "light" }
       )}
     >
       <Link href={link} className="flex items-center leading-none">
-        {variant === "left" && <LeftArrow className="h-4 w-4 mr-3" />}
+        {variant === "left" && <LeftArrow className="md:h-4 md:w-4 h-3 w-3 mr-3" />}
         {text}
-        {variant === "right" && <RightArrow className="h-4 w-4 ml-3" />}
+        {variant === "right" && <RightArrow className="md:h-4 md:w-4 h-3 w-3 ml-3" />}
       </Link>
     </div>
   );

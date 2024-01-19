@@ -8,7 +8,7 @@
 }
 
 .about-para {
-  @apply 2xl:text-lg xl:text-base md:text-xl leading-[1.45] font-serif font-normal;
+  @apply 2xl:text-lg xl:text-base md:text-lg md:leading-[1.45] text-base font-serif font-normal;
 }
 
 .about-para:not(:last-of-type) {
@@ -21,7 +21,7 @@
 
 /* content section */
 .content-page-position {
-  @apply 3xl:mt-10 xl:mt-8 mt-10;
+  @apply 3xl:mt-10 xl:mt-8 md:mt-10 mt-8;
 }
 
 .content-section {
@@ -34,6 +34,10 @@
 }
 
 /*  */
+.blog-list {
+  @apply flex justify-center;
+}
+
 @media only screen and (min-width: 768px) {
   .blog-list:nth-of-type(2n) {
     @apply flex justify-end;
