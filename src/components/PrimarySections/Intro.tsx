@@ -10,28 +10,27 @@ const Intro = () => {
       }}
       className="flex items-center"
     >
-      <div className="container z-10 -mt-[56px]">
+      <div className="container px-0 xl:px-8 z-10 -mt-[56px]">
         <div className="w-full h-full xl:scale-100 mx-auto xl:max-w-[calc(0.77*1280px)] 2xl:max-w-max 2xl:scale-[80%] 3xl:scale-[100%]">
           <div className="grid grid-cols-11 gap-4 px-3">
-            <div className="xl:col-span-5 col-span-11 order-2 xl:order-1 flex items-end">
-              <div className="ml-5 lg:ml-8 xl:ml-0">
-                <h3 className="font-bold 2xl:text-2xl xl:text-xl mb-3 font-primary text-2xl lg:text-3xl">
+            <div className="xl:col-span-5 col-span-11 order-2 xl:order-1 flex items-end md:px-8 xl:px-0">
+              <div className="ml-3 md:ml-5 lg:ml-8 xl:ml-0">
+                <h3 className="font-bold 2xl:text-2xl xl:text-xl md:mb-2 font-primary md:text-2xl text-lg lg:text-3xl">
                   Hi, I am
                 </h3>
-                <h1 className="font-medium 2xl:text-[120px] xl:text-[80px] lg:text-[90px] md:text-[68px] font-primary uppercase leading-none 2xl:mb-6 xl:mb-4 inline xl:block">
+                <h1 className="font-medium 2xl:text-[120px] xl:text-[80px] lg:text-[90px] md:text-[68px] text-6xl font-primary uppercase leading-none 2xl:mb-6 xl:mb-4 block md:inline xl:block mb-2 md:mb-0">
                   Vishesh{" "}
                 </h1>
-                <h1 className="font-medium 2xl:text-[120px] xl:text-[80px] lg:text-[90px] md:text-[68px] font-primary uppercase leading-none inline xl:block">
+                <h1 className="font-medium 2xl:text-[120px] xl:text-[80px] lg:text-[90px] md:text-[68px] text-6xl font-primary uppercase leading-none inline xl:block">
                   Dhawan
                 </h1>
-                <h2 className="leading-none 2xl:mt-10 xl:mt-6 md:mt-3 font-medium 2xl:text-lg xl:text-sm lg:text-xl text-lg text-[#757575] font-secondary">
+                <h2 className="leading-none 2xl:mt-10 xl:mt-6 md:mt-3 font-medium 2xl:text-lg xl:text-sm lg:text-xl md:text-lg hidden md:block text-[#757575] font-secondary">
                   Full-Stack web developer • Blockchain developer
                 </h2>
-                <ul className="lg:mt-14 mt-10 ml-10 font-medium font-primary lg:text-2xl text-lg w-3/4 space-y-7 lg:space-y-11 xl:hidden">
+                <ul className="lg:mt-14 md:mt-10 mt-8 md:ml-10 ml-8 font-medium font-primary lg:text-2xl text-sm w-3/4 md:space-y-7 space-y-7 lg:space-y-11 xl:hidden">
                   <li>
-                    I specialize in creating fast and SEO friendly web
-                    applications with the best technologies internet has to
-                    offer.
+                    I am a Full-Stack Web & Blockchain developer with a passion
+                    for creating applications for the web.
                   </li>
                   <li>
                     “Certified Blockchain Architect” via the blockchain council.
@@ -40,7 +39,7 @@ const Intro = () => {
               </div>
             </div>
             <div className="relative xl:col-span-6 col-span-11 order-1 xl:order-2 xl:overflow-hidden">
-              <div className="aspect-w-16 aspect-h-9 transform xl:translate-x-0 lg:-translate-x-[100px] md:-translate-x-[80px] lg:h-[542px] md:h-[407px] xl:h-auto mb-8 xl:mb-0">
+              <div className="aspect-w-16 aspect-h-9 transform xl:translate-x-0 lg:-translate-x-[100px] md:-translate-x-[50px] -translate-x- lg:h-[542px] md:h-[407px] h-[264px] xl:h-auto mb-8 xl:mb-0">
                 <Image
                   src={"/me_home_red.jpg"}
                   alt="Vishesh Dhawan"

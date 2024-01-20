@@ -75,10 +75,23 @@ const NavBtn: React.FC<BottomNavButtonProps> = ({
         { "text-black": theme === "light" }
       )}
     >
-      <Link href={link} className="flex items-center leading-none">
-        {variant === "left" && <LeftArrow className="md:h-4 md:w-4 h-3 w-3 mr-3" />}
+      <Link
+        href={link}
+        className={cn(
+          "flex items-center leading-none flex-1 justify-center h-full transform transition-colors duration-200",
+          {
+            "active:bg-gray-100": theme === "light",
+            "active:bg-neutral-950": theme === "dark",
+          }
+        )}
+      >
+        {variant === "left" && (
+          <LeftArrow className="md:h-4 md:w-4 h-3 w-3 mr-3" />
+        )}
         {text}
-        {variant === "right" && <RightArrow className="md:h-4 md:w-4 h-3 w-3 ml-3" />}
+        {variant === "right" && (
+          <RightArrow className="md:h-4 md:w-4 h-3 w-3 ml-3" />
+        )}
       </Link>
     </div>
   );

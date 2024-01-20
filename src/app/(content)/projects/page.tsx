@@ -22,7 +22,7 @@ const projects = [
   {
     displayName: "Portfolio",
     about: "My portfolio",
-    url: "https://lumbytes.com",
+    url: "/",
     tech: "full-stack",
     banner: "/portfolioProj.jpg",
     bannerAlt: "Portfolio",
