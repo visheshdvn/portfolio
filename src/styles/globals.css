@@ -81,7 +81,7 @@
 /*  */
 .god-creating-adam {
   background-image: url("/god-creating-adam.png");
-  @apply bg-cover bg-no-repeat bg-center opacity-[0.1];
+  @apply bg-cover bg-no-repeat bg-center opacity-[0.08];
   animation: rotateAndEnter 1s ease-in;
 }
 
@@ -94,7 +94,7 @@
   100% {
     transform: rotate(0deg);
     scale: 1;
-    opacity: 0.1;
+    opacity: 0.08;
   }
 }
 

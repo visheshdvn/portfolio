@@ -42,7 +42,7 @@ const BottomNavCarousel = () => {
       const ind = PAGES.findIndex((page) => page.link === pathname);
       slider.slickGoTo(ind, false);
     }
-  }, []);
+  }, [pathname]);
 
   return (
     <div
@@ -64,32 +64,53 @@ const BottomNavCarousel = () => {
         nextArrow={<></>}
       >
         <div className="relative h-10 overflow-hidden animate-btm-carousel-on-initial-load">
-          <span className="absolute transform top-1/2 -translate-y-1/2 right-0 translate-x-1/2">
+          <span
+            onClick={() => router.push(PAGES[0].link)}
+            className="absolute transform top-1/2 -translate-y-1/2 right-0 translate-x-1/2"
+          >
             {PAGES[0].text}
           </span>
         </div>
         {PAGES.slice(1, PAGES.length - 1).map((page, i) => {
           return (
-            <div key={i} className="relative h-10 overflow-hidden animate-btm-carousel-on-initial-load">
-              <span className="absolute transform top-1/2 -translate-y-1/2 left-0 -translate-x-1/2">
+            <div
+              key={i}
+              className="relative h-10 overflow-hidden animate-btm-carousel-on-initial-load"
+            >
+              <span
+                onClick={() => router.push(PAGES[i].link)}
+                className="absolute transform top-1/2 -translate-y-1/2 left-0 -translate-x-1/2"
+              >
                 {PAGES[i].text}
               </span>
-              <span className="absolute transform top-1/2 -translate-y-1/2 right-0 translate-x-1/2">
+              <span
+                onClick={() => router.push(page.link)}
+                className="absolute transform top-1/2 -translate-y-1/2 right-0 translate-x-1/2"
+              >
                 {page.text}
               </span>
             </div>
           );
         })}
         <div className="relative h-10 overflow-hidden animate-btm-carousel-on-initial-load">
-          <span className="absolute transform top-1/2 -translate-y-1/2 left-0 -translate-x-1/2">
+          <span
+            onClick={() => router.push(PAGES[PAGES.length - 2].link)}
+            className="absolute transform top-1/2 -translate-y-1/2 left-0 -translate-x-1/2"
+          >
             {PAGES[PAGES.length - 2].text}
           </span>
-          <span className="absolute transform top-1/2 -translate-y-1/2 right-0 translate-x-1/2">
+          <span
+            onClick={() => router.push(PAGES[PAGES.length - 1].link)}
+            className="absolute transform top-1/2 -translate-y-1/2 right-0 translate-x-1/2"
+          >
             {PAGES[PAGES.length - 1].text}
           </span>
         </div>
         <div className="relative h-10 overflow-hidden animate-btm-carousel-on-initial-load">
-          <span className="absolute transform top-1/2 -translate-y-1/2 left-0 -translate-x-1/2">
+          <span
+            onClick={() => router.push(PAGES[PAGES.length - 1].link)}
+            className="absolute transform top-1/2 -translate-y-1/2 left-0 -translate-x-1/2"
+          >
             {PAGES[PAGES.length - 1].text}
           </span>
         </div>
