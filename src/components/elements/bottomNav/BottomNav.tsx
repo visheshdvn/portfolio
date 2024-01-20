@@ -19,7 +19,7 @@ const BottomNav = () => {
   return (
     <div
       className={cn(
-        "fixed bottom-0 text-white z-40 w-screen border-t h-10 md:h-10 flex lg:hidden bg-clip-padding backdrop-filter backdrop-blur-sm",
+        "fixed bottom-0 text-white z-40 w-screen border-t h-10 flex lg:hidden bg-clip-padding backdrop-filter backdrop-blur-sm",
         {
           "bg-white/80": theme === "light",
           "bg-black/80 border-[#222]": theme === "dark",

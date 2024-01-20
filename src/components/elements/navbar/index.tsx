@@ -57,7 +57,7 @@ export default function Navbar() {
       >
         {({ open }) => (
           <>
-            <div className="mx-auto md:px-14 px-3 border-b border-[#222]">
+            <div className="mx-auto md:px-14 px-4 border-b border-[#222]">
               <div className="relative flex items-center justify-center h-14">
                 {/* disclosure button */}
                 <div className="absolute inset-y-0 right-0 flex items-center lg:hidden">
