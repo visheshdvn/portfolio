@@ -11,6 +11,9 @@ export const metadata = {
   title: "Vishesh Dhawan",
   description:
     "Hi, I am Vishesh Dhawan. I am a Full-Stack web developer and a blogger.",
+  icons: {
+    icon: "/favImg.jpg",
+  },
 };
 
 export default function RootLayout({

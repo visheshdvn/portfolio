@@ -37,13 +37,15 @@ const ConnectPage = () => {
               <div className="relative 3xl:w-72 3xl:h-72 2xl:w-[272px] 2xl:h-[272px] xl:w-[248px] xl:h-[248px] lg:w-[272px] lg:h-[272px] md:w-[272px] md:h-[272px] flex justify-center items-center">
                 <div className="relative rounded-full 3xl:w-52 3xl:h-52 2xl:w-48 2xl:h-48 xl:h-44 xl:w-44 lg:w-48 lg:h-48 md:w-48 md:h-48 overflow-hidden">
                   <Image
-                    src={"/me_connect.jpg"}
+                    // src={"/me_connect.jpg"}
+                    src={"/me_home_red.jpg"}
                     alt="Vishesh Dhawan"
                     fill={true}
                     sizes="(max-width: 200px)"
                     placeholder="blur"
-                    blurDataURL={"/me_connect.jpg"}
+                    blurDataURL={"/me_home_red.jpg"}
                     priority
+                    className="object-cover object-center scale-125"
                   />
                 </div>
 

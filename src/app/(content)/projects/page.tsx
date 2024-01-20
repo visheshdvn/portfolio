@@ -13,10 +13,10 @@ import ContentPageHeading from "@/src/components/elements/heading/contentPageHea
 const projects = [
   {
     displayName: "LumBytes.com",
-    about: "Lumbytes if a blogging website",
+    about: "Lumbytes if a blogging website.",
     url: "https://lumbytes.com",
     tech: "full-stack",
-    banner: "https://source.unsplash.com/random/512×512?painting",
+    banner: "/lumbytesLogo.jpg",
     bannerAlt: "LumBytes",
   },
   {
@@ -24,8 +24,7 @@ const projects = [
     about: "My portfolio",
     url: "https://lumbytes.com",
     tech: "full-stack",
-    banner:
-      "https://images.unsplash.com/flagged/photo-1572392640988-ba48d1a74457?q=80&w=1964&auto=format&fit=crop",
+    banner: "/portfolioProj.jpg",
     bannerAlt: "Portfolio",
   },
 ];
@@ -34,7 +33,6 @@ const ProjectsPage = () => {
   // @ts-ignore
   const { navData, setNavData } = useContext(SideNavContext);
   const [hovererdProject, setHovererdProject] = useState(projects[0]);
-  const whenOnScreen = useRef(null);
   const gridRef = useRef(null);
 
   useEffect(() => {
@@ -105,7 +103,7 @@ const ProjectsPage = () => {
                         key={project.displayName}
                         className="project-list lg:mb-16 md:mb-14 mb-8 xl:mb-0"
                       >
-                        <div className="block xl:hidden md:h-48 h-36 relative">
+                        <div className="block xl:hidden md:h-48 lg:h-60 h-36 relative">
                           <Link href={project.url || "#"} target="_blank">
                             <Image
                               src={project.banner}
@@ -132,12 +130,12 @@ const ProjectsPage = () => {
                             className="flex-1"
                             target="_blank"
                           >
-                            <h4 className="leading-none transform transition-colors duration-800 lg:text-4xl md:text-3xl text-2xl">
+                            <h4 className="leading-none transform transition-colors duration-800 lg:text-3xl md:text-3xl text-2xl">
                               {project.displayName}
                             </h4>
                           </Link>
 
-                          <div className="font-semibold text-sm leading-none">
+                          <div className="font-medium text-sm leading-none">
                             {project.tech}
                           </div>
                         </div>
