@@ -3,14 +3,8 @@ import React from "react";
 import Image from "next/image";
 
 const Intro = () => {
-  // return <></>
   return (
-    <section
-      // style={{
-      //   height: "calc(100vh - 56px)",
-      // }}
-      className=""
-    >
+    <section>
       <div className="container px-0 xl:px-8 z-10 -mt-14">
         <div className="w-full h-full xl:scale-100 mx-auto xl:max-w-[calc(0.77*1280px)] 2xl:max-w-max 2xl:scale-[80%] 3xl:scale-[100%]">
           <div className="grid grid-cols-11 gap-4 px-3">

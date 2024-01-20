@@ -97,3 +97,19 @@
     opacity: 0.1;
   }
 }
+
+.animate-btm-carousel-on-initial-load {
+  animation: slideLeft 1.5s ease-in-out 4s;
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
