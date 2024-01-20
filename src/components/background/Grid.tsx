@@ -10,7 +10,7 @@ import React, {
 import { cn } from "@/src/lib/utils";
 import { ThemeContext } from "@/src/context/theme";
 
-const DARK_MODE_GRID_COLOR = "#222222";
+const DARK_MODE_GRID_COLOR = "#262626";
 const LIGHT_MODE_GRID_COLOR = "#F2F2F2";
 
 export default function AnimatedBG() {
