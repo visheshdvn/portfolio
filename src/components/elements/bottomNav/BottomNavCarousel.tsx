@@ -47,7 +47,7 @@ const BottomNavCarousel = () => {
   return (
     <div
       className={cn(
-        "fixed w-screen bottom-0 z-40 border-t h-10 font-secondary font-bold text-sm bg-clip-padding backdrop-filter backdrop-blur-sm lg:hidden",
+        "fixed w-screen bottom-0 z-40 border-t h-11 font-secondary font-bold text-[15px] bg-clip-padding backdrop-filter backdrop-blur-sm lg:hidden",
         {
           "bg-white/80 text-black": theme === "light",
           "bg-black/80 border-[#222] text-white": theme === "dark",
@@ -63,7 +63,7 @@ const BottomNavCarousel = () => {
         afterChange={(next) => router.push(PAGES[next].link)}
         nextArrow={<></>}
       >
-        <div className="relative h-10 overflow-hidden animate-btm-carousel-on-initial-load">
+        <div className="relative h-11 overflow-hidden animate-btm-carousel-on-initial-load">
           <span
             onClick={() => router.push(PAGES[0].link)}
             className="absolute transform top-1/2 -translate-y-1/2 right-0 translate-x-1/2"
@@ -75,7 +75,7 @@ const BottomNavCarousel = () => {
           return (
             <div
               key={i}
-              className="relative h-10 overflow-hidden animate-btm-carousel-on-initial-load"
+              className="relative h-11 overflow-hidden animate-btm-carousel-on-initial-load"
             >
               <span
                 onClick={() => router.push(PAGES[i].link)}
@@ -92,7 +92,7 @@ const BottomNavCarousel = () => {
             </div>
           );
         })}
-        <div className="relative h-10 overflow-hidden animate-btm-carousel-on-initial-load">
+        <div className="relative h-11 overflow-hidden animate-btm-carousel-on-initial-load">
           <span
             onClick={() => router.push(PAGES[PAGES.length - 2].link)}
             className="absolute transform top-1/2 -translate-y-1/2 left-0 -translate-x-1/2"
@@ -106,7 +106,7 @@ const BottomNavCarousel = () => {
             {PAGES[PAGES.length - 1].text}
           </span>
         </div>
-        <div className="relative h-10 overflow-hidden animate-btm-carousel-on-initial-load">
+        <div className="relative h-11 overflow-hidden animate-btm-carousel-on-initial-load">
           <span
             onClick={() => router.push(PAGES[PAGES.length - 1].link)}
             className="absolute transform top-1/2 -translate-y-1/2 left-0 -translate-x-1/2"
