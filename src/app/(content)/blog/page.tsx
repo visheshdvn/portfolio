@@ -157,7 +157,7 @@ function BlogPeek({
         <Link href={externalLink} target="_blank">
           <h1
             className={cn(
-              "font-medium font-primary line-clamp-3 3xl:text-[22px] 2xl:text-xl 2xl:leading-tight lg:text-2xl lg:leading-tight md:text-[22px] md:leading-tight text-[22px] leading-tight",
+              "font-medium font-primary line-clamp-3 3xl:text-[22px] 2xl:text-xl 2xl:leading-tight xl:text-xl xl:leading-tight lg:text-2xl lg:leading-tight md:text-[22px] md:leading-tight text-[22px] leading-tight",
               {
                 "3xl:text-3xl 3xl:leading-tight 2xl:text-3xl 2xl:leading-tight lg:text-2xl xl:leading-tight text-2xl":
                   variant === "xl",
