@@ -18,6 +18,16 @@ const projects = [
     tech: "full-stack",
     banner: "/lumbytesLogo.jpg",
     bannerAlt: "LumBytes",
+    newTab: true,
+  },
+  {
+    displayName: "Lekh.js",
+    about: "A Medium like text editor.",
+    url: "/projects/lekhJs",
+    tech: "full-stack",
+    banner: "/lumbytesLogo.jpg",
+    bannerAlt: "LumBytes",
+    newTab: false,
   },
   {
     displayName: "Portfolio",
@@ -26,6 +36,7 @@ const projects = [
     tech: "full-stack",
     banner: "/portfolioProj.jpg",
     bannerAlt: "Portfolio",
+    newTab: true,
   },
 ];
 
@@ -128,7 +139,7 @@ const ProjectsPage = () => {
                           <Link
                             href={project.url}
                             className="flex-1"
-                            target="_blank"
+                            target={project.newTab ? "_blank" : "_blank"}
                           >
                             <h4 className="leading-none transform transition-colors duration-800 lg:text-3xl md:text-3xl text-2xl">
                               {project.displayName}

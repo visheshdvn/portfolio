@@ -1,0 +1,65 @@
+/* global */
+div.codex-editor__redactor {
+  padding-bottom: 2rem !important;
+  margin-right: 10px !important;
+}
+
+div.ce-block__content {
+  @apply w-full max-w-3xl;
+}
+
+/* 
+  * paragraph
+  */
+.lc-paragraph {
+  @apply mb-10 p-0 font-serif text-lg md:text-xl md:leading-8;
+}
+
+.lc-paragraph[data-placeholder]:empty::before {
+  pointer-events: none;
+}
+
+.lc-paragraph::selection {
+  @apply dark:bg-neutral-600;
+}
+
+/* hovering toolbar */
+.default-toolbar {
+  @apply absolute top-[-10000px] left-[-10000px] z-10 mt-[-6px] transform rounded bg-[#222] px-[7px] pt-2 pb-[6px] opacity-0 transition-all duration-700;
+}
+
+.focus-ring {
+  @apply rounded ring-offset-1;
+}
+
+.inline-link-parent .inline-link-url-field {
+  @apply hidden;
+}
+
+.inline-link-parent:hover .inline-link-url-field,
+.inline-link-parent .inline-link-url-field:focus-within {
+  @apply block;
+}
+
+.heading .heading-toolbar {
+  @apply hidden;
+}
+
+.heading:hover .heading-toolbar,
+.heading .heading-toolbar:focus-within {
+  @apply block;
+}
+
+/*  */
+.list-parent .list-toolbar {
+  @apply hidden;
+}
+
+.list-parent:hover .list-toolbar {
+  @apply block;
+}
+
+/* image component */
+.lb-imagecaption {
+  @apply font-primary text-base font-semibold text-zinc-500;
+}
