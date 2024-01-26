@@ -1,3 +1,13 @@
+/* .need-placeholder:empty::before {
+  content: attr(data-placeholder);
+  @apply text-neutral-400 z-40;
+}
+
+.need-placeholder::after {
+  content: attr(data-placeholder);
+  @apply text-black;
+} */
+
 /* global */
 div.codex-editor__redactor {
   padding-bottom: 2rem !important;

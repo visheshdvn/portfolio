@@ -1,17 +1,10 @@
-import React, { useState, ChangeEvent, useRef, useEffect } from "react";
-import { Path, Transforms, Element as SlateElement } from "slate";
+import React, { useRef, useEffect } from "react";
+import { Transforms } from "slate";
 import { ReactEditor, useSlateStatic } from "slate-react";
 
-import uploadImage from "@/utils/uploadImage/uploader";
-import { useDropzone } from "react-dropzone";
-import { useSelected, useFocused, useReadOnly } from "slate-react";
+import { useReadOnly } from "slate-react";
 // import { KeyPressEventHandler } from "../handlers/blockLink";
-import {
-  ElementTypeKeys,
-  HeadingType,
-  HeadingVariants,
-  ListTypeVariants,
-} from "@/types/slatejs-element-types";
+
 import { Listbox } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import "prismjs/themes/prism-okaidia.min.css";
