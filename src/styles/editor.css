@@ -71,5 +71,5 @@ div.ce-block__content {
 
 /* image component */
 .lb-imagecaption {
-  @apply font-primary text-base font-semibold text-zinc-500;
+  @apply text-base font-semibold text-zinc-500;
 }

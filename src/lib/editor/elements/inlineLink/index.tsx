@@ -41,7 +41,10 @@ const InlineLinkBlock = ({
   const EditableMarkup = ({ el }) => {
     return (
       <>
-        <span className="text-inline-link-color underline">{el}</span>
+        {/* <span className="border-dashed border-blue-800 text-blue-800 border-b">{el}</span> */}
+        <span className="decoration-wavy underline decoration-blue-700 text-blue-700">
+          {el}
+        </span>
         <div
           contentEditable={false}
           className={`absolute bottom-[100%] left-1/2 -translate-x-1/2 transform items-center justify-center overflow-hidden rounded transition-all duration-200 ${
@@ -56,6 +59,7 @@ const InlineLinkBlock = ({
               placeholder="Enter link"
               value={values.url}
               onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                e.preventDefault();
                 setValues({
                   ...values,
                   [e.target.name]: e.target.value,

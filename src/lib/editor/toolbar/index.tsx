@@ -28,9 +28,10 @@ interface ToolbarProps {
 
 export const StaticToolbar = ({ editor }: ToolbarProps) => {
   return (
-    <section className="flex h-16 w-full items-center rounded border-b border-neutral-200 bg-neutral-100 px-5">
+    <section className="flex h-16 w-full items-center rounded border-b border-neutral-200 px-5 justify-center">
       <div className="flex space-x-5">
         <ToolbarButton
+          title="ctrl+alt+b"
           value={InlinePropsKeys.Bold}
           active={isMarkActive(editor, InlinePropsKeys.Bold)}
           clickHandler={(e) => {
@@ -40,21 +41,25 @@ export const StaticToolbar = ({ editor }: ToolbarProps) => {
           }}
         />
         <ToolbarButton
+          title="ctrl+alt+i"
           value={InlinePropsKeys.Italic}
           active={isMarkActive(editor, InlinePropsKeys.Italic)}
           clickHandler={() => toggleMark(editor, InlinePropsKeys.Italic)}
         />
         <ToolbarButton
+          title="ctrl+alt+u"
           value={InlinePropsKeys.Underline}
           active={isMarkActive(editor, InlinePropsKeys.Underline)}
           clickHandler={() => toggleMark(editor, InlinePropsKeys.Underline)}
         />
         <ToolbarButton
+          title="ctrl+alt+l"
           value={InlinePropsKeys.InlineCode}
           active={isMarkActive(editor, InlinePropsKeys.InlineCode)}
           clickHandler={() => toggleMark(editor, InlinePropsKeys.InlineCode)}
         />
         <ToolbarButton
+          title="ctrl+alt+h"
           value={InlinePropsKeys.Highlight}
           active={isMarkActive(editor, InlinePropsKeys.Highlight)}
           clickHandler={() => toggleMark(editor, InlinePropsKeys.Highlight)}
@@ -67,39 +72,41 @@ export const StaticToolbar = ({ editor }: ToolbarProps) => {
       </div>
       <div className="mx-5 h-[18px] border-r border-neutral-300"></div>
       <div className="flex space-x-5">
-        <ToolbarButton
+        {/* <ToolbarButton
           value={ElementTypeKeys.Paragraph}
           active={false}
           clickHandler={() =>
             pushNode(editor, ElementTypeKeys.Paragraph, false)
           }
-        />
+        /> */}
         <ToolbarButton
+          title="shift+alt+h"
           value={ElementTypeKeys.Heading}
           active={false}
           clickHandler={() => transformNode(editor, ElementTypeKeys.Heading)}
         />
         <ToolbarButton
+          title="shift+alt+q"
           value={ElementTypeKeys.Quote}
           active={false}
-          clickHandler={() => transformNode(editor, ElementTypeKeys.Quote, false)}
+          clickHandler={() =>
+            transformNode(editor, ElementTypeKeys.Quote, false)
+          }
         />
         <ToolbarButton
+          title="shift+alt+i"
           value={ElementTypeKeys.Image}
           active={false}
           clickHandler={() => transformNode(editor, ElementTypeKeys.Image)}
         />
         <ToolbarButton
-          value={ElementTypeKeys.BlockLink}
-          active={false}
-          clickHandler={() => transformNode(editor, ElementTypeKeys.BlockLink)}
-        />
-        <ToolbarButton
+          title="shift+alt+l"
           value={ElementTypeKeys.List}
           active={false}
           clickHandler={() => transformNode(editor, ElementTypeKeys.List)}
         />
         <ToolbarButton
+          title="shift+alt+c"
           value={ElementTypeKeys.Code}
           active={false}
           clickHandler={() => transformNode(editor, ElementTypeKeys.Code)}

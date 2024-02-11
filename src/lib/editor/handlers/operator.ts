@@ -251,6 +251,7 @@ export const eventsHandler = (
 
   // console.log("here", parentPath, editor.selection.focus.path);
   if (e.shiftKey && e.altKey) {
+    e.preventDefault();
     if (e.key.toLowerCase() == "h") {
       generalNodeToggler(
         editor,

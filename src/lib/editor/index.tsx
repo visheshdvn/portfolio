@@ -225,7 +225,7 @@ export default function TextEditor({
           autoFocus
           readOnly={readOnly}
           // renderPlaceholder={"ABCd"}
-          placeholder="Cick here to write something amazing."
+          placeholder="Click here to write something amazing."
           // @ts-ignore
           onKeyDown={(e) => eventsHandler(editor, e, undefined)}
         />

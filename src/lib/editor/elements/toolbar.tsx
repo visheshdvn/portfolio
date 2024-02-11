@@ -7,6 +7,7 @@ import { MouseEventHandler } from "react";
 interface MarkButtonProps {
   value: InlinePropsKeys | ElementTypeKeys;
   active: boolean;
+  title?: string;
   clickHandler: MouseEventHandler<HTMLButtonElement>;
 }
 
@@ -14,10 +15,11 @@ export const ToolbarButton = ({
   value,
   active,
   clickHandler,
+  title,
 }: MarkButtonProps) => {
   return (
     <button
-      title={value}
+      title={title || value}
       type="button"
       onClick={clickHandler}
       className={`flex h-6 w-6 items-center justify-center rounded border outline-none ${
