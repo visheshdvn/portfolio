@@ -66,17 +66,19 @@ const LekhJs = () => {
               />
             </div>
           </section>
-          <section ref={codeGridRef} className="">
-            <h3 className="text-center font-secondary font-bold text-lg leading-none mb-5">
-              OUTPUT
-            </h3>
-            <div
-              ref={codeBlockRef}
-              className="relative bg-neutral-900 h-full overflow-y-scroll"
-            >
-              <div className="absolute inset-x-0">
-                {/* <p className="text-black">{content}</p> */}
-                <pre className="text-white px-3">{content}</pre>
+          <section className="">
+            <div ref={codeGridRef} className="h-full">
+              <h3 className="text-center font-secondary font-bold text-lg leading-none mb-5">
+                OUTPUT
+              </h3>
+              <div
+                ref={codeBlockRef}
+                className="relative bg-neutral-900 h-full overflow-y-scroll"
+              >
+                <div className="absolute inset-x-0">
+                  {/* <p className="text-black">{content}</p> */}
+                  <pre className="text-white px-3">{content}</pre>
+                </div>
               </div>
             </div>
           </section>
